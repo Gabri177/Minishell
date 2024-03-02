@@ -21,5 +21,6 @@
 # define FALSE 0
 
 typedef int	t_bool;
+typedef		(*t_fucs)(char **argv);
 
 #endif
