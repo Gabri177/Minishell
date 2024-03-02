@@ -8,7 +8,7 @@ CC = gcc
 
 all:$(NAME)
 $(NAME): $(OFILE)
-	$(CC) $(CFLAG) $(OFILE) -o $@
+	$(CC) $(CFLAG) $(OFILE) -I $(INCLUDE) -o $@
 %.o:%.c
 	$(CC) $(CFLAG) -c $< -o $@
 clean:
