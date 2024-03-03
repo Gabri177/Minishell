@@ -20,7 +20,21 @@
 # define TRUE 1
 # define FALSE 0
 
-typedef int	t_bool;
-typedef		(*t_fucs)(char **argv);
+//typedef int	t_bool;
+//typedef		(*t_fucs)(char **argv);
+
+typedef struct s_mini
+{
+	int		argc;
+	char	**argv;
+	char	**envp;
+	char	*pwd;
+	char	*old_pwd;
+	char	**paths;
+	char	*infile; //ABSOLUTE DIRECTION
+	char	**outfile; //ABSOLUTE DIRECTION
+	char	**commands;
+	char	***args;
+}			t_mini;
 
 #endif
