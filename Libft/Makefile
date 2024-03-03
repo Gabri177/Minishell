@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjuarez- <jjuarez-@student.42madrid.com    +#+  +:+       +#+         #
+#    By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/12 18:09:36 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/02/18 23:30:32 by jjuarez-         ###   ########.fr        #
+#    Updated: 2024/03/03 20:01:24 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME      = libft.a
-CC        = cc
+CC        = gcc
 AR        = ar
 CFLAGS    = -Wall -Wextra -Werror
 ARFLAGS   = -rcs
@@ -34,6 +34,11 @@ BONUS_OBJS = $(BONUS:.c=.o)
 
 $(NAME): $(OBJECTS) $(PRINTF)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+
+$(OBJECTS):$(SOURCES)
+
+%.o:%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS) $(BONUS_OBJS)

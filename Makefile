@@ -3,30 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
+#    By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/03 19:48:53 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/03 20:01:17 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= minishell
-CC			= cc
-CFLAGS		= -I . #-Wall -Wextra -Werror 
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror 
 RM			= rm -rf
-SOURCES		= src/main.c
+SOURCES		= ./src/main.c
 LIBFT		= Libft/libft.a
+INCLUDE		= ./include/
 
-OBJECTS		= $(SOURCES:%.c=%.o)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $< -o $@
+OBJECTS		= $(SOURCES:.c=.o)
 
 $(NAME): $(OBJECTS) $(LIBFT)
-	$(CC) $(OBJECTS) $(LIBFT) -o $(NAME)
+	$(CC) $(OBJECTS) $(LIBFT) -I $(INCLUDE) -o $(NAME)
 
 $(LIBFT):
 	make -C libft
+
+%.o:%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJECTS)
