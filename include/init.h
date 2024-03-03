@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:36:30 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 18:40:21 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/03 19:11:53 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 # define INIT_H
 # include "./minishell.h"
 
-void	init_proj(t_mini *proj, int argc, char **argv, char **envp);
+void	init_mini(t_mini *mini, int argc, char **argv, char **envp);
 #endif
