@@ -1,14 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/03 18:31:56 by yugao            ###   ########.fr       */
+/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
+/*   Updated: 2024/03/03 18:36:15 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/parser.h"
 
+
+#include "../include/minishell.h"
+
+int	main(int arc, char **argv, char **envp)
+{
+	t_mini	proj;
+
+	init_proj (&proj, arc, argv, envp);
+}
