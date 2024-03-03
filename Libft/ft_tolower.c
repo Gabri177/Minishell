@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/01/09 18:37:05 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/01/10 17:29:00 by jjuarez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-
-#include "../include/minishell.h"
-
-int	main(int arc, char **argv, char **envp)
+int	ft_tolower(int c)
 {
-	/*t_mini	mini;
-
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }
+
+/*#include <stdio.h>
+int main(void)
+{
+	unsigned char ch = 'J';
+	printf("%c", ft_tolower(ch));
+	return (0);
+}*/

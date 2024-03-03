@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/01/09 11:25:22 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/01/10 17:21:15 by jjuarez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-
-#include "../include/minishell.h"
-
-int	main(int arc, char **argv, char **envp)
+void	ft_bzero(void *s, size_t n)
 {
-	/*t_mini	mini;
+	unsigned char	*a;
+	size_t			i;
 
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
-	return (0);
+	i = 0;
+	a = (unsigned char *) s;
+	while (i < n)
+		a[i++] = 0;
 }
+
+/*int main(void)
+{
+	char pal[] = "illooo oo";
+	ft_bzero(pal, 3);
+	return (0);
+}*/

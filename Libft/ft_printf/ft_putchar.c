@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/01/12 10:38:02 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/01/21 13:14:05 by jjuarez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-
-#include "../include/minishell.h"
-
-int	main(int arc, char **argv, char **envp)
+void	ft_putchar(int c, int *i)
 {
-	/*t_mini	mini;
-
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
-	return (0);
+	write (1, &c, 1);
+	(*i)++;
 }

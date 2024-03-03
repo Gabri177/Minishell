@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/01/08 16:57:26 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/01/10 17:17:32 by jjuarez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-
-#include "../include/minishell.h"
-
-int	main(int arc, char **argv, char **envp)
+int	ft_isascii(int i)
 {
-	/*t_mini	mini;
-
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
-	return (0);
+	if (i >= 0 && i <= 127)
+		return (1);
+	else
+		return (0);
 }
+
+/*#include <stdio.h>
+
+int main (void)
+{
+	printf("%d",ft_isascii(18));
+}*/

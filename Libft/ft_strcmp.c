@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/02/07 10:00:47 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/02/07 10:01:18 by jjuarez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-
-#include "../include/minishell.h"
-
-int	main(int arc, char **argv, char **envp)
+int	ft_strcmp(char *s1, char *s2)
 {
-	/*t_mini	mini;
+	size_t	i;
 
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
+	i = 0;
+	if (!s1)
+		return (1);
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
 	return (0);
 }

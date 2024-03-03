@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/01/09 08:05:37 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/01/13 13:56:03 by jjuarez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
-
-#include "../include/minishell.h"
-
-int	main(int arc, char **argv, char **envp)
+size_t	ft_strlen(const char *len)
 {
-	/*t_mini	mini;
+	int	i;
 
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
-	return (0);
+	i = 0;
+	while (len[i] != '\0')
+		i++;
+	return (i);
 }
+
+/*#include <stdio.h>
+int main(void)
+{
+	char len[] = "Pedrito";
+	printf ("%d",ft_strlen(len));
+	return (0);
+}*/

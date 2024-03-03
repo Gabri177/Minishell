@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   builtins.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/03/03 18:46:38 by javgao            #+#    #+#             */
+/*   Updated: 2024/03/03 18:47:06 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BUILTINS_H
+#define BUILTINS_H
 
 
-#include "../include/minishell.h"
 
-int	main(int arc, char **argv, char **envp)
-{
-	/*t_mini	mini;
-
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
-	return (0);
-}
+#endif

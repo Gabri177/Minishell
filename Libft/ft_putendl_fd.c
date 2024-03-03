@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:34:32 by javgao           ###   ########.fr       */
+/*   Created: 2024/01/12 11:14:48 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/01/12 11:21:54 by jjuarez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <unistd.h>
 
-
-#include "../include/minishell.h"
-
-int	main(int arc, char **argv, char **envp)
+void	ft_putendl_fd(char *s, int fd)
 {
-	/*t_mini	mini;
+	int	i;
 
-	init_mini (&mini, arc, argv, envp);*/
-	printf("Compila la libft");
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write (fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
 }
+
+/*int main(void)
+{
+	char str [] = "PacoPaquitoPaco";
+	ft_putendl_fd(str, 4);
+	return (0);
+}*/
