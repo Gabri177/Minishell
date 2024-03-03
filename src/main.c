@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 18:36:15 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/03 19:11:53 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(int arc, char **argv, char **envp)
 {
-	t_mini	proj;
+	t_mini	mini;
 
-	init_proj (&proj, arc, argv, envp);
+	init_mini (&mini, arc, argv, envp);
 }
