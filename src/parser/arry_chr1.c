@@ -6,12 +6,13 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:39 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 00:45:26 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 00:56:35 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/parser.h"
 
+//555555555
 //这是一个创建字符串的文件, 初始化以后, 可以不断添加单个字符, 长度自动扩张.
 //es una funcion conque hacemos una cadena con un tamaño flexible
 //pasamos la direccion de un puntero char, y el char que queramos añadir
