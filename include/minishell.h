@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 19:28:23 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 15:05:15 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define MINISHELL_H
 
 # include "../Libft/libft.h"
+# include "parser.h"
+# include "init.h"
+# include "builtins.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -33,12 +36,10 @@
 
 # define TRUE 1
 # define FALSE 0
-
-//typedef int	t_bool;
-//typedef		(*t_fucs)(char **argv);
+# define NUM_BUILTINS 7
 
 typedef struct s_mini
-{
+{	
 	int		argc;
 	char	**argv;
 	char	**envp;
@@ -49,6 +50,16 @@ typedef struct s_mini
 	char	**outfile; //ABSOLUTE DIRECTION
 	char	**commands;
 	char	***args;
-}			t_mini;
+	char	*is_builtin[NUM_BUILTINS + 1];
+}	t_mini;
+
+/*	--------------------------- INIT --------------------------- */
+void	init_mini(t_mini *mini, int argc, char **argv, char **envp);
+void	init_builtin(t_mini *mini);
+
+/*	-------------------------- BUILTIN ---------------------------*/
+int		is_builtin(char *command, t_mini *mini);
+void	exec_builtin(char *command, t_mini *mini);
+int		ft_echo(t_mini *mini);
 
 #endif

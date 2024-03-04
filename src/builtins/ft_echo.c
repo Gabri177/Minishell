@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:36:30 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 11:46:48 by javgao           ###   ########.fr       */
+/*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
+/*   Updated: 2024/03/04 15:06:11 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#include "../../include/minishell.h"
 
-# include "minishell.h"
-
-//void	init_mini(t_mini *mini, int argc, char **argv, char **envp);
-
-#endif
+int	ft_echo(t_mini *mini)
+{
+	printf("funciona\n\n\n\n\n\n\n\n");
+	return (EXIT_SUCCESS);
+}
