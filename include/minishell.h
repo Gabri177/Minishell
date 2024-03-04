@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 18:14:49 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 18:15:19 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@
 
 typedef struct s_mini
 {	
-	int		argc; //Este creo que nos sobra porque va a contar mal
 	char	**argv;
 	char	**envp;
 	char	*pwd;
