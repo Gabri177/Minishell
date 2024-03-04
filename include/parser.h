@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:45 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/03 20:14:18 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 22:31:34 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define PARSER_H
 # include "./minishell.h"
 
-# define LINE '|'   //|
+# define PIPE '|'   //|
 # define BIG '>'    //>
 # define LIT '<' //<
 # define QUOTE_BIG '\"'
 # define QUOTE_LIT '\''
 
-# define LINES "|"   //|
+# define PIPES "|"   //|
 # define BIGS ">"    //>
 # define LITS "<" //<
 //=====arry_chr.c=====

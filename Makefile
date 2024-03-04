@@ -6,7 +6,7 @@
 #    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/04 17:47:57 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/04 22:45:57 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME		= minishell
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror 
 RM			= rm -rf
-BUILTINS	= builtin.c ft_echo.c ft_cd.c ft_pwd.c 
-INIT		= init.c ary.c 
-PARSER		= parser.c
+BUILTINS	= builtin.c ft_echo.c ft_cd.c ft_pwd.c ft_env.c #ft_export.c ft_unset.c ft_env.c ft_exit.c
+INIT		= init.c
+PARSER		= arry_chr.c arry_strs1.c arry_strs2.c parser.c
 PIPEX		= pipex_bonus.c pipex_utils_bonus.c
 SIGNALS		= signals.c
 SOURCES		= src/main.c $(addprefix ./src/builtins/, $(BUILTINS)) $(addprefix ./src/init/, $(INIT)) \

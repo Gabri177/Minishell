@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 18:15:19 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 22:42:38 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,19 @@ typedef struct s_mini
 }	t_mini;
 
 /*	--------------------------- INIT --------------------------- */
-void	init_mini(t_mini *mini, int argc, char **argv, char **envp);
+void	init_mini(t_mini *mini, char **argv, char **envp);
 void	init_builtin(t_mini *mini);
 
 /*	-------------------------- BUILTIN ---------------------------*/
 int		is_builtin(char *command, t_mini *mini);
 void	exec_builtin(char *command, t_mini *mini);
-int		ft_echo(t_mini *mini);
+//int		ft_echo(t_mini *mini);
+//int	ft_cd(t_mini *mini);
+int		ft_pwd(t_mini *mini);
+//int	ft_export(t_mini *mini);
+//int	ft_unset(t_mini *mini);
+int		ft_env(t_mini *mini);
+//int	ft_exit(t_mini *mini);
+
 
 #endif

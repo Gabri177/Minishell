@@ -28,11 +28,11 @@ int	chr_add(char **chrs, char c)
 //处理大于号 小于号和 管道符号情况
 void	is_chr_special(char **c, char ***new_args, char **new_arg)
 {
-	if (**c == LINE || **c == BIG || **c == LIT)
+	if (**c == PIPE || **c == BIG || **c == LIT)
 	{
 		arry_refresh (new_args, new_arg);
-		if (**c == LINE)
-			arry_add (new_args, LINES);
+		if (**c == PIPE)
+			arry_add (new_args, PIPES);
 		if (**c == BIG)
 			arry_add (new_args, BIGS);
 		if (**c == LIT)

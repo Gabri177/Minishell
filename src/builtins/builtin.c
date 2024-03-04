@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 17:57:05 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 22:47:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,30 +35,32 @@ int		is_builtin(char *command, t_mini *mini)
 */
 void	exec_builtin(char *command, t_mini *mini)
 { //Ver si tiene que ser ***args
-	if (ft_strcmp("echo", command) == 0)
+	/*if (ft_strcmp("echo", command) == 0)
 		ft_echo(mini);
-	/*if (ft_strcmp("cd", command) == 0)
-		ft_cd(mini);
+	if (ft_strcmp("cd", command) == 0)
+		ft_cd(mini);*/
 	if (ft_strcmp("pwd", command) == 0)
-		ft_echo(mini);
-	if (ft_strcmp("export", command) == 0)
-		ft_echo(mini);
+		ft_pwd(mini);
+	/*if (ft_strcmp("export", command) == 0)
+		ft_export(mini);
 	if (ft_strcmp("unset", command) == 0)
-		ft_echo(mini);
+		ft_unset(mini);*/
 	if (ft_strcmp("env", command) == 0)
-		ft_echo(mini);
-	if (ft_strcmp("exit", command) == 0)
-		ft_echo(mini);*/
+		ft_env(mini);
+	/*if (ft_strcmp("exit", command) == 0)
+		ft_exit(mini);*/
 }
 
 
 /*int main(int argc, char **argv, char **envp) //Borrar este main cuando entregemos 
 {
 	t_mini	mini;
-	init_mini(&mini, argc, argv, envp);
+	init_mini(&mini, argv, envp);
+	if (argc < 0)
+		printf ("Error\n");
 	//init_builtin(&mini);
-	if ((is_builtin("echo", &mini) == 1))
-		exec_builtin("echo", &mini);
-	system("leaks -q a.out");
+	if ((is_builtin("env", &mini) == 1))
+		exec_builtin("env", &mini);
+	system("leaks -q minishell");
 	return (0);
 }*/

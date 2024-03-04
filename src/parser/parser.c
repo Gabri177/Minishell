@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/04 22:26:21 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 22:41:04 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ char	**arg_abordar(char *ori)
 	return (new_arvs);
 }
 
-int main (void)
+/*int main (void)
 {
 	char	test[]="pwd \"\"jaja\"\"";
 	static char	**tem;
-	static char	**prueba;
+	//static char	**prueba; //Unused variable
 
 	// tem = arg_abordar (test);
 	// if (!tem)
@@ -66,10 +66,10 @@ int main (void)
 	// 	i ++;
 	// }
 
-	/* prueba = NULL;
+	prueba = NULL;
 	split_args (&prueba, test);
 	arry_display (prueba);
-	arry_destory (prueba); */
+	arry_destory (prueba); 
 	tem = arg_abordar (test);
 	if (!tem)
 	 printf ("empty");
@@ -77,4 +77,4 @@ int main (void)
 	arry_destory (tem);
 	system ("leaks -q test");
 	return 0;
-}
+}*/
