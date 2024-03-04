@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 15:05:15 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 15:32:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_mini
 	char	**paths;
 	char	*infile; //ABSOLUTE DIRECTION
 	char	**outfile; //ABSOLUTE DIRECTION
-	char	**commands;
+	char	**commands; // ls -l | wc -l ----> commands[0] = "ls -l" command[1] = "|" command[2] = "wc -l"
 	char	***args;
 	char	*is_builtin[NUM_BUILTINS + 1];
 }	t_mini;
