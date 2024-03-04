@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjuarez- <jjuarez-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 18:08:11 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/01/15 07:39:44 by jjuarez-         ###   ########.fr       */
+/*   Updated: 2024/03/04 22:25:33 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (start < end && checkset(s1 [end - 1], set))
 		end--;
 	trimmed = (char *) malloc (end - start + 1);
-	if (trimmed == '\0')
+	if (!trimmed)
 		return (0);
 	while (i + start < end)
 	{
