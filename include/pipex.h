@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_echo.c                                          :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 17:55:10 by javgao           ###   ########.fr       */
+/*   Created: 2024/02/09 11:53:26 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/03/04 17:56:15 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
-int	ft_echo(t_mini *mini)
-{
-	mini->argc = 2; //////borrar
-	printf("por hacer\n\n\n\n\n\n\n\n");
-	return (EXIT_SUCCESS);
-}
+void	ft_exit(int n_exit);
+int		ft_open(char *file, int n);
+char	*ft_envp(char *variable, char **envp);
+char	*ft_path(char *cmd, char **envp);
+void	ft_exec(char *cmd, char **envp);
+void	ft_free(char **arr);
+int		pipex_bonus(int argc, char **argv, char **envp);
+
+#endif

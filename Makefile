@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+         #
+#    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/03 20:01:17 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/04 17:47:57 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,13 @@ NAME		= minishell
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror 
 RM			= rm -rf
-SOURCES		= ./src/main.c
+BUILTINS	= builtin.c ft_echo.c ft_cd.c ft_pwd.c 
+INIT		= init.c ary.c 
+PARSER		= parser.c
+PIPEX		= pipex_bonus.c pipex_utils_bonus.c
+SIGNALS		= signals.c
+SOURCES		= src/main.c $(addprefix ./src/builtins/, $(BUILTINS)) $(addprefix ./src/init/, $(INIT)) \
+			$(addprefix ./src/parser/, $(PARSER)) $(addprefix ./src/pipex/, $(PIPEX)) $(addprefix ./src/signals/, $(SIGNALS))
 LIBFT		= Libft/libft.a
 INCLUDE		= ./include/
 

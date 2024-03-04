@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ary.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 21:10:42 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/03 22:22:29 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 17:50:26 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	**ary2_cpy(t_mini mini)
 int	ary2_del(char **str, int index)
 {
 	int		len;
-	char	*tem;
+	//char	*tem; // flaag unused variable
 
 	len = 0;
 	while (str[len])
@@ -116,11 +116,11 @@ char	**ary_get_outfile(char **str)
 	return new;
 }
 
-int	main(int argc, char **argv, char **envp)
+/*int	main(int argc, char **argv, char **envp)
 {
-	/*t_mini	mini;
+	t_mini	mini;
 
-	init_mini (&mini, arc, argv, envp);*/
+	init_mini (&mini, arc, argv, envp);
 	(void)envp;
 	char	**test;
 	char	**outfile;
@@ -143,4 +143,4 @@ int	main(int argc, char **argv, char **envp)
 		i ++;
 	}
 	return (0);
-}
+}*/

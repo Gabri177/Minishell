@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 15:32:37 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 16:38:46 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@
 # include "parser.h"
 # include "init.h"
 # include "builtins.h"
+# include "pipex.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <sys/stat.h>
 # include <dirent.h>
 # include <sys/types.h>
 # include <sys/wait.h>
+# include <sys/stat.h>
 # include <signal.h>
 # include <sys/ioctl.h>
 # include <string.h>
@@ -40,7 +41,7 @@
 
 typedef struct s_mini
 {	
-	int		argc;
+	int		argc; //Este creo que nos sobra porque va a contar mal
 	char	**argv;
 	char	**envp;
 	char	*pwd;
@@ -50,6 +51,7 @@ typedef struct s_mini
 	char	**outfile; //ABSOLUTE DIRECTION
 	char	**commands; // ls -l | wc -l ----> commands[0] = "ls -l" command[1] = "|" command[2] = "wc -l"
 	char	***args;
+	int		is_echo_n; //
 	char	*is_builtin[NUM_BUILTINS + 1];
 }	t_mini;
 

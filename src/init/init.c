@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 14:57:46 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 16:51:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_mini(t_mini *mini, int argc, char **argv, char **envp)
 {
-	mini->argc = argc;
+	mini->argc = argc; //Esto esta mal porque no es la intención que tenemos, si te lo mandan entre comillas contará mal.
 	mini->argv = argv;
 	mini->envp = envp;
 	mini->pwd = NULL; //Javi
