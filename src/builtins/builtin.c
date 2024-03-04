@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 15:08:25 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/04 15:10:36 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		is_builtin(char *command, t_mini *mini)
 	}
 	return (FALSE);
 }
-
+////////////////////////////////////////////////////////////////////////////    Juntar estas dos funciones si no me paso de 25 lineas
 /*
 	Function to execute builtins
 */
@@ -52,7 +52,7 @@ void	exec_builtin(char *command, t_mini *mini)
 }
 
 
-/*int main(int argc, char **argv, char **envp) //Borrar este main cuando entregemos 
+int main(int argc, char **argv, char **envp) //Borrar este main cuando entregemos 
 {
 	t_mini	mini;
 	//init_mini(&mini, argc, argv, envp);
@@ -61,4 +61,4 @@ void	exec_builtin(char *command, t_mini *mini)
 		exec_builtin("echo", &mini);
 	system("leaks -q a.out");
 	return (0);
-}*/
+}
