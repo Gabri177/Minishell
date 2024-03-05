@@ -17,9 +17,6 @@
 // carácter '\0'. Si son iguales, devuelve verdadero.
 int	is_strsame(char *s1, char *s2)
 {
-	int	i;
-
-	i = 0;
 	if (!s1 || !s2)
 		return (FALSE);
 	while (*s1 && *s2)

@@ -14,6 +14,22 @@
 # define HASH_H
 # include "./minishell.h"
 
+# define HASH_SIZE 100
+typedef int		t_bool;
+
+//=====hash==========
+typedef struct s_node
+{
+	char			*key;
+	char			*val;
+	struct s_node	*next;
+}				t_node;
+
+typedef struct s_hash
+{
+	t_node	*bucket[HASH_SIZE];
+}				t_hash;
+//===================
 // utils.c
 int		hash_func(char *key);
 //hash_list

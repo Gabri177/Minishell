@@ -32,6 +32,6 @@ int	main(void)
 	hash_del (hash, "cd");
 	hash_display (*hash);
 	hash_destory (hash);
-	system ("leaks -q minishell");
+	//system ("leaks -q minishell");
 	return (0);
 }

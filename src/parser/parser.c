@@ -50,19 +50,19 @@ char	**arg_abordar(char *ori)
 	return (new_arvs);
 }
 
-/*int main (void)
-{
-	char	test[]="pwd \"jaja\" cat>>file1>fie2<files4<<file5";
-	char	**tem;
+// int main (void)
+// {
+// 	char	test[]="pwd \"jaja\" cat>>file1>fie2<files4<<file5";
+// 	char	**tem;
 
-	tem = arg_abordar (test);
-	if (!tem)
-	 printf ("empty");
-	arry_display (tem);
-	printf ("index >>:%d\n", arry_get_index (tem, BIG_BIG));
-	arry_del (&tem, arry_get_index (tem, BIG_BIG));
-	arry_display (tem);
-	arry_destory (tem);
-	system ("leaks -q test");
-	return 0;
-}*/
+// 	tem = arg_abordar (test);
+// 	if (!tem)
+// 	 printf ("empty");
+// 	arry_display (tem);
+// 	printf ("index >>:%d\n", arry_get_index (tem, BIG_BIG));
+// 	arry_del (&tem, arry_get_index (tem, BIG_BIG));
+// 	arry_display (tem);
+// 	arry_destory (tem);
+// 	system ("leaks -q test");
+// 	return 0;
+// }

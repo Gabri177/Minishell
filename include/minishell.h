@@ -40,39 +40,12 @@
 # define FALSE 0
 //===builtins===
 # define NUM_BUILTINS 7
-//===hash=======
-# define HASH_SIZE 100
-//===parser=====
-# define PIPE '|'
-# define BIG '>'
-# define LIT '<'
-# define QUOTE_BIG '\"'
-# define QUOTE_LIT '\''
-# define PIPES "|"
-# define BIGS ">"
-# define LITS "<"
-# define BIG_BIG ">>"
-# define LIT_LIT "<<"
-
-typedef int		t_bool;
-
-//=====hash==========
-typedef struct s_node
-{
-	char			*key;
-	char			*val;
-	struct s_node	*next;
-}				t_node;
-typedef struct s_hash
-{
-	t_node	*bucket[HASH_SIZE];
-}				t_hash;
-//===================
 
 typedef struct s_mini
 {	
 	char	**argv;
-	t_hash	*envp;
+	t_hash	*hash_env;
+	char	**envp;
 	char	*pwd;
 	char	*old_pwd;
 	char	**paths;

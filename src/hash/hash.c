@@ -63,10 +63,10 @@ char	*hash_grep(t_hash *h, char *key)
 	while (tem)
 	{
 		if (is_strsame (tem->key, key))
-		{
-			printf ("Key: %s Val: %s\n", key, tem->val);
+		// {
+		// 	printf ("Key: %s Val: %s\n", key, tem->val);
 			return (tem->val);
-		}
+		// }
 		tem = tem->next;
 	}
 	return (NULL);
