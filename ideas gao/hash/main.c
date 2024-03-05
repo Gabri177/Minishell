@@ -18,19 +18,19 @@ int	main(void)
 
 	hash = hash_init ();
 	hash_push (hash, "test1", "jajajaja");
-	hash_push (hash, "cd", "cd direction");
+	hash_push (hash, "cd", "cd1111111");
+	hash_push (hash, "cd", "cd22222222");// si añadimos con el mismo key, vamos a eliminar el key antiguo y reescribirlo
 	hash_push (hash, "cat", "cat direction");
 	hash_push (hash, "echo", "echo direction");
 	printf (">===hash_grep : %s ===\n\n", hash_grep (hash, "tes"));
 	printf (">===hash_grep : %s ===\n\n", hash_grep (hash, "cd"));
 	printf (">===hash_grep : %s ===\n\n", hash_grep (hash, "echo"));
 	printf (">===hash_grep : %s ===\n\n", hash_grep (hash, "cat"));
-	hash_grep (hash, "test1");
-	hash_grep (hash, "cd");
-	hash_grep (hash, "echo");
-	hash_grep (hash, "cat");
-	hash_del (hash, "test1");
-	hash_grep (hash, "test1");
+	hash_display (*hash);
+	printf ("=========\n");
+	hash_del (hash, "cd");
+	hash_del (hash, "cd");
+	hash_display (*hash);
 	hash_destory (hash);
 	system ("leaks -q test");
 	return (0);

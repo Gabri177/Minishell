@@ -48,7 +48,10 @@ t_bool	list_del(t_node *l, char *key)
 	t_node	*prev;
 
 	if (!l || !l->next)
+	{
 		printf ("The list is empty!\n");
+		return (FALSE);
+	}
 	prev = l;
 	current = prev->next;
 	while (current)
@@ -122,7 +125,7 @@ void	list_print(t_node *l)
 
 	num = 0;
 	if (!l || !l->next)
-		printf ("The list is empty!\n");
+		return ;
 	tem = l->next;
 	while (tem)
 	{

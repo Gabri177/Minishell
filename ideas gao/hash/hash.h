@@ -53,5 +53,5 @@ t_bool	hash_push(t_hash *h, char *key, char *val);
 char	*hash_grep(t_hash *h, char *key);
 t_bool	hash_destory(t_hash	*h);
 t_bool	hash_del(t_hash	*h, char *key);
-
+void	hash_display(t_hash	h);
 #endif

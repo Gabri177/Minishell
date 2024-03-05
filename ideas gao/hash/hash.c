@@ -34,6 +34,8 @@ t_bool	hash_push(t_hash *h, char *key, char *val)
 	int	index;
 
 	index = hash_func (key);
+	if (hash_grep (h, key))
+		hash_del (h, key);
 	if (!h->bucket[index])
 	{
 		h->bucket[index] = list_init ();
@@ -56,10 +58,7 @@ char	*hash_grep(t_hash *h, char *key)
 
 	index = hash_func (key);
 	if (!h->bucket[index])
-	{
-		printf ("%s no exist en hashmap!\n", key);
 		return (NULL);
-	}
 	tem = h->bucket[index];
 	while (tem)
 	{
@@ -70,7 +69,6 @@ char	*hash_grep(t_hash *h, char *key)
 		}
 		tem = tem->next;
 	}
-	printf ("%s no exist en hashmap!\n", key);
 	return (NULL);
 }
 
@@ -92,12 +90,23 @@ t_bool	hash_destory(t_hash	*h)
 t_bool	hash_del(t_hash	*h, char *key)
 {
 	int		index;
-	t_node	*tem;
 
 	index = hash_func (key);
 	if (!h->bucket[index])
 		printf ("%s no exist!\n", key);
-	tem = h->bucket[index];
-	list_del (tem, key);
+	list_del (h->bucket[index], key);
 	return (TRUE);
+}
+
+void	hash_display(t_hash	h)
+{
+	int	i;
+
+	i = 0;
+	while (i < HASH_SIZE)
+	{
+		if (h.bucket[i])
+			list_print (h.bucket[i]);
+		i ++;
+	}
 }
