@@ -6,13 +6,13 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 01:29:20 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 18:07:00 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 20:00:02 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	main(void)
+/*int	main(void)
 {
 	t_hash	*hash;
 	//Solo para pruebas eliminar antes de entregar
@@ -34,4 +34,4 @@ int	main(void)
 	hash_destory (hash);
 	//system ("leaks -q minishell");
 	return (0);
-}
+}*/
