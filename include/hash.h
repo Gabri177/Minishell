@@ -12,27 +12,10 @@
 
 #ifndef HASH_H
 # define HASH_H
-# include "minishell.h"
-
-# define TRUE 1
-# define FALSE 0
-# define HASH_SIZE 100
-
-typedef int		t_bool;
-typedef struct s_node
-{
-	char			*key;
-	char			*val;
-	struct s_node	*next;
-}				t_node;
-typedef struct s_hash
-{
-	t_node	*bucket[HASH_SIZE];
-}				t_hash;
+# include "./minishell.h"
 
 // utils.c
 int		hash_func(char *key);
-
 //hash_list
 t_node	*list_init(void);
 t_bool	list_push(t_node *l, char *key, char *val);

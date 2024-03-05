@@ -14,18 +14,6 @@
 # define PARSER_H
 # include "./minishell.h"
 
-# define PIPE '|'
-# define BIG '>'
-# define LIT '<'
-# define QUOTE_BIG '\"'
-# define QUOTE_LIT '\''
-
-# define PIPES "|"
-# define BIGS ">"
-# define LITS "<"
-# define BIG_BIG ">>"
-# define LIT_LIT "<<"
-
 //=====arry_chr.c=====
 int		chr_add(char **chrs, char c);
 void	split_args(char ***args, char *ori);
