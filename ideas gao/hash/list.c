@@ -19,7 +19,6 @@ t_node	*list_init(void)
 	new = malloc (sizeof (t_node));
 	if (!new)
 		return (NULL);
-	new->id = -1;
 	new->key = NULL;
 	new->val = NULL;
 	new->next = NULL;
@@ -57,6 +56,8 @@ t_bool	list_del(t_node *l, char *key)
 		if (is_strsame (key, current->key))
 		{
 			prev->next = current->next;
+			free (current->key);
+			free (current->val);
 			free (current);
 			return (TRUE);
 		}
@@ -82,7 +83,7 @@ t_bool	list_grep(t_node *l, char *key)
 		{
 			if (is_strsame (key, tem->key))
 			{
-				printf ("GREP:\n\tKEY:%s VAL:%s ID:%d\n", tem->key, tem->val, tem->id);
+				printf ("GREP:\n\tKEY:%s VAL:%s\n", tem->key, tem->val);
 				return (TRUE);
 			}
 			tem = tem->next;
@@ -125,7 +126,7 @@ void	list_print(t_node *l)
 	tem = l->next;
 	while (tem)
 	{
-		printf ("%d:\tKEY:%s VAL:%s ID:%d\n", num, tem->key, tem->val, tem->id);
+		printf ("%d:\tKEY:%s VAL:%s\n", num, tem->key, tem->val);
 		num ++;
 		tem = tem->next;
 	}

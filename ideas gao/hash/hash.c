@@ -65,7 +65,7 @@ char	*hash_grep(t_hash *h, char *key)
 	{
 		if (is_strsame (tem->key, key))
 		{
-			printf ("Key: %s Val: %s Id: %d\n", key, tem->val, tem->id);
+			printf ("Key: %s Val: %s\n", key, tem->val);
 			return (tem->val);
 		}
 		tem = tem->next;
@@ -78,6 +78,7 @@ t_bool	hash_destory(t_hash	*h)
 {
 	int	i;
 
+	i = 0;
 	while (i < HASH_SIZE)
 	{
 		if (h->bucket[i])

@@ -32,5 +32,6 @@ int	main(void)
 	hash_del (hash, "test1");
 	hash_grep (hash, "test1");
 	hash_destory (hash);
+	system ("leaks -q test");
 	return (0);
 }

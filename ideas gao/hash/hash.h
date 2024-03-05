@@ -25,7 +25,6 @@ typedef int		t_bool;
 typedef struct s_node
 {
 	char			*key;
-	int				id;
 	char			*val;
 	struct s_node	*next;
 }				t_node;
