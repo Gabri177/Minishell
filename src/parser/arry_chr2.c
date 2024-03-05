@@ -6,11 +6,11 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:52:07 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 00:45:51 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 01:01:02 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/parser.h"
+#include "../../include/minishell.h"
 
 int	is_not_key(char c)
 {

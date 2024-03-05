@@ -6,11 +6,11 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 00:30:31 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 00:52:05 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 01:01:20 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/parser.h"
+#include "../../include/minishell.h"
 
 // 比较两个字符串是不是完全相等, 包括\0, 如果相等返回真
 // Comparar si dos cadenas son completamente iguales, incluyendo el

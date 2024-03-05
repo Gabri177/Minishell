@@ -6,11 +6,11 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:39 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 00:56:35 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 01:00:56 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/parser.h"
+#include "../../include/minishell.h"
 
 //555555555
 //这是一个创建字符串的文件, 初始化以后, 可以不断添加单个字符, 长度自动扩张.
@@ -74,7 +74,7 @@ static void	is_chr_special(char **c, char ***new_args, char **new_arg)
 
 //abordar las comillas , y ajustar la posicion del puntero que usamos en
 //la funcion split_args
-void	is_chr_quote(char **c, char ***new_args, char **new_arg)
+static void	is_chr_quote(char **c, char ***new_args, char **new_arg)
 {
 	char	mark;
 
