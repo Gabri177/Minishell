@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./hash.h"
+#include "../../include/hash.h"
 
 t_bool	is_strsame(char *s1, char *s2)
 {

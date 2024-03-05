@@ -12,10 +12,7 @@
 
 #ifndef HASH_H
 # define HASH_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <string.h>
+# include "minishell.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -34,9 +31,9 @@ typedef struct s_hash
 }				t_hash;
 
 // utils.c
-char	*ft_strdup(const char *str);
+//char	*ft_strdup(const char *str);
 t_bool	is_strsame(char *s1, char *s2);
-int		ft_strlen(char	*str);
+//int		ft_strlen(char	*str);
 int		hash_func(char *key);
 
 //hash_list
