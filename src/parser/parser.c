@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 23:04:43 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 23:14:31 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	**arg_abordar(char *ori)
 int main (void)
 {
 	// situacion como ||||||| o >>>>>> o <<<<<<<< o <> ><   >>>>le3 中间的">>"被当成文件了 所以le3没有被删除
-	char	test[]="echo >file1 -ls >> file2 | gr\"quote\"ep < c|at >fi>> le3>>file4";//write a checker to theck the ilegal situation
+	char	test[]="echo >file1 -ls >> fi\'l\'e2 | gr\"quote\"ep < c|at >fi>> le3>>file4";//write a checker to theck the ilegal situation
 	char	**ori_args;
 	char	**outfile;
 
