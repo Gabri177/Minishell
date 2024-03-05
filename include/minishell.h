@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 22:42:38 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 17:32:20 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "init.h"
 # include "builtins.h"
 # include "pipex.h"
+# include "hash.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
