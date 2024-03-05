@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 17:54:23 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 23:04:43 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,22 @@ char	**arg_abordar(char *ori)
 	return (new_arvs);
 }
 
-// int main (void)
-// {
-// 	char	test[]="pwd \"jaja\" cat>>file1>fie2<files4<<file5";
-// 	char	**tem;
+int main (void)
+{
+	// situacion como ||||||| o >>>>>> o <<<<<<<< o <> ><   >>>>le3 中间的">>"被当成文件了 所以le3没有被删除
+	char	test[]="echo >file1 -ls >> file2 | gr\"quote\"ep < c|at >fi>> le3>>file4";//write a checker to theck the ilegal situation
+	char	**ori_args;
+	char	**outfile;
 
-// 	tem = arg_abordar (test);
-// 	if (!tem)
-// 	 printf ("empty");
-// 	arry_display (tem);
-// 	printf ("index >>:%d\n", arry_get_index (tem, BIG_BIG));
-// 	arry_del (&tem, arry_get_index (tem, BIG_BIG));
-// 	arry_display (tem);
-// 	arry_destory (tem);
-// 	system ("leaks -q test");
-// 	return 0;
-// }
+	ori_args = arg_abordar (test);
+	if (!ori_args)
+		printf ("empty");
+	arry_display (ori_args);
+	outfile = args_to_outfile (&ori_args);
+	arry_display (outfile);
+	arry_display (ori_args);
+	arry_destory (ori_args);
+	arry_destory (outfile);
+	system ("leaks -q test");
+	return 0;
+}

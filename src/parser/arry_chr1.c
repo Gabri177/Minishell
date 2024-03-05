@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_chr1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:39 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 01:00:56 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 22:54:24 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ static void	is_chr_special(char **c, char ***new_args, char **new_arg)
 		if (**c == BIG && *(*c + 1) && *(*c + 1) == BIG)
 		{
 			arry_add (new_args, ">>");
-			(*c) += 2;
+			(*c) += 1;
 			return ;
 		}
 		if (**c == LIT && *(*c + 1) && *(*c + 1) == LIT)
 		{
 			arry_add (new_args, "<<");
-			(*c) += 2;
+			(*c) += 1;
 			return ;
 		}
 		if (**c == PIPE)
@@ -68,7 +68,7 @@ static void	is_chr_special(char **c, char ***new_args, char **new_arg)
 			arry_add (new_args, BIGS);
 		if (**c == LIT)
 			arry_add (new_args, LITS);
-		(*c) += 1;
+		//(*c) += 1;
 	}
 }
 

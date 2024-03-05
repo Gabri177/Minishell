@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_strs1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:36 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 17:53:40 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 21:25:25 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	arry_del(char ***args, int index)
 	//int		i; //Unused variable
 	//char	*tem; //Unused variable
 
-	if (index >= arry_count (*args))
+	if (index >= arry_count (*args) || index < 0)
 		return (FALSE);
 	free ((*args)[index]);
 	while (index < arry_count (*args) - 1)

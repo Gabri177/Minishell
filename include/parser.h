@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:45 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 00:35:23 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 22:11:29 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,7 @@ int		arry_del(char ***args, int index);
 int		arry_get_index(char **ary, char *val);
 //=====arry_utils.c=====
 int		is_strsame(char *s1, char *s2);
+//=====arry_outfile.c===
+char	**args_to_outfile(char ***args);
+void	args_no_outfile(char ***args, char **ofile);
 #endif

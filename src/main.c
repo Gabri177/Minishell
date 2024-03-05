@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/05 20:25:33 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 21:33:04 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "../include/minishell.h"
 
-int	main(int arc, char **argv, char **envp)
+/* int	main(int arc, char **argv, char **envp)
 {
 	t_mini	mini;
 
@@ -25,4 +25,4 @@ int	main(int arc, char **argv, char **envp)
 	(void)envp;
 	printf("Compila la libft");
 	return (0);
-}
+} */
