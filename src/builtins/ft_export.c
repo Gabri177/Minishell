@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/05 15:02:21 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 17:50:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int check_if_env_exist(t_mini *mini, char *variable)
 		
 }*/
 
-int main(int argc, char **argv, char **envp)
+/*int main(int argc, char **argv, char **envp)
 {
 	t_mini	mini;
 	argc = 0;
@@ -92,4 +92,4 @@ int main(int argc, char **argv, char **envp)
 		printf("%s\n", mini.envp[argc]);
 		argc++;
 	}
-}
+}*/

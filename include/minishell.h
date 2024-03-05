@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/05 17:32:20 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 17:52:38 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ int		ft_pwd(t_mini *mini);
 int		ft_env(t_mini *mini);
 //int	ft_exit(t_mini *mini);
 
+/*	--------------------------- ERROR ----------------------------*/
+int	print_error(char *error);
 
 #endif

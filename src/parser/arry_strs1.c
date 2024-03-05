@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_strs1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:36 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 01:01:08 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 17:53:40 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ static char	**arry_cpy_sml(char **args)
 // Eliminar el elemento en una posición específica del arreglo.
 int	arry_del(char ***args, int index)
 {
-	int		i;
-	char	*tem;
+	//int		i; //Unused variable
+	//char	*tem; //Unused variable
 
 	if (index >= arry_count (*args))
 		return (FALSE);

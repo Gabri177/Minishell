@@ -6,33 +6,16 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:30:52 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 17:35:45 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/05 18:06:20 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/hash.h"
-
-t_bool	is_strsame(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	if (!s1 || !s2)
-		return (FALSE);
-	while (*s1 && *s2)
-	{
-		if (*s1 != *s2)
-			return (FALSE);
-		s1 ++;
-		s2 ++;
-	}
-	return (*s1 == *s2);
-}
+#include "../../include/minishell.h"
 
 int	hash_func(char *key)
 {
 	unsigned int	hash_val;
-	int				i;
+	size_t			i;
 
 	hash_val = 0;
 	i = 0;
@@ -42,4 +25,34 @@ int	hash_func(char *key)
 		i ++;
 	}
 	return (hash_val % HASH_SIZE);
+}
+
+void	hash_display(t_hash	h)
+{
+	int	i;
+
+	i = 0;
+	while (i < HASH_SIZE)
+	{
+		if (h.bucket[i])
+			list_print (h.bucket[i]);
+		i ++;
+	}
+}
+
+void	list_print(t_node *l)
+{
+	t_node	*tem;
+	int		num;
+
+	num = 0;
+	if (!l || !l->next)
+		return ;
+	tem = l->next;
+	while (tem)
+	{
+		printf ("%d:\tKEY:%s VAL:%s\n", num, tem->key, tem->val);
+		num ++;
+		tem = tem->next;
+	}
 }

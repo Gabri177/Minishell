@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:24:13 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/03 02:04:25 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 17:52:05 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ typedef struct s_hash
 }				t_hash;
 
 // utils.c
-//char	*ft_strdup(const char *str);
-t_bool	is_strsame(char *s1, char *s2);
-//int		ft_strlen(char	*str);
 int		hash_func(char *key);
 
 //hash_list

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hash_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 01:29:20 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/03 02:07:37 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 18:07:00 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/hash.h"
+#include "../../include/minishell.h"
 
 int	main(void)
 {
 	t_hash	*hash;
-
+	//Solo para pruebas eliminar antes de entregar
 	hash = hash_init ();
 	hash_push (hash, "test1", "jajajaja");
 	hash_push (hash, "cd", "cd1111111");
-	hash_push (hash, "cd", "cd22222222");// si añadimos con el mismo key, vamos a eliminar el key antiguo y reescribirlo
+	hash_push (hash, "cd", "cd22222222");
 	hash_push (hash, "cat", "cat direction");
 	hash_push (hash, "echo", "echo direction");
 	printf (">===hash_grep : %s ===\n\n", hash_grep (hash, "tes"));
@@ -32,6 +32,6 @@ int	main(void)
 	hash_del (hash, "cd");
 	hash_display (*hash);
 	hash_destory (hash);
-	system ("leaks -q test");
+	system ("leaks -q minishell");
 	return (0);
 }

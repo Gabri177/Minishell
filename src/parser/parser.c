@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 01:01:27 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 17:54:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	**arg_abordar(char *ori)
 	return (new_arvs);
 }
 
-int main (void)
+/*int main (void)
 {
 	char	test[]="pwd \"jaja\" cat>>file1>fie2<files4<<file5";
 	char	**tem;
@@ -65,4 +65,4 @@ int main (void)
 	arry_destory (tem);
 	system ("leaks -q test");
 	return 0;
-}
+}*/

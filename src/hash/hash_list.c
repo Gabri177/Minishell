@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   hash_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:30:18 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/03 01:39:33 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/05 18:05:07 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/hash.h"
+#include "../../include/minishell.h"
 
 t_node	*list_init(void)
 {
@@ -117,20 +117,4 @@ t_bool	list_destory(t_node *l)
 	free (l);
 	l = NULL;
 	return (TRUE);
-}
-void	list_print(t_node *l)
-{
-	t_node	*tem;
-	int		num;
-
-	num = 0;
-	if (!l || !l->next)
-		return ;
-	tem = l->next;
-	while (tem)
-	{
-		printf ("%d:\tKEY:%s VAL:%s\n", num, tem->key, tem->val);
-		num ++;
-		tem = tem->next;
-	}
 }
