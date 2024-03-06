@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 10:59:34 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 12:47:34 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_unset(t_mini	*mini, char *variable)
 	len_to_equal = ft_strchrlen(variable, '=');
 	key = ft_substr(variable, 0, len_to_equal);
 	hash_del(mini->hash_env, key);
+	free(key);
 	return (TRUE);
 }
 

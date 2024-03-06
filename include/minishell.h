@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 10:35:19 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 11:45:12 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ void	init_env(t_mini *mini, char **envp);
 
 /*	-------------------------- BUILTIN ---------------------------*/
 int		is_builtin(char *command, t_mini *mini);
-void	exec_builtin(char *command, t_mini *mini);
+//void	exec_builtin(char *command, t_mini *mini);
 //int		ft_echo(t_mini *mini);
-//int	ft_cd(t_mini *mini);
+int		ft_cd(t_mini *mini, char *argument);
 int		ft_pwd(t_mini *mini);
-//int	ft_export(t_mini *mini);
-//int	ft_unset(t_mini *mini);
+int		ft_export(t_mini *mini, char *variable);
+int		ft_unset(t_mini	*mini, char *variable);
 int		ft_env(t_mini *mini);
 //int	ft_exit(t_mini *mini);
 
