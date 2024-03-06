@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 12:47:34 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 14:10:38 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	ft_unset(t_mini	*mini, char *variable)
 	t_mini	mini;
 	argc = 0;
 	argv = NULL;
-	init_env(&mini, envp);	
+	init_env(&mini, envp);
+	hash_display(*mini.hash_env);	
 	ft_unset(&mini, "PWD=TUMMA");
 	hash_display(*mini.hash_env);
 	hash_destory(mini.hash_env);

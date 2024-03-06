@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 10:36:23 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 14:04:12 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	init_env(t_mini *mini, char **envp)
 		len_to_equal = ft_strchrlen(envp[i], '=');
 		key = ft_substr(envp[i], 0, len_to_equal);
 		hash_push(mini->hash_env, key, envp[i]);
+		free (key);
 		i++;
 	}
 }

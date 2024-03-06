@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 12:47:50 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 14:11:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_export(t_mini *mini, char *variable)
 	return (EXIT_SUCCESS);
 }
 
-int main(int argc, char **argv, char **envp)			//Tiene leaks que estoy haciendo mal gao???????
+/*int main(int argc, char **argv, char **envp)			//Tiene leaks que estoy haciendo mal gao???????
 {
 	t_mini	mini;
 	argc = 0;
@@ -36,4 +36,4 @@ int main(int argc, char **argv, char **envp)			//Tiene leaks que estoy haciendo 
 	hash_destory(mini.hash_env);
 	system ("leaks -q minishell");
 	return (0);
-}
+}*/
