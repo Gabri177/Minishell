@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 23:14:31 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 05:15:41 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,41 @@ char	**arg_abordar(char *ori)
 int main (void)
 {
 	// situacion como ||||||| o >>>>>> o <<<<<<<< o <> ><   >>>>le3 中间的">>"被当成文件了 所以le3没有被删除
-	char	test[]="echo >file1 -ls >> fi\'l\'e2 | gr\"quote\"ep < c|at >fi>> le3>>file4";//write a checker to theck the ilegal situation
+	char	test[]=" ls >file1 >>file2 -la arg1[1] arg2[1]|grep >file >>fill| cat -d arg1[3] | cd | ls arg1[4] arg2[4]";//write a checker to theck the ilegal situation
 	char	**ori_args;
 	char	**outfile;
+	char	**cmds;
+	char	***argss;
+	//char	**no_cmds;
 
 	ori_args = arg_abordar (test);
 	if (!ori_args)
 		printf ("empty");
+	//=======================================
+	printf ("original args:\n");
 	arry_display (ori_args);
+	//=======================================
 	outfile = args_to_outfile (&ori_args);
+	printf ("outfile:\n");
 	arry_display (outfile);
+	//=======================================
+	printf ("args sin outfiles:\n");
 	arry_display (ori_args);
+	//=======================================
+	printf ("simple commands:\n");
+	cmds = args_to_cmds (&ori_args);
+	arry_display (cmds);
+	arry_display (ori_args);
+	//=======================================
+	printf ("argumentossss:\n");
+	argss = args_to_args (&ori_args);
+	
+
+
+	argss_destory (argss);
+	arry_destory (cmds);
 	arry_destory (ori_args);
 	arry_destory (outfile);
-	system ("leaks -q test");
+	system ("leaks -q minishell");
 	return 0;
 }

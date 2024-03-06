@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/05 20:26:04 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 02:50:38 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_mini(t_mini *mini, char **argv, char **envp)
 	mini->argv = argv;
 	//mini->envp = envp;
 	//mini->hash_env = hash_init(); 
+	(void)envp;
 	envp= NULL;
 	mini->pwd = NULL; //Javi
 	mini->old_pwd = NULL; //Javi

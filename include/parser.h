@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:45 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 22:11:29 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 05:08:14 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,9 @@ int		is_strsame(char *s1, char *s2);
 //=====arry_outfile.c===
 char	**args_to_outfile(char ***args);
 void	args_no_outfile(char ***args, char **ofile);
+//=====arry_cmd.c=======
+char	**args_to_cmds(char ***args);
+void	args_no_cmds(char ***args);
+char	***args_to_args(char ***args);
+void	argss_destory(char ***argss);
 #endif
