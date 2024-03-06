@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:30:52 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 20:32:03 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 10:45:15 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	list_print(t_node *l)
 	tem = l->next;
 	while (tem)
 	{
-		printf ("\n\tKEY:%s\n\t VAL:%s\n", tem->key, tem->val);
+		printf ("%s\n", tem->val);
 		num ++;
 		tem = tem->next;
 	}

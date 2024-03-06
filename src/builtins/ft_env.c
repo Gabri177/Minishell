@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 19:49:44 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 10:58:52 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 int	ft_env(t_mini *mini)
 {
-	int	i;
-
-	i = 0;
-	while (mini->envp[i])
-	{
-		printf("%s\n", mini->envp[i]);
-		i++;
-	}
+	hash_display(*mini->hash_env);
+	hash_destory(mini->hash_env);
 	return (EXIT_SUCCESS);
 }
+/*int	main(int argc, char **argv, char **envp) 			//TIENE LEAKSSSSSSSS
+{
+	t_mini 	mini;
+	argc = 0;
+	argv = NULL;
+	init_env(&mini, envp);
+	ft_env(&mini);
+	system("leaks -q minishell");
+	return (0);
+}*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 02:50:38 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/06 10:36:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 void	init_mini(t_mini *mini, char **argv, char **envp)
 {
 	mini->argv = argv;
-	//mini->envp = envp;
-	//mini->hash_env = hash_init(); 
-	(void)envp;
-	envp= NULL;
 	mini->pwd = NULL; //Javi
 	mini->old_pwd = NULL; //Javi
 	mini->paths = NULL; //Javi
@@ -27,6 +23,7 @@ void	init_mini(t_mini *mini, char **argv, char **envp)
 	mini->commands = NULL; //Gao
 	mini->args = NULL; //Gao
 	init_builtin(mini);
+	init_env(mini, envp);
 }
 
 void	init_builtin(t_mini *mini)
@@ -48,7 +45,6 @@ void	init_env(t_mini *mini, char **envp)
 
 	i = 0;
 	len_to_equal = 0;
-	mini->envp = envp;
 	mini->hash_env = hash_init();
 	while(envp[i])
 	{
@@ -57,6 +53,4 @@ void	init_env(t_mini *mini, char **envp)
 		hash_push(mini->hash_env, key, envp[i]);
 		i++;
 	}
-	hash_display(*mini->hash_env);
-	hash_destory(mini->hash_env);
 }
