@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 11:45:12 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 20:11:57 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,23 @@
 
 typedef struct s_mini
 {	
-	char	**argv;
+	char	*line;
+	char	**arg_ori;
 	t_hash	*hash_env;
-	char	*pwd;
-	char	*old_pwd;
 	char	**paths;
 	char	*infile; //ABSOLUTE DIRECTION
 	char	**outfile; //ABSOLUTE DIRECTION
 	char	**commands; // "ls -l | hola echo dfd" ----> *commands[0] = "ls -l" *command[1] = "|" *command[2] = "hola"
 	char	***args; // "ls -l | hola echo dfd" ---> **args[0] = {""}; **args[1] = {"echo" "dfd"}; 
-	int		is_echo_n; //
+	int		is_echo_n; //Ver si hay que usar
 	char	*is_builtin[NUM_BUILTINS + 1];
 }	t_mini;
 
 /*	--------------------------- INIT --------------------------- */
-void	init_mini(t_mini *mini, char **argv, char **envp);
+void	init_mini(t_mini *mini, char **envp);
 void	init_builtin(t_mini *mini);
 void	init_env(t_mini *mini, char **envp);
+void	shell_loop(t_mini *mini);
 
 /*	-------------------------- BUILTIN ---------------------------*/
 int		is_builtin(char *command, t_mini *mini);

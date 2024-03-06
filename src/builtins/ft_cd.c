@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 17:35:43 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 20:09:46 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_cd(t_mini *mini, char *argument)
 
 //////////////////////////////////////////////////////////// cd should update PWD and OLD_PWD ENV esto lo haré con las funciones export
 
-int	main(int argc, char **argv, char **envp)				//Con leaks
+/*int	main(int argc, char **argv, char **envp)				//Con leaks
 {
 	t_mini 	mini;
 	argc = 0;
@@ -81,4 +81,4 @@ int	main(int argc, char **argv, char **envp)				//Con leaks
 	hash_destory(mini.hash_env);
 	system("leaks -q minishell");
 	return (0);
-}
+}*/

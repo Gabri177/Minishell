@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:09:45 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 05:14:19 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/06 20:25:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,8 @@ char	***args_to_args(char ***args)
 	int		i;
 	int		len;
 
+	if (!*args || !**args)
+		return (NULL);
 	new = NULL;
 	i = 0;
 	args_no_cmds (args);

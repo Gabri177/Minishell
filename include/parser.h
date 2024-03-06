@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:45 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/06 05:08:14 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/06 20:00:52 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,6 @@ char	**args_to_cmds(char ***args);
 void	args_no_cmds(char ***args);
 char	***args_to_args(char ***args);
 void	argss_destory(char ***argss);
+
+char	**arg_abordar(char *ori);
 #endif

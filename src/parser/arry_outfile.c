@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_outfile.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:40:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/05 23:01:50 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 20:20:08 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	args_no_outfile(char ***args, char **ofile)
 	int	i;
 
 	i = 0;
+	if (!ofile || !*ofile)
+		return ;
 	while (ofile[i])
 	{
 		arry_del (args, arry_get_index (*args, ofile[i]));
@@ -32,6 +34,8 @@ char	**args_to_outfile(char ***args)
 
 	i = 0;
 	new = NULL;
+	if (!*args || !**args)
+		return (new);
 	while ((*args)[i])
 	{
 		if (is_strsame (">", (*args)[i]))

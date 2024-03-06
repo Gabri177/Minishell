@@ -6,17 +6,16 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 14:04:12 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/06 20:11:31 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-void	init_mini(t_mini *mini, char **argv, char **envp)
+void	init_mini(t_mini *mini, char **envp)
 {
-	mini->argv = argv;
-	mini->pwd = NULL; //Javi
-	mini->old_pwd = NULL; //Javi
+	mini->line = NULL;
+	mini->arg_ori = NULL;
 	mini->paths = NULL; //Javi
 	mini->infile = NULL; //Gao
 	mini->outfile = NULL; //Gao
