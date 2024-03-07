@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 12:13:39 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/07 15:59:00 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	shell_loop(t_mini *mini);
 /*	-------------------------- BUILTIN ---------------------------*/
 int		is_builtin(char *command, t_mini *mini);
 void	exec_builtin(char *command, t_mini *mini);
-int		ft_echo(t_mini *mini);
+int		ft_echo(t_mini *mini, char **arguments, int flag);
 int		ft_cd(t_mini *mini, char *argument);
 int		ft_pwd(t_mini *mini);
 int		ft_export(t_mini *mini, char *variable);

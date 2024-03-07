@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 11:23:01 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/07 15:17:05 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "../include/minishell.h"
 
-int	main(int argc, char **argv, char **envp)
+/*int	main(int argc, char **argv, char **envp)
 {
 	t_mini	mini;
 
@@ -24,5 +24,6 @@ int	main(int argc, char **argv, char **envp)
 	rl_on_new_line();
 	shell_loop(&mini);
 	(void)argv;
+	system("leaks -q minishell");
 	return (0);
-} 
+}*/

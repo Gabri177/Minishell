@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 12:24:45 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/07 15:38:27 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ int		is_builtin(char *command, t_mini *mini)
 }
 
 /*void	exec_builtin(char *command, t_mini *mini)
-{ //Ver si tiene que ser ***args
+{ //Ver si tiene que ser ***args											Solo falta que gao haga el parseo bien
 	if (ft_strcmp("echo", command) == 0)
 		ft_echo(mini);
+	if (ft_strcmp("echo -n", command) == 0)
+		ft_echo(mini, //mandar args, TRUE); //Hay que poner la flag en true
 	if (ft_strcmp("cd", command) == 0)
 		ft_cd(mini);
 	if (ft_strcmp("pwd", command) == 0)
