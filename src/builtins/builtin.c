@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 12:19:45 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/07 12:24:45 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		is_builtin(char *command, t_mini *mini)
 	return (FALSE);
 }
 
-void	exec_builtin(char *command, t_mini *mini)
+/*void	exec_builtin(char *command, t_mini *mini)
 { //Ver si tiene que ser ***args
 	if (ft_strcmp("echo", command) == 0)
 		ft_echo(mini);
@@ -42,7 +42,7 @@ void	exec_builtin(char *command, t_mini *mini)
 		ft_env(mini);
 	if (ft_strcmp("exit", command) == 0)
 		ft_exit(mini);
-}
+}*/
 
 /*
 int main(int argc, char **argv, char **envp) //Borrar este main cuando entregemos 
