@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 20:23:48 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/07 11:16:49 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void shell_loop(t_mini *mini)
 			mini->commands = args_to_cmds (&mini->arg_ori);
 			printf ("command :\n");
 			arry_display (mini->commands);
-			mini->args = args_to_args (&mini->arg_ori);
+			//mini->args = args_to_args (&mini->arg_ori);
 		}
+		ft_execute(mini);
 		// Aquí se pueden añadir códigos para procesar el comando
-		
 	}
 }
 

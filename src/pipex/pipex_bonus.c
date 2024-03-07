@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:52:46 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/04 17:56:30 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/07 12:14:47 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ int	pipex_bonus(int argc, char **argv, char **envp)
 	int		fd_out;
 
 	if (argc < 5)
-		ft_exit(1);
+		ft_exit_pipex(1);
 	if (ft_strcmp(argv[1], "here_doc") == 0)
 	{
 		if (argc < 6)
-			ft_exit(1);
+			ft_exit_pipex(1);
 		i = 3;
 		fd_out = ft_open(argv[argc - 1], 2);
 		here_doc(argv);

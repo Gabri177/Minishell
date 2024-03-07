@@ -6,16 +6,12 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 10:46:14 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/07 12:19:45 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-/*
-	Function to check if the command written is builtin. 
-	The idea is to call exec_builtin only if the command is builtin
-*/
 int		is_builtin(char *command, t_mini *mini)
 {
 	int	i;
@@ -29,9 +25,6 @@ int		is_builtin(char *command, t_mini *mini)
 	}
 	return (FALSE);
 }
-////////////////////////////////////////////////////////////////////////////    Juntar estas dos funciones si no me paso de 25 lineas
-/*
-	Function to execute builtins
 
 void	exec_builtin(char *command, t_mini *mini)
 { //Ver si tiene que ser ***args
@@ -51,7 +44,7 @@ void	exec_builtin(char *command, t_mini *mini)
 		ft_exit(mini);
 }
 
-
+/*
 int main(int argc, char **argv, char **envp) //Borrar este main cuando entregemos 
 {
 	t_mini	mini;

@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 12:12:25 by javgao           ###   ########.fr       */
+/*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
+/*   Updated: 2024/03/07 12:15:04 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-//Esta es super fáci hay que liberar todo y exit
-int	ft_exit(t_mini *mini)
+int	ft_execute(t_mini *mini)
 {
-	mini->args = NULL; //Para que no salga unused variable
-	printf("por hacer\n\n\n\n\n\n\n\n");
-	return (TRUE);
+	int i;
+	int	pipe_found;
+
+	i = 0;
+	pipe_found = 0;
+	while (mini->commands[i])
+	{
+		if (mini->commands[i][0] == '|')
+		{
+			printf("PIPEXXXX\n\n\n");
+			//Gestionar el pipex
+			pipe_found = 1;
+		}
+		i++;
+	}
+	if (!pipe_found)
+	{
+		single_command(mini);
+		printf("Single Command\n\n\n\n\n");
+	}
+	return (EXIT_SUCCESS);
 }
