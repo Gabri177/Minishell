@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 13:50:43 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 20:11:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 
 # define TRUE 1
 # define FALSE 0
+# define SINGLE 1
+# define PIPESS 0
 //===builtins===
 # define NUM_BUILTINS 8
 
@@ -63,7 +65,7 @@ void	shell_loop(t_mini *mini);
 
 /*	-------------------------- BUILTIN ---------------------------*/
 int		is_builtin(char *command, t_mini *mini);
-void	exec_builtin(char *command, t_mini *mini);
+void	exec_builtin(char *command, char **arguments, t_mini *mini);
 int		ft_echo(t_mini *mini, char **arguments, int flag);
 int		ft_cd(t_mini *mini, char *argument);
 int		ft_pwd(t_mini *mini);
@@ -75,6 +77,7 @@ int		ft_exit(t_mini *mini);
 /*	-------------------------- EXECUTE ---------------------------*/
 int		ft_execute(t_mini *mini);
 int		single_command(t_mini *mini);
+//void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
 
 /*	--------------------------- ERROR ----------------------------*/
 int	print_error(char *error);

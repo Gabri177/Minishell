@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 14:15:25 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 19:25:26 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ int	ft_execute(t_mini *mini)
 		i++;
 	}
 	if (!pipe_found)
-	{
 		single_command(mini);
-		//printf("Single Command\n\n\n\n\n");
-	}
 	return (EXIT_SUCCESS);
 }

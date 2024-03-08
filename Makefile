@@ -6,7 +6,7 @@
 #    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/07 12:15:44 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/08 16:13:45 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PIPEX		= pipex_bonus.c pipex_utils_bonus.c
 SIGNALS		= signals.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_main.c hash_utils.c hash.c
-EXECUTE		= execute.c single_command.c
+EXECUTE		= execute.c single_command.c not_builtin.c
 SOURCES		= src/main.c $(addprefix ./src/builtins/, $(BUILTINS)) $(addprefix ./src/init/, $(INIT)) \
 			$(addprefix ./src/parser/, $(PARSER)) $(addprefix ./src/pipex/, $(PIPEX)) $(addprefix ./src/signals/, $(SIGNALS)) \
 			$(addprefix ./src/error/, $(ERROR)) $(addprefix ./src/hash/, $(HASH)) $(addprefix ./src/execute/, $(EXECUTE))

@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 14:27:04 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 16:09:56 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ int		is_builtin(char *command, t_mini *mini)
 	return (FALSE);
 }
 
-void	exec_builtin(char *command, t_mini *mini)
+void	exec_builtin(char *command, char **arguments, t_mini *mini)
 { //Ver si tiene que ser ***args											Solo falta que gao haga el parseo bien
 	if (ft_strcmp("echo", command) == 0)
-		ft_echo(mini, mini->args[0], FALSE);
+		ft_echo(mini, arguments, FALSE);
 	else if (ft_strcmp("echo -n", command) == 0)
-		ft_echo(mini, mini->args[0], TRUE);
+		ft_echo(mini, arguments, TRUE);
 	/*else if (ft_strcmp("cd", command) == 0)
 		ft_cd(mini);*/
 	else if (ft_strcmp("pwd", command) == 0)
 		ft_pwd(mini);
 	/*else if (ft_strcmp("export", command) == 0)
-		ft_export(mini);
+		ft_export(mini, mini->args[0][0]);
 	else if (ft_strcmp("unset", command) == 0)
 		ft_unset(mini);*/
 	else if (ft_strcmp("env", command) == 0)
