@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 15:28:52 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 21:13:42 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void shell_loop(t_mini *mini)
 	while (1) 
 	{
 		line = readline("minishell>");
-		if (!line)
-			break ;
+		if (!*line)
+			continue ;
 		if (*line)
 		{
 			add_history(line);
