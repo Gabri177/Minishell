@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 20:11:31 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 13:50:34 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ void	init_mini(t_mini *mini, char **envp)
 void	init_builtin(t_mini *mini)
 {
 	mini->is_builtin[0] = "echo";
-	mini->is_builtin[1] = "cd";
-	mini->is_builtin[2] = "pwd";
-	mini->is_builtin[3] = "export";
-	mini->is_builtin[4] = "unset";
-	mini->is_builtin[5] = "env";
-	mini->is_builtin[6] = "exit";
-	mini->is_builtin[7] = NULL;
+	mini->is_builtin[1] = "echo -n";
+	mini->is_builtin[2] = "cd";
+	mini->is_builtin[3] = "pwd";
+	mini->is_builtin[4] = "export";
+	mini->is_builtin[5] = "unset";
+	mini->is_builtin[6] = "env";
+	mini->is_builtin[7] = "exit";
+	mini->is_builtin[8] = NULL;
 }
 void	init_env(t_mini *mini, char **envp)
 {

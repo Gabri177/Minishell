@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 15:59:00 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 13:50:43 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define TRUE 1
 # define FALSE 0
 //===builtins===
-# define NUM_BUILTINS 7
+# define NUM_BUILTINS 8
 
 typedef struct s_mini
 {	
