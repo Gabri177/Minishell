@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 16:09:56 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 23:00:15 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	exec_builtin(char *command, char **arguments, t_mini *mini)
 		ft_cd(mini);*/
 	else if (ft_strcmp("pwd", command) == 0)
 		ft_pwd(mini);
-	/*else if (ft_strcmp("export", command) == 0)
+	else if (ft_strcmp("export", command) == 0)
 		ft_export(mini, mini->args[0][0]);
 	else if (ft_strcmp("unset", command) == 0)
-		ft_unset(mini);*/
+		ft_unset(mini, mini->args[0][0]);
 	else if (ft_strcmp("env", command) == 0)
 		ft_env(mini);
 	/*else if (ft_strcmp("exit", command) == 0)
