@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 14:11:44 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 14:53:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	ft_pwd(t_mini *mini)
 {
-	printf ("%s\n", hash_grep(mini->hash_env, "PWD"));
+	char	*pwd;
+
+	pwd = ft_substr(hash_grep(mini->hash_env, "PWD"), 4, ft_strlen(hash_grep(mini->hash_env, "PWD")));
+	printf ("%s\n", pwd);
+	free (pwd);
 	return (EXIT_SUCCESS);
 }
 
