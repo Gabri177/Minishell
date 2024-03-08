@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 20:09:46 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/08 13:45:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,30 @@ static int	cd_dot_dot(t_mini *mini)
 	free(newoldpwd);
 	return(EXIT_FAILURE);
 }
+/*static int	cd_word(t_mini *mini, char *argument)
+{
+	char	*pwd;
+	char	*oldpwd_env;
+	//char	*pwd_with_slash;
+	char	*pwd_env;
+	(void)argument;
+
+	if (access(argument, F_OK) == -1)
+		return (print_error("folder doesn't exist"));
+	if (chdir(argument) == -1)
+		return(print_error("chdir failed"));
+	//pwd_env = getcwd(NULL, 0);
+	//if (!pwd_env)
+	//	return (print_error("getcwd failed"));
+	pwd = ft_substr(hash_grep(mini->hash_env, "PWD"), 4, ft_strlen(hash_grep(mini->hash_env, "PWD")));
+	oldpwd_env = ft_strjoin("OLDPWD=", pwd);
+	ft_export(mini, oldpwd_env);
+	ft_export(mini, pwd_env);
+	free(pwd);
+	free(oldpwd_env);
+	return (EXIT_SUCCESS);
+}*/
+
 
 int	ft_cd(t_mini *mini, char *argument)
 {
@@ -62,8 +86,8 @@ int	ft_cd(t_mini *mini, char *argument)
 		return(cd_dot_dot(mini));
 	else if (argument[0] == '.')
 		return (EXIT_SUCCESS);
-	//else 								-----------------------------------------//Me falta tener en cuenta esto
-	//	cd_word()
+	//else
+	//	return(cd_word(mini, argument));
 	return (EXIT_SUCCESS);
 }
 
@@ -76,7 +100,7 @@ int	ft_cd(t_mini *mini, char *argument)
 	argv = NULL;
 	init_env(&mini, envp);
 	hash_display(*mini.hash_env);
-	ft_cd(&mini, "..");
+	ft_cd(&mini, "Libft");
 	hash_display(*mini.hash_env);
 	hash_destory(mini.hash_env);
 	system("leaks -q minishell");

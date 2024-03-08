@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:36 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/06 04:56:14 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/07 22:06:01 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 //555555555
 //计算字符串数组的大小, 因为字符串数组的结尾元素是NULL, 用来判断是否已经结束
-static int	arry_count(char **arys)
+int	arry_count(char **arys)
 {
 	int	i;
 
 	i = 0;
-	if (!arys)
+	if (!arys || !*arys)
 		return (0);
 	while (arys[i])
 		i ++;
@@ -82,13 +82,17 @@ static char	**arry_cpy_sml(char **args)
 {
 	char	**new;
 	int		i;
+	int		len;
 
 	i = 0;
-	new = malloc (sizeof (char *) * (arry_count (args)));
+	len = arry_count (args);
+	if (len == 0)
+		return (NULL);
+	new = malloc (sizeof (char *) * len);
 	if (!new)
 		return (NULL);
-	arry_init (new, arry_count (args));
-	while (i < arry_count (args) - 1)
+	arry_init (new, len);
+	while (i < len - 1)
 	{
 		new[i] = strdup (args[i]);
 		if (!new[i])
@@ -105,16 +109,30 @@ int	arry_del(char ***args, int index)
 {
 	//int		i; //Unused variable
 	//char	*tem; //Unused variable
+	int	len;
 
-	if (index >= arry_count (*args) || index < 0)
+	//printf ("----这里是删除数组元素的函数内部， 我们开始计算数组长度\n");
+	len = arry_count (*args);
+	//printf ("----这里是删除数组元素的函数内部， 我们计算出的数组长度 %d\n", len);
+	if (index >= len || index < 0)
 		return (FALSE);
+	if (len == 1)
+	{
+		free ((*args)[index]);
+		(*args)[index] = NULL;
+		free (*args);
+		return (TRUE);
+	}
 	free ((*args)[index]);
-	while (index < arry_count (*args) - 1)
+	(*args)[index] = NULL;
+	//printf ("----这是删除数组元素函数的内部， 我们刚刚释放了index位置的数组元素, 并把这个位置指向了NULL \n");
+	while (index < len - 1)
 	{
 		(*args)[index] = (*args)[index + 1];
 		index ++;
 	}
 	(*args)[index] = strdup ("trash");
 	*args = arry_cpy_sml (*args);
+	//printf ("----我们成功删除了index位置的数组元素！\n");
 	return (TRUE);
 }
