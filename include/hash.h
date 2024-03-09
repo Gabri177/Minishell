@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:24:13 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/09 01:23:30 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 03:16:46 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HASH_H
 # include "./minishell.h"
 # define HASH_SIZE 200
+
 typedef int		t_bool;
 
 //=====hash==========

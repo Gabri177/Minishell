@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 22:57:13 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 03:43:42 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include <signal.h>
 # include <sys/ioctl.h>
 # include <string.h>
+# include <signal.h>
 # include <termios.h>
 # include <termcap.h>
 # include <curses.h>
@@ -43,6 +44,7 @@
 //===builtins===
 # define NUM_BUILTINS 8
 
+typedef int	t_bool;
 typedef struct s_mini
 {	
 	char	*line;
@@ -55,7 +57,7 @@ typedef struct s_mini
 	char	***args; // "ls -l | hola echo dfd" ---> **args[0] = {""}; **args[1] = {"echo" "dfd"}; 
 	int		is_echo_n; //Ver si hay que usar
 	char	*is_builtin[NUM_BUILTINS + 1];
-}	t_mini;
+}			t_mini;
 
 /*	--------------------------- INIT --------------------------- */
 void	init_mini(t_mini *mini, char **envp);
@@ -80,6 +82,9 @@ int		single_command(t_mini *mini);
 //void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
 
 /*	--------------------------- ERROR ----------------------------*/
-int	print_error(char *error);
+int		print_error(char *error);
+
+/*	--------------------------- SIGNAL ---------------------------*/
+void	init_sig(void);
 
 #endif
