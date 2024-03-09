@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 21:09:26 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 22:32:48 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	num_args(char **arguments)
 	int	i;
 
 	i = 0;
-	while (arguments[i])
+    while (ft_strcmp(arguments[i], "哈") != 0)
 		i++;
 	return (i);
 }
@@ -74,7 +74,7 @@ void	not_builtin(char *command, char **arguments, t_mini *mini, int flag)
 	argv = NULL;
 	//char *arr[7] = { "hola", "paco", "hola", "paco", "hola", "paco", NULL };
 	init_mini(&mini, envp);
-	not_builtin("ping 8.8.8.8", NULL, &mini, SINGLE);
+	not_builtin("ls", NULL, &mini, SINGLE);
 	system("leaks -q minishell");
 	return (0);
 }*/

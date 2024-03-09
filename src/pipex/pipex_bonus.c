@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:52:46 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/09 21:07:29 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 22:32:12 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_exec(char *cmd, char **envp)
 		ft_putstr_fd("pipex: command not found: ", 2);
 		ft_putendl_fd(cmds[0], 2);
 		ft_free(cmds);
-		exit(0);
+		//exit(0););
+
 	}
 }
 
@@ -39,7 +40,7 @@ void	here_doc_in(char **argv, int *fd)
 		if (ft_strncmp(ret, argv[2], ft_strlen(argv[2])) == 0)
 		{
 			free(ret);
-			exit(0);
+			//exit(0););
 		}
 		ft_putstr_fd(ret, fd[1]);
 		free(ret);
@@ -51,11 +52,11 @@ void	here_doc(char **argv)
 	int		fd[2];
 	pid_t	pid;
 
-	if (pipe(fd) == -1)
-		exit(0);
+	//if (pipe(fd) == -1)
+		//exit(0););
 	pid = fork();
-	if (pid == -1)
-		exit(0);
+	//if (pid == -1)
+		//exit(0););
 	if (!pid)
 		here_doc_in(argv, fd);
 	else
@@ -71,11 +72,11 @@ void	ft_pipe(char *cmd, char **envp)
 	pid_t	pid;
 	int		fd[2];
 
-	if (pipe(fd) == -1)
-		exit(0);
+	//if (pipe(fd) == -1)
+		//exit(0););
 	pid = fork();
-	if (pid == -1)
-		exit(0);
+	//if (pid == -1)
+		//exit(0););
 	if (!pid)
 	{
 		close(fd[0]);
