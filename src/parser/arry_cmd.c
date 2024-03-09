@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:09:45 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 23:21:59 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 01:43:14 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	args_no_cmds(char ***args)
 	int	i;
 
 	i = 0;
-	if (!args || !*args || !**args)
+	if (!*args || !**args)
 	{
 		printf ("nulll!!!!!\n");
 		return ;
@@ -131,11 +131,11 @@ char	**get_args(char ***args)
 
 	new = NULL;
 	if (!*args || !**args)
-		return (arry_add(&new, "哈哈"), new);
+		return (arry_add(&new, "潨"), new);
 	if ((*args)[0] && is_strsame ((*args[0]), PIPES))
 	{
 		arry_del (args, 0);
-		arry_add(&new, "哈哈");
+		arry_add(&new, "潨");
 		return (new);
 	}
 	while ((*args)[0] && !is_strsame ((*args[0]), PIPES))
@@ -169,6 +169,7 @@ void	argss_destory(char ***argss)
 
 
 //这个函数是用来将没有基础命令且包含管道符号的数组进行处理, 并根据index返回一个三维数组, 每个数组都是对应命令的参数
+//这个函数最后会删除args内的所有元素 但是不会让**args为null 我们要手动设置
 char	***args_to_args(char ***args)
 {
 	char	***new;

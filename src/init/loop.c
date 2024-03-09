@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 23:03:23 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 01:41:53 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void shell_loop(t_mini *mini)
 		// Aquí se pueden añadir códigos para procesar el comando
 		ft_execute(mini);
 		//Clean
-		//arry_destory (mini->arg_ori);
+		//arry_destory (mini->arg_ori); no se necesita
 		mini->arg_ori = NULL;
 		arry_destory (mini->outfile);
 		mini->outfile = NULL;

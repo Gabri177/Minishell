@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/08 22:14:32 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 01:44:55 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	quote_check(char *str)
+int	quote_check(char *str) // 有问题 当"dsfsf'sds"!!!!!!!!!!!
 {
 	int	little;
 	int	big;
@@ -40,11 +40,11 @@ char	**arg_abordar(char *ori)
 	char	**new_arvs;
 
 	if (!ori)
-		return (NULL);//error
+		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	if (!ori[0])
-		return (NULL);//null context
+		return (NULL);//null context!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	if (!quote_check (ori))
-		return (NULL);//error
+		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	new_arvs = NULL;
 	split_args (&new_arvs, ori);
 	return (new_arvs);

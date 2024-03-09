@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   not_builtin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 20:05:16 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 01:45:59 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ static char	*join_args(char *command, char **arguments)
 
 void	not_builtin(char *command, char **arguments, t_mini *mini, int flag, char **envp)
 {
-	int	i;
+	//int	i;
 	char *full;
 
-	i = 0;
+	//i = 0;
+	(void)flag;
 	full = join_args(command, arguments);
 	ft_exec(full, envp);
-	flag = 0;
+	//flag = 0;
 	mini->arg_ori = NULL;
 	free (full);
 }

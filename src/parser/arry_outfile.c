@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_outfile.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:40:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/06 20:20:08 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 01:43:39 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	args_no_outfile(char ***args, char **ofile)
 	int	i;
 
 	i = 0;
-	if (!ofile || !*ofile)
+	if (!*args || !ofile || !*ofile)
 		return ;
 	while (ofile[i])
 	{

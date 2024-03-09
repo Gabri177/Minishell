@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 19:25:26 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 01:40:18 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_execute(t_mini *mini)
 
 	i = 0;
 	pipe_found = 0;
+	if (!mini->commands)
+		return (EXIT_SUCCESS);
 	while (mini->commands[i])
 	{
 		if (mini->commands[i][0] == '|')
