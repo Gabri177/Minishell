@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 22:55:36 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 01:19:39 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "../include/minishell.h"
 
-int	main(int argc, char **argv, char **envp)
+/*int	main(int argc, char **argv, char **envp)
 {
 	t_mini	mini;
 
@@ -25,4 +25,4 @@ int	main(int argc, char **argv, char **envp)
 	shell_loop(&mini);
 	(void)argv;
 	return (0);
-}
+}*/

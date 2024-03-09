@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:24:13 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/08 21:55:57 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 01:23:30 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ char	*hash_grep(t_hash *h, char *key);
 t_bool	hash_destory(t_hash	*h);
 t_bool	hash_del(t_hash	*h, char *key);
 void	hash_display(t_hash	h);
+char	**hash_to_arry(t_hash	*h);
 
 #endif
