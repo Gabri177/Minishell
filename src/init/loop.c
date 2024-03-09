@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 04:17:59 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 05:58:43 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void shell_loop(t_mini *mini)
 			//printf ("command :\n");							//Imprime el parser
 			//arry_display (mini->commands);							//Imprime el parser
 			//arry_display (mini->arg_ori);							//Imprime el parser
-			mini->args = args_to_args (&mini->arg_ori);
+			mini->args = args_to_args (mini->arg_ori);
 			//printf ("ARGSSSSSSS :\n");							//Imprime el parser
 			//argss_display(mini->args);							//Imprime el parser
 			//excuter
@@ -51,7 +51,7 @@ void shell_loop(t_mini *mini)
 		// Aquí se pueden añadir códigos para procesar el comando
 		ft_execute(mini);
 		//Clean
-		//arry_destory (mini->arg_ori); no se necesita
+		arry_destory (mini->arg_ori);
 		mini->arg_ori = NULL;
 		arry_destory (mini->outfile);
 		mini->outfile = NULL;

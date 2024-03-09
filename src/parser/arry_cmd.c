@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:09:45 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 01:43:14 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 05:55:54 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,26 +170,65 @@ void	argss_destory(char ***argss)
 
 //这个函数是用来将没有基础命令且包含管道符号的数组进行处理, 并根据index返回一个三维数组, 每个数组都是对应命令的参数
 //这个函数最后会删除args内的所有元素 但是不会让**args为null 我们要手动设置
-char	***args_to_args(char ***args)
-{
-	char	***new;
-	int		i;
-	int		len;
+// char	***args_to_args(char ***args)
+// {
+// 	char	***new;
+// 	int		i;
+// 	int		len;
 
-	if (!*args || !**args)
-		return (NULL);
-	new = NULL;
+// 	if (!*args || !**args)
+// 		return (NULL);
+// 	new = NULL;
+// 	i = 0;
+// 	args_no_cmds (args);
+// 	len = count_args (*args);
+// 	new = malloc (sizeof (char **) * (len + 1));
+// 	while (i <= len)
+// 		new[i++] = NULL;
+// 	i = 0;
+// 	while (i < len)
+// 	{
+// 		new[i] = get_args (args);
+// 		i ++;
+// 	}
+// 	return (new);
+// }
+
+// 重写的get_args函数
+char	***args_to_args(char **args)
+{
+	char	***cmds; // 存储所有命令的参数
+	int		cmds_count;
+	char	**current_args; // 当前命令的参数
+	int		i;
+
+	cmds = NULL;
+	cmds_count = 0;
+	current_args = NULL;
 	i = 0;
-	args_no_cmds (args);
-	len = count_args (*args);
-	new = malloc (sizeof (char **) * (len + 1));
-	while (i <= len)
-		new[i++] = NULL;
-	i = 0;
-	while (i < len)
+	while (args[i] != NULL)
 	{
-		new[i] = get_args (args);
-		i ++;
+		// 跳过命令本身
+		i++;
+		// 收集命令的参数直到遇到下一个命令或末尾
+		int has_args = 0;
+		while (args[i] != NULL && !is_strsame(args[i], "|"))
+		{
+			arry_add(&current_args, args[i]);
+			has_args = 1;
+			i++;
+		}
+		// 如果当前命令没有参数，则使用"哈"作为占位符
+		if (!has_args)
+			arry_add(&current_args, "哈");
+		// 保存当前命令的参数并为下一个命令准备
+		cmds_count++;
+		cmds = realloc(cmds, sizeof(char**) * (cmds_count + 1));
+		cmds[cmds_count - 1] = current_args;
+		cmds[cmds_count] = NULL; // 新增命令结束标志
+		current_args = NULL; // 重置参数列表
+		if (args[i] != NULL)
+			i++;
 	}
-	return (new);
+	return (cmds);
 }
