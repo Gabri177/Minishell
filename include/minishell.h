@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 03:43:42 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 06:03:13 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define PIPESS 0
 //===builtins===
 # define NUM_BUILTINS 8
+# define PROMPT "\x1b[1;32mminishell\x1b[0m\x1b[1;36m > \x1b[0m"
 
 typedef int	t_bool;
 typedef struct s_mini

@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 05:58:43 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 06:03:08 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void shell_loop(t_mini *mini)
 
 	while (1) 
 	{
-		printf("\x1b[1;32mminishell\x1b[0m\x1b[1;36m > \x1b[0m");
-    	line = readline("");
+    	line = readline(PROMPT);
 		//line = readline("minishell>");
 		if (line == NULL)
 		{
