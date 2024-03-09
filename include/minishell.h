@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 19:53:14 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 20:23:41 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		ft_exit(char *line);
 /*	-------------------------- EXECUTE ---------------------------*/
 int		ft_execute(t_mini *mini);
 int		single_command(t_mini *mini);
-//void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
+void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
 
 /*	--------------------------- ERROR ----------------------------*/
 int		print_error(char *error);

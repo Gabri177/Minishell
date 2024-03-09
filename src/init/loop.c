@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 17:59:59 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 21:11:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ void shell_loop(t_mini *mini)
 			mini->arg_ori = arg_abordar (line);
 			free(line);
 			line = NULL;
-			//printf ("original :\n");
-			//arry_display (mini->arg_ori);
+			//printf ("original :\n");							//Imprime el parser
+			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->outfile = args_to_outfile (&mini->arg_ori);
-			//printf ("outfile :\n");
-			//arry_display (mini->outfile);
+			//printf ("outfile :\n");							//Imprime el parser
+			//arry_display (mini->outfile);							//Imprime el parser
 			mini->commands = args_to_cmds (&mini->arg_ori);
 			//printf ("command :\n");							//Imprime el parser
 			//arry_display (mini->commands);							//Imprime el parser
 			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->args = args_to_args (mini->arg_ori);
 			//printf ("ARGSSSSSSS :\n");							//Imprime el parser
-			//isplay(mini->args);							//Imprime el parser
+			//arry_display (*mini->args);							//Imprime el parser
 		}
 		// Aquí se pueden añadir códigos para procesar el comando
 		ft_execute(mini);

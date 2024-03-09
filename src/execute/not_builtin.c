@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   not_builtin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 01:45:59 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 21:09:26 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-static char	*join_args(char *command, char **arguments)
+static char *join_args(char *command, char **arguments)
 {
-	int i;
-	int size;
-	char *full;
-	char *space;
+	int		i;
+	int		size;
+	char	*full;
+	char	*temp;
 
 	i = 0;
 	size = 0;
-	space = " ";
 	while (arguments[size])
 		size++;
+
 	full = ft_strdup(command);
 	while (i < size)
 	{
-		char *temp = ft_strjoin(full, space);
+		temp = ft_strjoin(full, " ");
 		free(full);
 		full = temp;
 		temp = ft_strjoin(full, arguments[i]);
@@ -38,18 +38,33 @@ static char	*join_args(char *command, char **arguments)
 	return (full);
 }
 
-void	not_builtin(char *command, char **arguments, t_mini *mini, int flag, char **envp)
+static int	num_args(char **arguments)
 {
-	//int	i;
-	char *full;
+	int	i;
 
-	//i = 0;
+	i = 0;
+	while (arguments[i])
+		i++;
+	return (i);
+}
+
+void	not_builtin(char *command, char **arguments, t_mini *mini, int flag)
+{
+	char	*full;
+	char	**envp;
+	int		num_arg;
+
+	envp = hash_to_arry(mini->hash_env);
+	num_arg = num_args(arguments);
+	if (num_arg >= 1)
+	{
+		full = join_args(command, arguments);
+		ft_exec(full, envp);
+	}
+	else
+		ft_exec(command, envp);
+	free(envp);
 	(void)flag;
-	full = join_args(command, arguments);
-	ft_exec(full, envp);
-	//flag = 0;
-	mini->arg_ori = NULL;
-	free (full);
 }
 
 /*int	main(int argc, char **argv, char **envp)
@@ -57,16 +72,9 @@ void	not_builtin(char *command, char **arguments, t_mini *mini, int flag, char *
 	t_mini mini;
 	argc = 0;
 	argv = NULL;
-	char *arr[7];
-	arr[0] = NULL;
-	arr[1] = "paco";
-	arr[2] = "hola";
-	arr[3] = "paco";
-	arr[4] = "hola";
-	arr[5] = "paco";
-	arr[6] = NULL;
+	//char *arr[7] = { "hola", "paco", "hola", "paco", "hola", "paco", NULL };
 	init_mini(&mini, envp);
-	not_builtin("ls", arr, &mini, SINGLE, envp);
+	not_builtin("ping 8.8.8.8", NULL, &mini, SINGLE);
 	system("leaks -q minishell");
 	return (0);
 }*/
