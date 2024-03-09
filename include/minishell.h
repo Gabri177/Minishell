@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 00:17:32 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 00:51:53 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "../Libft/libft.h"
 # include "parser.h"
-# include "init.h"
-# include "builtins.h"
 # include "pipex.h"
 # include "hash.h"
 # include <stdio.h>
@@ -47,15 +45,15 @@
 
 typedef int	t_bool;
 typedef struct s_mini
-{	
+{
 	char	*line;
 	char	**arg_ori;
 	t_hash	*hash_env;
 	char	**paths;
 	char	*infile; //ABSOLUTE DIRECTION
 	char	**outfile; //ABSOLUTE DIRECTION
-	char	**commands; // "ls -l | hola echo dfd" ----> *commands[0] = "ls -l" *command[1] = "|" *command[2] = "hola"
-	char	***args; // "ls -l | hola echo dfd" ---> **args[0] = {""}; **args[1] = {"echo" "dfd"}; 
+	char	**commands; // "ls -l | hola echo dfd" ----> "ls -l" "|" "hola"
+	char	***args; // "ls -l | hola echo dfd" ---> {""} {"echo" "dfd"}; 
 	int		is_echo_n; //Ver si hay que usar
 	char	*is_builtin[NUM_BUILTINS + 1];
 }			t_mini;
@@ -83,7 +81,6 @@ int		single_command(t_mini *mini);
 void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
 void	ft_exec_single(char *cmd, char **envp);
 
-
 /*	--------------------------- ERROR ----------------------------*/
 int		print_error(char *error);
 
@@ -91,6 +88,6 @@ int		print_error(char *error);
 void	init_sig(void);
 
 /*	---------------------------- FREE ----------------------------*/
-void ft_free_four(char **one, char **two, char **three, char **four);
+void	ft_free_four(char **one, char **two, char **three, char **four);
 
 #endif

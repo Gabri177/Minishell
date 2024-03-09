@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:36:30 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/04 22:38:25 by javgao           ###   ########.fr       */
+/*   Created: 2024/02/09 11:53:26 by jjuarez-          #+#    #+#             */
+/*   Updated: 2024/03/10 00:48:41 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#ifndef PIPEX_BONUS_H
+# define PIPEX_BONUS_H
 
-# include "minishell.h"
-
-//void	init_mini(t_mini *mini, int argc, char **argv, char **envp);
+void	ft_exit_pipex(int n_exit);
+int		ft_open(char *file, int n);
+char	*ft_envp(char *variable, char **envp);
+char	*ft_path(char *cmd, char **envp);
+void	ft_exec(char *cmd, char **envp);
+void	ft_free(char **arr);
+int		pipex_bonus(int argc, char **argv, char **envp);
 
 #endif
