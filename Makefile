@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+         #
+#    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/09 03:23:44 by yugao            ###   ########.fr        #
+#    Updated: 2024/03/09 15:06:21 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PIPEX		= pipex_bonus.c pipex_utils_bonus.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_main.c hash_utils.c hash.c
 EXECUTE		= execute.c single_command.c not_builtin.c
-SIGNALS		= sig_func.c
+SIGNALS		= #sig_func.c
 SOURCES		= src/main.c $(addprefix ./src/builtins/, $(BUILTINS)) $(addprefix ./src/init/, $(INIT)) \
 			$(addprefix ./src/parser/, $(PARSER)) $(addprefix ./src/pipex/, $(PIPEX)) $(addprefix ./src/signals/, $(SIGNALS)) \
 			$(addprefix ./src/error/, $(ERROR)) $(addprefix ./src/hash/, $(HASH)) $(addprefix ./src/execute/, $(EXECUTE))
@@ -31,7 +31,7 @@ INCLUDE		= ./include/
 
 OBJECTS		= $(SOURCES:.c=.o)
 
-READLINE_LIB = -L/usr/local/opt/readline/lib -lreadline -lhistory
+READLINE_LIB = -L/usr/local/opt/readline/lib -lreadline #-lhistory
 READLINE_INC = -I/usr/local/opt/readline/include
 
 $(NAME): $(OBJECTS) $(LIBFT)
