@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 22:32:48 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 00:23:07 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	num_args(char **arguments)
 	int	i;
 
 	i = 0;
-    while (ft_strcmp(arguments[i], "哈") != 0)
+	while (arguments[i] != '\0' && ft_strcmp(arguments[i], "哈") != 0)
 		i++;
 	return (i);
 }
@@ -59,10 +59,10 @@ void	not_builtin(char *command, char **arguments, t_mini *mini, int flag)
 	if (num_arg >= 1)
 	{
 		full = join_args(command, arguments);
-		ft_exec(full, envp);
+		ft_exec_single(full, envp);
 	}
 	else
-		ft_exec(command, envp);
+		ft_exec_single(command, envp);
 	free(envp);
 	(void)flag;
 }

@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:06 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/09 22:31:57 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 00:18:06 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_exit_pipex(int n_exit)
 {
 	if (n_exit == 1)
 		ft_putstr_fd("./pipex file1 cmd1 cmd2 file1\n", 2);
-	//exit(0););
+	exit(0);
 }
 
 int	ft_open(char *file, int status)
@@ -29,8 +29,8 @@ int	ft_open(char *file, int status)
 		ret = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (status == 2)
 		ret = open(file, O_WRONLY | O_CREAT | O_APPEND, 0777);
-	//if (ret == -1)
-		//exit(0););
+	if (ret == -1)
+		exit(0);
 	return (ret);
 }
 
