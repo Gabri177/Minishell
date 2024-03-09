@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 00:42:04 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 00:55:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_exec_single(char *cmd, char **envp)
 		{
 			ft_putstr_fd("command not found: ", 2);
 			ft_putendl_fd(cmds[0], 2);
-			exit(EXIT_FAILURE);
+			return ;
 		}
 	}
 	else if (pid < 0)

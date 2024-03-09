@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 00:51:53 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 00:56:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../Libft/libft.h"
 # include "parser.h"
-# include "pipex.h"
+# include "pipex_bonus.h"
 # include "hash.h"
 # include <stdio.h>
 # include <stdlib.h>
