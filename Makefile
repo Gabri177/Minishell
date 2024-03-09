@@ -6,7 +6,7 @@
 #    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/09 17:40:04 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/09 19:54:06 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,11 @@ ERROR		= print_error.c
 HASH		= hash_list.c hash_main.c hash_utils.c hash.c
 EXECUTE		= execute.c single_command.c not_builtin.c
 SIGNALS		= sig_func.c
+FREE		= ft_free_four.c
 SOURCES		= src/main.c $(addprefix ./src/builtins/, $(BUILTINS)) $(addprefix ./src/init/, $(INIT)) \
 			$(addprefix ./src/parser/, $(PARSER)) $(addprefix ./src/pipex/, $(PIPEX)) $(addprefix ./src/signals/, $(SIGNALS)) \
-			$(addprefix ./src/error/, $(ERROR)) $(addprefix ./src/hash/, $(HASH)) $(addprefix ./src/execute/, $(EXECUTE))
+			$(addprefix ./src/error/, $(ERROR)) $(addprefix ./src/hash/, $(HASH)) $(addprefix ./src/execute/, $(EXECUTE)) \
+			$(addprefix ./src/free/, $(FREE))
 			
 LIBFT		= Libft/libft.a
 INCLUDE		= ./include/

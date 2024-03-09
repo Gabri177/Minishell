@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 17:39:37 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 19:53:14 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,8 @@ int		print_error(char *error);
 
 /*	--------------------------- SIGNAL ---------------------------*/
 void	init_sig(void);
+
+/*	---------------------------- FREE ----------------------------*/
+void ft_free_four(char **one, char **two, char **three, char **four);
 
 #endif

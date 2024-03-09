@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free_four.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/03 18:33:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 19:59:13 by javgao           ###   ########.fr       */
+/*   Created: 2024/03/09 19:48:04 by javgao            #+#    #+#             */
+/*   Updated: 2024/03/09 19:52:26 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"
+#include "../../include/minishell.h"
 
-int	main(int argc, char **argv, char **envp)
+void ft_free_four(char **one, char **two, char **three, char **four)
 {
-	t_mini	mini;
-
-	if (argc > 1)
-		return(print_error("More than one argument"));
-	init_mini (&mini, envp);
-	init_sig ();
-	rl_on_new_line();
-	shell_loop(&mini);
-	hash_destory(mini.hash_env);
-	(void)argv;
-	return (0);
+	free(*one);
+	free(*two);
+	free(*three);
+	free(*four);
+	*one = NULL;
+	*two = NULL;
+	*three = NULL;
+	*four = NULL;
 }
