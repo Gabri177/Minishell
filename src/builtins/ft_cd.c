@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 13:45:59 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 16:59:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,9 @@ static int	cd_dot_dot(t_mini *mini)
 
 int	ft_cd(t_mini *mini, char *argument)
 {
-	if (argument == NULL || !*argument)
+	if (hash_grep(mini->hash_env, "OLDPWD") == NULL)
+		hash_push(mini->hash_env, "OLDPWD=", ft_substr(hash_grep(mini->hash_env, "PWD"), 4, ft_strlen(hash_grep(mini->hash_env, "PWD"))));
+	if (argument == NULL || !*argument || ft_strcmp(argument, "哈") == 0)
 		return (cd_no_arg(mini));
 	else if (ft_strcmp(argument, "..") == 0)
 		return(cd_dot_dot(mini));
@@ -91,16 +93,14 @@ int	ft_cd(t_mini *mini, char *argument)
 	return (EXIT_SUCCESS);
 }
 
-//////////////////////////////////////////////////////////// cd should update PWD and OLD_PWD ENV esto lo haré con las funciones export
-
-/*int	main(int argc, char **argv, char **envp)				//Con leaks
+/*int	main(int argc, char **argv, char **envp)
 {
 	t_mini 	mini;
 	argc = 0;
 	argv = NULL;
 	init_env(&mini, envp);
 	hash_display(*mini.hash_env);
-	ft_cd(&mini, "Libft");
+	ft_cd(&mini, NULL);
 	hash_display(*mini.hash_env);
 	hash_destory(mini.hash_env);
 	system("leaks -q minishell");

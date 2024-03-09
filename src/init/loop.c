@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 06:03:08 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 17:59:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void shell_loop(t_mini *mini)
 	{
     	line = readline(PROMPT);
 		//line = readline("minishell>");
-		if (line == NULL)
+		if (line == NULL || ft_exit(line) == TRUE)
 		{
+			if (line)
+				free(line);
 			printf("\x1b[1;32mminishell\x1b[0m\x1b[1;36m > \x1b[0mexit");
 			break ;
 		}
@@ -44,8 +46,7 @@ void shell_loop(t_mini *mini)
 			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->args = args_to_args (mini->arg_ori);
 			//printf ("ARGSSSSSSS :\n");							//Imprime el parser
-			//argss_display(mini->args);							//Imprime el parser
-			//excuter
+			//isplay(mini->args);							//Imprime el parser
 		}
 		// Aquí se pueden añadir códigos para procesar el comando
 		ft_execute(mini);

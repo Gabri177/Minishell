@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 23:00:15 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 17:30:06 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	exec_builtin(char *command, char **arguments, t_mini *mini)
 		ft_echo(mini, arguments, FALSE);
 	else if (ft_strcmp("echo -n", command) == 0)
 		ft_echo(mini, arguments, TRUE);
-	/*else if (ft_strcmp("cd", command) == 0)
-		ft_cd(mini);*/
+	else if (ft_strcmp("cd", command) == 0)
+		ft_cd(mini, arguments[0]);
 	else if (ft_strcmp("pwd", command) == 0)
 		ft_pwd(mini);
 	else if (ft_strcmp("export", command) == 0)
@@ -42,8 +42,6 @@ void	exec_builtin(char *command, char **arguments, t_mini *mini)
 		ft_unset(mini, mini->args[0][0]);
 	else if (ft_strcmp("env", command) == 0)
 		ft_env(mini);
-	/*else if (ft_strcmp("exit", command) == 0)
-		ft_exit(mini);*/
 }
 
 /*

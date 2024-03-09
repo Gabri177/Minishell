@@ -6,16 +6,27 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/07 12:12:25 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/09 18:01:12 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
 //Esta es super fáci hay que liberar todo y exit
-int	ft_exit(t_mini *mini)
+int	ft_exit(char *line)
 {
-	mini->args = NULL; //Para que no salga unused variable
-	printf("por hacer\n\n\n\n\n\n\n\n");
-	return (TRUE);
+	int		spaces;
+	char	*exit;
+
+	spaces  = 0;
+	while (line[spaces] == ' ')
+		spaces++;
+	exit = ft_substr(line, spaces, ft_strlen(line));
+	if (exit[4] == ' ' || (exit[4] >=  9 && exit[4] <= 13) || exit[4] == '\0')
+	{
+		if (ft_strncmp(exit, "exit", 3) == 0)
+			return (TRUE);
+	}
+	free(exit);
+	return (FALSE);
 }

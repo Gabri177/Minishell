@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 06:03:13 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/09 17:39:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define SINGLE 1
 # define PIPESS 0
 //===builtins===
-# define NUM_BUILTINS 8
+# define NUM_BUILTINS 7
 # define PROMPT "\x1b[1;32mminishell\x1b[0m\x1b[1;36m > \x1b[0m"
 
 typedef int	t_bool;
@@ -75,7 +75,7 @@ int		ft_pwd(t_mini *mini);
 int		ft_export(t_mini *mini, char *variable);
 int		ft_unset(t_mini	*mini, char *variable);
 int		ft_env(t_mini *mini);
-int		ft_exit(t_mini *mini);
+int		ft_exit(char *line);
 
 /*	-------------------------- EXECUTE ---------------------------*/
 int		ft_execute(t_mini *mini);
