@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 17:31:07 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 18:09:41 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void shell_loop(t_mini *mini)
 
 	while (1) 
 	{
-    	line = readline(PROMPT);
+		printf(PROMPT);
+    	line = readline("");
 		//line = readline("minishell>");
 		if (line == NULL || ft_exit(line) == TRUE)
 		{

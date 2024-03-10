@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:56:51 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 18:09:53 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	is_builtin(char *command, t_mini *mini)
 
 void	exec_builtin(char *command, char **arguments, t_mini *mini)
 {
+	if (ft_strcmp(arguments[0], "哈") == 0 || ft_strcmp(arguments[0], "空") == 0)
+		arguments[0] = NULL;
+	//|| ft_strcmp(arguments[0], "空") == 0) //bucle
 	if (ft_strcmp("echo", ft_lower(command)) == 0)
 		ft_echo(mini, arguments, FALSE);
 	else if (ft_strcmp("echo -n", ft_lower(command)) == 0)
