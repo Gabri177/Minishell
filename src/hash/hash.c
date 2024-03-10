@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:30:00 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/10 01:43:56 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 15:27:32 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	*hash_grep(t_hash *h, char *key)
 	int		index;
 	t_node	*tem;
 
+	//printf ("key:%s %lu\n", key, strlen(key));
 	index = hash_func (key);
 	if (!h->bucket[index])
 		return (NULL);
@@ -66,6 +67,7 @@ char	*hash_grep(t_hash *h, char *key)
 			return (tem->val);
 		tem = tem->next;
 	}
+	//printf ("null!\n");
 	return (NULL);
 }
 

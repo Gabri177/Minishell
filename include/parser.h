@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:45 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/09 05:45:54 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/10 14:17:01 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ void	argss_display(char ***args);
 char	**arg_abordar(char *ori);
 int		arry_count(char **arys);
 int		count_args(char **args);
+
 #endif

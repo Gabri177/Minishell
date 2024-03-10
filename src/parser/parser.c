@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/09 01:44:55 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/10 14:47:51 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ char	**arg_abordar(char *ori)
 		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	if (!ori[0])
 		return (NULL);//null context!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	if (!quote_check (ori))
-		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	/* if (!quote_check (ori))
+		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 	new_arvs = NULL;
 	split_args (&new_arvs, ori);
 	return (new_arvs);

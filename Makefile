@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
+#    By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/10 01:55:14 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/10 13:05:17 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 BUILTINS	= builtin.c ft_echo.c ft_cd.c ft_pwd.c ft_export.c ft_unset.c ft_env.c ft_exit.c
 INIT		= init.c loop.c
-PARSER		= arry_chr1.c arry_chr2.c arry_strs1.c arry_strs2.c arry_utils.c parser.c arry_outfile.c arry_cmd.c
+PARSER		= arry_chr1.c arry_chr2.c arry_strs1.c arry_strs2.c arry_utils.c parser.c arry_outfile.c arry_cmd.c expand.c
 PIPEX		= pipex_bonus.c pipex_utils_bonus.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_utils.c hash.c

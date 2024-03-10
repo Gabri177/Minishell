@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 02:23:45 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/10 14:17:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,8 @@ void	ft_free_four(char **one, char **two, char **three, char **four);
 
 /*	---------------------------- UTILS ----------------------------*/
 char	*ft_lower(char *str);
+
+/*	---------------------------- EXPAND ----------------------------*/
+char	**split_filter(char **args, t_hash *hash);
 
 #endif
