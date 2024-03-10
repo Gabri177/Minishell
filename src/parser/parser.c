@@ -6,33 +6,35 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/10 14:47:51 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 20:30:29 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	quote_check(char *str) // 有问题 当"dsfsf'sds"!!!!!!!!!!!
+int	quote_check(char *str)
 {
-	int	little;
-	int	big;
-	int	i;
-
-	little = 0;
-	big = 0;
-	i = -1;
-	while (str[++i])
+	while (*str)
 	{
-		if (str[i] == 34)
-			little ++;
-		if (str[i] == 39)
-			big ++;
+		if (*str == '\'')
+		{
+			str ++;
+			while (*str && *str != '\'')
+				str ++;
+			if (!*str)
+				return (-1);
+		}
+		else if (*str == '\"')
+		{
+			str ++;
+			while (*str && *str != '\"')
+				str ++;
+			if (!*str)
+				return (-1);
+		}
+		str ++;
 	}
-	if (little > 0 && little % 2 != 0)
-		return (FALSE);
-	if (big > 0 && big % 2 != 0)
-		return (FALSE);
-	return (TRUE);
+	return (1);
 }
 
 char	**arg_abordar(char *ori)
@@ -43,8 +45,8 @@ char	**arg_abordar(char *ori)
 		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	if (!ori[0])
 		return (NULL);//null context!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	/* if (!quote_check (ori))
-		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+	if (quote_check (ori) == -1)
+		return (print_error("Those quotes are not pared!"), NULL);
 	new_arvs = NULL;
 	split_args (&new_arvs, ori);
 	return (new_arvs);

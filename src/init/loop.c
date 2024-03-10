@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 18:09:41 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 20:31:22 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void shell_loop(t_mini *mini)
 
 	while (1) 
 	{
-		printf(PROMPT);
-    	line = readline("");
+    	line = readline(PROMPT);
 		//line = readline("minishell>");
 		if (line == NULL || ft_exit(line) == TRUE)
 		{
@@ -37,6 +36,8 @@ void shell_loop(t_mini *mini)
 		{
 			add_history(line);
 			mini->arg_ori = arg_abordar (line);
+			if (!mini->arg_ori)
+				continue ;
 			free(line);
 			//arry_display (mini->arg_ori);
 			mini->arg_ori = split_filter (mini->arg_ori, mini->hash_env);
