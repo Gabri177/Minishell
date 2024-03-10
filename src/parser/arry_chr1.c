@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_chr1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:39 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 22:54:24 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 02:19:35 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,22 +80,25 @@ static void	is_chr_quote(char **c, char ***new_args, char **new_arg)
 
 	if (**c == QUOTE_LIT)
 		mark = QUOTE_LIT;
-	if (**c == QUOTE_BIG)
+	else if (**c == QUOTE_BIG)
 		mark = QUOTE_BIG;
-	if (**c == mark)
+	else
+		return ;
+	if (*(*c - 1) == ' ')
+		arry_refresh (new_args, new_arg);
+	if (**c == QUOTE_BIG)
+		chr_add (new_arg, **c);//这里我加上了引号 no he quitado las commillas, si las necesitamos quitar. Las borramos.
+	(*c) += 1;
+	while (**c != mark && **c)
 	{
-		arry_refresh (new_args, new_arg);
-			chr_add (new_arg, **c);//这里我加上了引号 no he quitado las commillas, si las necesitamos quitar. Las borramos.
-		(*c) += 1;
-		while (**c != mark && **c)
-		{
-			chr_add (new_arg, **c);
-			(*c) += 1;
-		}
-			chr_add (new_arg, **c);//这里我加上了引号 no he quitado las commillas, si las necesitamos quitar. Las borramos.
-		arry_refresh (new_args, new_arg);
+		chr_add (new_arg, **c);
 		(*c) += 1;
 	}
+	if (**c == QUOTE_BIG)
+		chr_add (new_arg, **c);//这里我加上了引号 no he quitado las commillas, si las necesitamos quitar. Las borramos.
+	if (*(*c + 1) && *(*c + 1) == ' ')
+		arry_refresh (new_args, new_arg);
+	//(*c) += 1;
 }
 
 //控制tem指针的位置将空格跳过去

@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:09:45 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 05:55:54 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/10 02:22:48 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,8 @@ char	***args_to_args(char **args)
 	char	**current_args; // 当前命令的参数
 	int		i;
 
+	if (!args || !*args || !**args)
+		return (NULL);
 	cmds = NULL;
 	cmds_count = 0;
 	current_args = NULL;

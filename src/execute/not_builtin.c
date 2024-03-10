@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   not_builtin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:41:36 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 02:16:27 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ static int	num_args(char **arguments)
 	int	i;
 
 	i = 0;
-	while (arguments[i] != '\0' && ft_strcmp(arguments[i], "哈") != 0)
+	if (*arguments && ft_strcmp(arguments[0], "哈") == 0)
+		return (0);
+	while (arguments[i])
 		i++;
 	return (i);
 }

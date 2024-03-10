@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:06:04 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 02:19:03 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void shell_loop(t_mini *mini)
 		if (line == NULL || ft_exit(line) == TRUE)
 		{
 			if (line)
+			{
 				free(line);
+				break ;
+			}
 			printf("\x1b[1;32mminishell\x1b[0m\x1b[1;36m > \x1b[0mexit");
 			break ;
 		}

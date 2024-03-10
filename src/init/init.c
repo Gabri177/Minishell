@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 17:35:11 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 02:24:06 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,21 @@ void	init_env(t_mini *mini, char **envp)
 		i++;
 	}
 }
+
+void	welcom(void)
+{
+	printf(WELCOM1);
+	printf(WELCOM2);
+	printf(WELCOM3);
+	printf(WELCOM4);
+	printf(WELCOM5);
+	printf(WELCOM6);
+	printf(WELCOM7);
+	printf(WELCOM8);
+	printf(WELCOM9);
+	printf("\033[0m\n");
+}
+
 
 /* void	init_reset(t_mini)
 {
