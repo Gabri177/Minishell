@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:31:39 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:56:51 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ int	is_builtin(char *command, t_mini *mini)
 
 void	exec_builtin(char *command, char **arguments, t_mini *mini)
 {
-	if (ft_strcmp("echo", command) == 0)
+	if (ft_strcmp("echo", ft_lower(command)) == 0)
 		ft_echo(mini, arguments, FALSE);
-	else if (ft_strcmp("echo -n", command) == 0)
+	else if (ft_strcmp("echo -n", ft_lower(command)) == 0)
 		ft_echo(mini, arguments, TRUE);
-	else if (ft_strcmp("cd", command) == 0)
+	else if (ft_strcmp("cd", ft_lower(command)) == 0)
 		ft_cd(mini, arguments[0]);
-	else if (ft_strcmp("pwd", command) == 0)
+	else if (ft_strcmp("pwd", ft_lower(command)) == 0)
 		ft_pwd(mini);
-	else if (ft_strcmp("export", command) == 0)
+	else if (ft_strcmp("export", ft_lower(command)) == 0)
 		ft_export(mini, mini->args[0][0]);
-	else if (ft_strcmp("unset", command) == 0)
+	else if (ft_strcmp("unset", ft_lower(command)) == 0)
 		ft_unset(mini, mini->args[0][0]);
-	else if (ft_strcmp("env", command) == 0)
+	else if (ft_strcmp("env", ft_lower(command)) == 0)
 		ft_env(mini);
 }

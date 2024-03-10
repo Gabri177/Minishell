@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:16:20 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:55:57 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,8 @@ void	init_sig(void);
 
 /*	---------------------------- FREE ----------------------------*/
 void	ft_free_four(char **one, char **two, char **three, char **four);
+
+/*	---------------------------- UTILS ----------------------------*/
+char	*ft_lower(char *str);
 
 #endif
