@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_cmd.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:09:45 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 02:22:48 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/10 21:52:11 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,6 @@ int	count_args(char **args)
 		i ++;
 	}
 	return (n);
-}
-
-void	argss_display(char ***args)
-{
-	int	i;
-
-	i = 0;
-	if (!args || !*args)
-		return ;
-	while (args[i])
-	{
-		arry_display (args[i]);
-		i ++;
-	}
 }
 
 //传入合并命令后的ori数组 一般在用完args_to_cmd后使用, 我们会得到去掉simple command后的ori_args数组

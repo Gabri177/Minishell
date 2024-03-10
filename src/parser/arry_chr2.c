@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_chr2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:52:07 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/05 01:01:02 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/10 21:52:16 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,18 @@ int	is_not_key(char c)
 		&& c != QUOTE_BIG && c != QUOTE_LIT)
 		return (TRUE);
 	return (FALSE);
+}
+
+void	argss_display(char ***args)
+{
+	int	i;
+
+	i = 0;
+	if (!args || !*args)
+		return ;
+	while (args[i])
+	{
+		arry_display (args[i]);
+		i ++;
+	}
 }

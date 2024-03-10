@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_chr1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:39 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/10 20:23:17 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 21:51:34 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ static void	is_chr_special(char **c, char ***new_args, char **new_arg)
 			arry_add (new_args, BIGS);
 		if (**c == LIT)
 			arry_add (new_args, LITS);
-		//(*c) += 1;
 	}
 }
 
@@ -86,14 +85,14 @@ static void	is_chr_quote(char **c, char ***new_args, char **new_arg)
 		return ;
 	if (*(*c - 1) == ' ')
 		arry_refresh (new_args, new_arg);
-	chr_add (new_arg, **c);//这里我加上了引号 no he quitado las commillas, si las necesitamos quitar. Las borramos.
+	chr_add (new_arg, **c);
 	(*c) += 1;
 	while (**c != mark && **c)
 	{
 		chr_add (new_arg, **c);
 		(*c) += 1;
 	}
-	chr_add (new_arg, **c);//这里我加上了引号 no he quitado las commillas, si las necesitamos quitar. Las borramos.
+	chr_add (new_arg, **c);
 	if (*(*c + 1) && *(*c + 1) == ' ')
 		arry_refresh (new_args, new_arg);
 }
@@ -109,9 +108,12 @@ static void	skip_space(char **tem)
 //将一个字符串进行分割， 碰到< > | " ' 和几个符号进行分割， 目前的问题是当有两个引号同时围住一个元素的时候
 //会按照最近的阔考进行配对
 //在这个函数中 ori这个参数是函数使用者负责 如果是申请的变量要用户去释放， 函数内不对ori这个参数进行释放
-// Dividir una cadena en partes, al encontrarse con los símbolos < > | " ' se realizará la división. 
-//El problema actual es que cuando dos comillas rodean un elemento, se emparejarán según la comilla más cercana.
-// En esta función, el parámetro ori es responsabilidad del usuario. Si es una variable asignada, el usuario debe liberarla.
+// Dividir una cadena en partes, al encontrarse con los 
+//símbolos < > | " ' se realizará la división. 
+//El problema actual es que cuando dos comillas rodean un elemento, 
+//se emparejarán según la comilla más cercana.
+// En esta función, el parámetro ori es responsabilidad 
+//del usuario. Si es una variable asignada, el usuario debe liberarla.
 //La función no liberará el parámetro ori.
 void	split_args(char ***args, char *ori)
 {
