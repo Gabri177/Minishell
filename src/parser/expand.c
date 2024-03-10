@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 13:05:27 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 17:32:08 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 20:22:53 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ char	**split_filter(char **args, t_hash *hash)
 	return (NULL);
 	while (args[i])
 	{
-		if (!is_strsame ("\"\"", args[i]) && !is_strsame ("\"\"", args[i]))
+		if (!is_strsame ("\"\"", args[i]) && !is_strsame ("\'\'", args[i]))
 		{
 			filt = split_arg_filter (args[i], hash);
 			//printf ("new:!%s!", filt);
@@ -152,7 +152,7 @@ char	**split_filter(char **args, t_hash *hash)
 			filt = NULL;
 		}
 		else
-			arry_add (&new, "空");
+			arry_add (&new, "\b");
 		i ++;
 	}
 	arry_destory (args);

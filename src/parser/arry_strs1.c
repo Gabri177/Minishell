@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_strs1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:36 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/07 22:06:01 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/10 20:23:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	arry_count(char **arys)
 	return (i);
 }
 
-//我们这个函数不单单是对原字符串数组的拷贝, 我们申请多一个空间, 然后将原来的字符串数组销毁
+//我们这个函数不单单是对原字符串数组的拷贝, 我们申请多一个\b间, 然后将原来的字符串数组销毁
 // Esta función no es simplemente una copia del arreglo de cadenas original.
 //Nosotros solicitamos un espacio adicional y luego destruimos el arreglo de cadenas original.
 static char	**arry_cpy(char **ary)

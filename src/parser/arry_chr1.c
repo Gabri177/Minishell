@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_chr1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:46:39 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/10 16:49:42 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 20:23:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static void	is_chr_quote(char **c, char ***new_args, char **new_arg)
 		arry_refresh (new_args, new_arg);
 }
 
-//控制tem指针的位置将空格跳过去
+//控制tem指针的位置将\b格跳过去
 //controtar el puntero *tem para saltar a los espacios
 static void	skip_space(char **tem)
 {
