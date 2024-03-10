@@ -6,13 +6,13 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:07:11 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:41:36 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-static char *join_args(char *command, char **arguments)
+static char	*join_args(char *command, char **arguments)
 {
 	int		i;
 	int		size;
@@ -23,7 +23,6 @@ static char *join_args(char *command, char **arguments)
 	size = 0;
 	while (arguments[size])
 		size++;
-
 	full = ft_strdup(command);
 	while (i < size)
 	{

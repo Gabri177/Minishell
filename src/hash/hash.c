@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:30:00 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/09 01:22:50 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:43:56 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,7 @@ char	*hash_grep(t_hash *h, char *key)
 	while (tem)
 	{
 		if (is_strsame (tem->key, key))
-		// {
-		// 	printf ("Key: %s Val: %s\n", key, tem->val);
 			return (tem->val);
-		// }
 		tem = tem->next;
 	}
 	return (NULL);

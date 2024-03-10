@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:30:52 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/09 01:23:20 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:44:22 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	list_print(t_node *l)
 		tem = tem->next;
 	}
 }
+
 char	**hash_to_arry(t_hash	*h)
 {
 	int		i;
@@ -70,7 +71,7 @@ char	**hash_to_arry(t_hash	*h)
 		if (h->bucket[i])
 		{
 			cur = h->bucket[i]->next;
-			while(cur)
+			while (cur)
 			{
 				arry_add (&new, cur->val);
 				cur = cur->next;

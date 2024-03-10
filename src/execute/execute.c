@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 22:28:49 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:41:12 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_execute(t_mini *mini)
 {
-	int i;
+	int	i;
 	int	pipe_found;
 
 	i = 0;
@@ -25,8 +25,7 @@ int	ft_execute(t_mini *mini)
 	{
 		if (mini->commands[i][0] == '|')
 		{
-			printf("PIPEXXXX: De momento estoy con single command ya mañana pipex\n\n\n");
-			//Gestionar el pipex
+			printf("PIPEXXXX: ya mañana pipex\n\n\n");
 			pipe_found = 1;
 		}
 		i++;

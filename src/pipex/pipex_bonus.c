@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:52:46 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/10 01:00:56 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:45:50 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_exec(char *cmd, char **envp)
 	char	*path;
 
 	cmds = ft_split(cmd, " ");
-	path = ft_path(cmds[0], envp);				//cambiar esto para hacer con hash_grep
+	path = ft_path(cmds[0], envp);
 	if (execve(path, cmds, envp) == -1)
 	{
 		ft_putstr_fd("pipex: command not found: ", 2);

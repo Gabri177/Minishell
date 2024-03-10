@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:17:48 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:42:12 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ void	ft_exec_single(char *cmd, char **envp)
 	char	**cmds;
 	char	*path;
 	int		status;
+	pid_t	pid;
 
 	cmds = ft_split(cmd, " ");
 	path = ft_path(cmds[0], envp);
-	pid_t pid = fork();
+	pid = fork();
 	if (pid == 0)
 	{
 		if (execve(path, cmds, envp) == -1)
@@ -35,6 +36,7 @@ void	ft_exec_single(char *cmd, char **envp)
 	else
 		waitpid(pid, &status, 0);
 }
+
 int	single_command(t_mini *mini)
 {
 	if (is_builtin(mini->commands[0], mini) == TRUE)
