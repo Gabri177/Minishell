@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:52:46 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/10 00:18:36 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:00:56 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	ft_exec(char *cmd, char **envp)
 		ft_putstr_fd("pipex: command not found: ", 2);
 		ft_putendl_fd(cmds[0], 2);
 		ft_free(cmds);
-		exit(0);
-
+		return ;
 	}
 }
 

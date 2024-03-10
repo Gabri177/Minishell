@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 00:56:17 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/10 01:16:20 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		ft_exit(char *line);
 int		ft_execute(t_mini *mini);
 int		single_command(t_mini *mini);
 void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
-void	ft_exec_single(char *cmd, char **envp);
+void		ft_exec_single(char *cmd, char **envp);
 
 /*	--------------------------- ERROR ----------------------------*/
 int		print_error(char *error);

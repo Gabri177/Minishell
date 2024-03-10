@@ -6,7 +6,7 @@
 #    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/09 19:54:06 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/10 01:05:23 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INIT		= init.c loop.c
 PARSER		= arry_chr1.c arry_chr2.c arry_strs1.c arry_strs2.c arry_utils.c parser.c arry_outfile.c arry_cmd.c
 PIPEX		= pipex_bonus.c pipex_utils_bonus.c
 ERROR		= print_error.c
-HASH		= hash_list.c hash_main.c hash_utils.c hash.c
+HASH		= hash_list.c hash_utils.c hash.c
 EXECUTE		= execute.c single_command.c not_builtin.c
 SIGNALS		= sig_func.c
 FREE		= ft_free_four.c
