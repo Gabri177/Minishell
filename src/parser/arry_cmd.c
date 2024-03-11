@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:09:45 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 04:06:37 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 23:33:25 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	count_args(char **args)
 	return (n);
 }
 
-char	***args_to_args(char **args)
+/* char	***args_to_args(char **args)
 {
 	char	***cmds;
 	int		cmds_count;
@@ -117,4 +117,4 @@ char	***args_to_args(char **args)
 			i ++;
 	}
 	return (cmds);
-}
+} */

@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 23:52:07 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/11 04:05:31 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 20:15:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	argss_display(char ***args)
 		i ++;
 	}
 }
+
 //销毁三维数组
 void	argss_destory(char ***argss)
 {

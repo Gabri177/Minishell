@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 16:40:59 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 23:35:52 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void shell_loop(t_mini *mini)
 			//arry_display (mini->infile);
 			//Imprime el parser
 			mini->cmds_and_args = args_to_cmds_args (mini->arg_ori);
-			printf ("cmds_and_args :\n");
-			arry_display (mini->cmds_and_args);
+			//printf ("cmds_and_args :\n");
+			//arry_display (mini->cmds_and_args);
 			mini->commands = args_to_cmds (&mini->arg_ori);
 			//printf ("command :\n");							//Imprime el parser
 			//arry_display (mini->commands);							//Imprime el parser

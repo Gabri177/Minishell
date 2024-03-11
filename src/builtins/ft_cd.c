@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:35:49 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 21:23:05 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	cd_no_arg(t_mini *mini)
 	char	*oldpwd;
 
 	if (hash_grep(mini->hash_env, "HOME") == NULL)
-		return (print_error("cd: HOME not set"));
+		return (print_error("cd: HOME not set")); //2 y revisar el resto
 	else
 	{
 		home = ft_substr(hash_grep(mini->hash_env, "HOME"), 5,
