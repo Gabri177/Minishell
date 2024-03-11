@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   not_builtin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 02:16:27 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/11 03:27:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-static char	*join_args(char *command, char **arguments)
+char	*join_args(char *command, char **arguments)
 {
 	int		i;
 	int		size;

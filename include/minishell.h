@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 03:23:43 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 03:40:06 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_mini
 	char	*is_builtin[NUM_BUILTINS + 1];
 	int		flag_infile;
 	int		flag_outfile;
+	int		argc;
 }			t_mini;
 
 /*	--------------------------- INIT --------------------------- */
@@ -93,7 +94,9 @@ int		ft_exit(char *line);
 int		ft_execute(t_mini *mini);
 int		single_command(t_mini *mini);
 void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
-void		ft_exec_single(char *cmd, char **envp);
+void	ft_exec_single(char *cmd, char **envp);
+char	*join_args(char *command, char **arguments);
+char	**arr_full_command(t_mini *mini);
 
 /*	--------------------------- ERROR ----------------------------*/
 int		print_error(char *error);
@@ -103,6 +106,7 @@ void	init_sig(void);
 
 /*	---------------------------- FREE ----------------------------*/
 void	ft_free_four(char **one, char **two, char **three, char **four);
+void	ft_free_arr(char **arr);
 
 /*	---------------------------- UTILS ----------------------------*/
 char	*ft_lower(char *str);
@@ -116,7 +120,6 @@ int		ft_open(char *file, int n);
 char	*ft_envp(char *variable, char **envp);
 char	*ft_path(char *cmd, char **envp);
 void	ft_exec(char *cmd, char **envp);
-void	ft_free(char **arr);
 void	pipex_bonus(t_mini *mini, int argc, char **argv, char **envp);
 
 #endif

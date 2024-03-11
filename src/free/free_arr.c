@@ -6,8 +6,21 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 19:32:08 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:42:57 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 03:36:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//POR hacer
+#include "../../include/minishell.h"
+
+void	ft_free_arr(char **arr)
+{
+	size_t	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}

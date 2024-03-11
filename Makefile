@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+         #
+#    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/10 13:05:17 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/11 03:41:15 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ PARSER		= arry_chr1.c arry_chr2.c arry_strs1.c arry_strs2.c arry_utils.c parser.
 PIPEX		= pipex_bonus.c pipex_utils_bonus.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_utils.c hash.c
-EXECUTE		= execute.c single_command.c not_builtin.c
+EXECUTE		= execute.c single_command.c not_builtin.c multiple_commands.c
 SIGNALS		= sig_func.c
-FREE		= ft_free_four.c
+FREE		= ft_free_four.c free_arr.c
 UTILS		= ft_lower.c
 SOURCES		= src/main.c $(addprefix ./src/builtins/, $(BUILTINS)) $(addprefix ./src/init/, $(INIT)) \
 			$(addprefix ./src/parser/, $(PARSER)) $(addprefix ./src/pipex/, $(PIPEX)) $(addprefix ./src/signals/, $(SIGNALS)) \

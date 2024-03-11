@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute.c                                          :+:      :+:    :+:   */
+/*   multiple_commands.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 03:56:21 by javgao           ###   ########.fr       */
+/*   Created: 2024/03/11 03:27:04 by javgao            #+#    #+#             */
+/*   Updated: 2024/03/11 03:55:47 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	ft_execute(t_mini *mini)
+/*char	**arr_full_command(t_mini *mini)
 {
-	int	i;
-	int	pipe_found;
-	//char	**arr;
+	int		i;
+	char	**full;
 
 	i = 0;
-	pipe_found = 0;
-	char	*arr[] = {"ls", "wc", "ls", NULL}; //Borrar
 	if (!mini->commands)
-		return (EXIT_SUCCESS);
-	while (mini->commands[i])
+		return (NULL);
+	while (mini->commands[mini->argc + i])
 	{
-		if (mini->commands[i][0] == '|')
+		if (mini->commands[mini->argc][0] == '|')
+			i++;
+		else
+			mini->argc++;
+	}
+	printf("%d", mini->argc);
+	i = 0;
+	full = malloc (mini->argc + 1); 
+	while (i < mini->argc)
+	{
+		full[i] = ft_strdup(join_args(mini->commands[i], mini->args[i]));
+		if (full[i] == NULL)
 		{
-			//arr = arr_full_command(mini);
-			pipex_bonus(mini, 4, arr, hash_to_arry(mini->hash_env)); // Cambiar 4 argv tambien
-			pipe_found = 1;
+			print_error("Malloc failed");
+			return (NULL);
 		}
 		i++;
 	}
-	if (!pipe_found)
-		single_command(mini);
-	return (EXIT_SUCCESS);
-}
+	full[i] = NULL;
+	return (full);			//borrarr
+}*/

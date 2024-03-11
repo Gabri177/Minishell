@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:06 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/11 03:20:44 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 03:38:13 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,6 @@ int	ft_open(char *file, int status)
 	if (ret == -1)
 		return (-1);
 	return (ret);
-}
-
-void	ft_free(char **arr)
-{
-	size_t	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
 }
 
 char	*ft_envp(char *variable, char **envp)
@@ -89,12 +76,12 @@ char	*ft_path(char *cmd, char **envp)
 		free(path);
 		if (access(exec, F_OK | X_OK) == 0)
 		{
-			ft_free(cmds);
+			ft_free_arr(cmds);
 			return (exec);
 		}
 		free(exec);
 	}
-	ft_free(paths);
-	ft_free(cmds);
+	ft_free_arr(paths);
+	ft_free_arr(cmds);
 	return (cmd);
 }
