@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 03:42:18 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 04:30:18 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,18 @@ void shell_loop(t_mini *mini)
 			arry_display (mini->arg_ori);							//Imprime el parser
 			mini->outfile = args_to_outfile (&mini->arg_ori);
 			printf ("outfile :\n");							//Imprime el parser
-			arry_display (mini->outfile);							//Imprime el parser
+			arry_display (mini->outfile);
+			mini->infile = args_to_infile (&mini->arg_ori);
+			printf ("infile :\n");	
+			arry_display (mini->infile);
+			//Imprime el parser
 			mini->commands = args_to_cmds (&mini->arg_ori);
 			printf ("command :\n");							//Imprime el parser
 			arry_display (mini->commands);							//Imprime el parser
-			arry_display (mini->arg_ori);							//Imprime el parser
+			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->args = args_to_args (mini->arg_ori);
 			printf ("ARGSSSSSSS :\n");							//Imprime el parser
-			arry_display (*mini->args);							//Imprime el parser
+			argss_display (mini->args);							//Imprime el parser
 		}
 		// Aquí se pueden añadir códigos para procesar el comando
 		ft_execute(mini);
@@ -62,6 +66,8 @@ void shell_loop(t_mini *mini)
 		mini->arg_ori = NULL;
 		arry_destory (mini->outfile);
 		mini->outfile = NULL;
+		arry_destory (mini->infile);
+		mini->infile = NULL;
 		arry_destory (mini->commands);
 		mini->commands = NULL;
 		argss_destory (mini->args);

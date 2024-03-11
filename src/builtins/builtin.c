@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 20:23:17 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 04:36:16 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int	is_builtin(char *command, t_mini *mini)
 void	exec_builtin(char *command, char **arguments, t_mini *mini)
 {
 	if (ft_strcmp(arguments[0], "哈") == 0 || ft_strcmp(arguments[0], "\b") == 0)
-		arguments[0] = NULL;
-	//|| ft_strcmp(arguments[0], "\b") == 0) //bucle
+	{
+		free (arguments[0]);
+		arguments[0] = ft_strdup (" ");
+	}
 	if (ft_strcmp("echo", ft_lower(command)) == 0)
 		ft_echo(mini, arguments, FALSE);
 	else if (ft_strcmp("echo -n", ft_lower(command)) == 0)

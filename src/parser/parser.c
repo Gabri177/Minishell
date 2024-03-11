@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/10 20:30:29 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 04:08:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ char	**arg_abordar(char *ori)
 	char	**new_arvs;
 
 	if (!ori)
-		return (NULL);//error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		return (NULL);
 	if (!ori[0])
-		return (NULL);//null context!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		return (NULL);
 	if (quote_check (ori) == -1)
 		return (print_error("Those quotes are not pared!"), NULL);
 	new_arvs = NULL;

@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:09:45 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 21:52:11 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 04:06:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,111 +82,13 @@ int	count_args(char **args)
 	return (n);
 }
 
-//传入合并命令后的ori数组 一般在用完args_to_cmd后使用, 我们会得到去掉simple command后的ori_args数组
-void	args_no_cmds(char ***args)
-{
-	int	i;
-
-	i = 0;
-	if (!*args || !**args)
-	{
-		printf ("nulll!!!!!\n");
-		return ;
-	}
-	if (arry_count (*args) == 1)
-	{
-		arry_destory (*args);
-		*args = NULL;
-		return ;
-	}
-	if ((*args)[0] && !is_strsame ((*args)[0], PIPES))
-		arry_del (args, 0);
-	while (*args && (*args)[i] && arry_count (*args))
-	{
-		if (is_strsame ((*args)[i], PIPES) && (*args)[i + 1]
-			&& !is_strsame ((*args)[i + 1], PIPES))
-			arry_del (args, i + 1);
-		i ++;
-	}
-}
-
-//根据没有基础命令的数组进行参数的获取, 生成二维数组, 每获取一个数据就会删除一个数据
-char	**get_args(char ***args)
-{
-	char	**new;
-
-	new = NULL;
-	if (!*args || !**args)
-		return (arry_add(&new, "潨"), new);
-	if ((*args)[0] && is_strsame ((*args[0]), PIPES))
-	{
-		arry_del (args, 0);
-		arry_add(&new, "潨");
-		return (new);
-	}
-	while ((*args)[0] && !is_strsame ((*args[0]), PIPES))
-	{
-		arry_add (&new, (*args)[0]);
-		arry_del (args, 0);
-		if (is_strsame ((*args[0]), PIPES))
-		{
-			arry_del (args, 0);
-			break ;
-		}
-	}
-	return (new);
-}
-
-//销毁三维数组
-void	argss_destory(char ***argss)
-{
-	char	***ori;
-
-	ori = argss;
-	if (!argss || !*argss)
-		return ;
-	while (*argss)
-	{
-		arry_destory(*argss);
-		argss++;
-	}
-	free(ori);
-}
-
-
-//这个函数是用来将没有基础命令且包含管道符号的数组进行处理, 并根据index返回一个三维数组, 每个数组都是对应命令的参数
-//这个函数最后会删除args内的所有元素 但是不会让**args为null 我们要手动设置
-// char	***args_to_args(char ***args)
-// {
-// 	char	***new;
-// 	int		i;
-// 	int		len;
-
-// 	if (!*args || !**args)
-// 		return (NULL);
-// 	new = NULL;
-// 	i = 0;
-// 	args_no_cmds (args);
-// 	len = count_args (*args);
-// 	new = malloc (sizeof (char **) * (len + 1));
-// 	while (i <= len)
-// 		new[i++] = NULL;
-// 	i = 0;
-// 	while (i < len)
-// 	{
-// 		new[i] = get_args (args);
-// 		i ++;
-// 	}
-// 	return (new);
-// }
-
-// 重写的get_args函数
 char	***args_to_args(char **args)
 {
-	char	***cmds; // 存储所有命令的参数
+	char	***cmds;
 	int		cmds_count;
-	char	**current_args; // 当前命令的参数
+	char	**current_args;
 	int		i;
+	int		has_args;
 
 	if (!args || !*args || !**args)
 		return (NULL);
@@ -196,27 +98,23 @@ char	***args_to_args(char **args)
 	i = 0;
 	while (args[i] != NULL)
 	{
-		// 跳过命令本身
 		i++;
-		// 收集命令的参数直到遇到下一个命令或末尾
-		int has_args = 0;
+		has_args = 0;
 		while (args[i] != NULL && !is_strsame(args[i], "|"))
 		{
 			arry_add(&current_args, args[i]);
 			has_args = 1;
 			i++;
 		}
-		// 如果当前命令没有参数，则使用"哈"作为占位符
 		if (!has_args)
 			arry_add(&current_args, "哈");
-		// 保存当前命令的参数并为下一个命令准备
-		cmds_count++;
-		cmds = realloc(cmds, sizeof(char**) * (cmds_count + 1));
+		cmds_count ++;
+		cmds = realloc(cmds, sizeof (char**) * (cmds_count + 1));
 		cmds[cmds_count - 1] = current_args;
-		cmds[cmds_count] = NULL; // 新增命令结束标志
-		current_args = NULL; // 重置参数列表
+		cmds[cmds_count] = NULL;
+		current_args = NULL;
 		if (args[i] != NULL)
-			i++;
+			i ++;
 	}
 	return (cmds);
 }

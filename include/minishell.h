@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 03:40:06 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 04:09:56 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_mini
 	char	**arg_ori;
 	t_hash	*hash_env;
 	char	**paths;
-	char	*infile; //ABSOLUTE DIRECTION
+	char	**infile; //ABSOLUTE DIRECTION
 	char	**outfile; //ABSOLUTE DIRECTION
 	char	**commands; // "ls -l | hola echo dfd" ----> "ls -l" "|" "hola"
 	char	***args; // "ls -l | hola echo dfd" ---> {""} {"echo" "dfd"}; 
@@ -121,5 +121,10 @@ char	*ft_envp(char *variable, char **envp);
 char	*ft_path(char *cmd, char **envp);
 void	ft_exec(char *cmd, char **envp);
 void	pipex_bonus(t_mini *mini, int argc, char **argv, char **envp);
+
+/*	---------------------------- EXPAND ----------------------------*/
+char	**split_filter(char **args, t_hash *hash);
+char	*split_arg_filter(char *str, t_hash *hash);
+void	args_add_var(char **str, t_hash *hash, char **new);
 
 #endif

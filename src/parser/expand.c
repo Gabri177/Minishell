@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 13:05:27 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 20:22:53 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 04:29:25 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*get_var_name(const char *str)
 	char	*new;
 
 	new = NULL;
-	/* if (!is_var_exist(str))
-		return (new); */
 	while (*str && *str != '$')
 		str ++;
 	str ++;
@@ -40,58 +38,32 @@ char	*get_hash_val(t_hash *hash, const char *key)
 	return (NULL);
 }
 
-//下面代码是下面函数的替代部分
-/* void trash(void)
-{
-	if (*str == '$')
-		{
-			args_add_var (&str, hash, &new);
-			var_name = get_var_name (str);
-			var_value = hash_grep (hash, var_name);
-			if (var_value)
-			{
-				while (*var_value != '=')
-					var_value ++;
-				var_value ++;
-				while (*var_value)
-				{
-					chr_add (&new, *var_value);
-					var_value ++;
-				}
-			}
-			str += (ft_strlen (var_name));
-			if (!var_name)
-				free (var_name);
-			var_value = NULL;
-		}
-} */
 void	args_add_var(char **str, t_hash *hash, char **new)
 {
 	char	*var_name;
 	char	*var_value;
 
+	var_value = NULL;
 	var_name = get_var_name (*str);
-	var_value = hash_grep (hash, var_name);
+	if (var_name)
+		var_value = hash_grep (hash, var_name);
 	if (var_value)
 	{
 		while (*var_value != '=')
 			var_value++;
 		var_value++;
 		while (*var_value)
-		{
-			//printf ("%c ", *var_value);
-			chr_add (new, *var_value);
-			var_value ++;
-		}
+			chr_add (new, *var_value ++);
 	}
-	(*str) += ft_strlen (var_name);
+	if (var_name)
+		(*str) += ft_strlen (var_name);
 	if (var_name)
 		free (var_name);
 	var_value = NULL;
 }
 
 //liberable
-char	*split_arg_filter(char *str, t_hash *hash)
+/* char	*split_arg_filter(char *str, t_hash *hash)
 {
 	char	*new;
 
@@ -110,7 +82,7 @@ char	*split_arg_filter(char *str, t_hash *hash)
 			str ++;
 			while (*str != '\"')
 			{
-				if (*str == '$')
+				if (*str == '$' && *(str + 1) && *(str + 1) != ' ' && *(str + 1) != '\'' && *(str + 1) != '\"' && *(str + 1) != '$')
 					args_add_var (&str, hash, &new);
 				else
 					chr_add (&new, *str);
@@ -120,7 +92,7 @@ char	*split_arg_filter(char *str, t_hash *hash)
 		}
 		else
 		{
-			if (*str == '$')
+			if (*str == '$' && *(str + 1) && *(str + 1) != ' ' && *(str + 1) != '\'' && *(str + 1) != '\"' && *(str + 1) != '$')
 				args_add_var (&str, hash, &new);
 			else
 				chr_add (&new, *str);
@@ -129,7 +101,7 @@ char	*split_arg_filter(char *str, t_hash *hash)
 		}
 	}
 	return (new);
-}
+} */
 
 char	**split_filter(char **args, t_hash *hash)
 {
