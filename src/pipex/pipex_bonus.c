@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:52:46 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/10 01:45:50 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 03:18:44 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,45 @@ void	ft_exec(char *cmd, char **envp)
 {
 	char	**cmds;
 	char	*path;
+	int		status;
+	pid_t	pid;
 
 	cmds = ft_split(cmd, " ");
 	path = ft_path(cmds[0], envp);
-	if (execve(path, cmds, envp) == -1)
+	pid = fork();
+	if (pid == 0)
 	{
-		ft_putstr_fd("pipex: command not found: ", 2);
-		ft_putendl_fd(cmds[0], 2);
-		ft_free(cmds);
-		return ;
+		if (execve(path, cmds, envp) == -1)
+		{
+			ft_putstr_fd("pipex: command not found: ", 2);
+			ft_putendl_fd(cmds[0], 2);
+			ft_free(cmds);
+			exit(0);
+		}
 	}
+	else if (pid < 0)
+		print_error("fork failed");
+	else
+		waitpid(pid, &status, 0);
 }
 
 void	here_doc_in(char **argv, int *fd)
 {
-	char	*ret;
+	char *ret;
 
 	close(fd[0]);
 	while (1)
 	{
-		ret = get_next_line(0);
-		if (ft_strncmp(ret, argv[2], ft_strlen(argv[2])) == 0)
+		printf("> ");
+		ret = readline("");
+		if (!ret)
+			continue;
+		if (strcmp(ret, argv[2]) == 0)
 		{
 			free(ret);
+			close(fd[1]);
 			exit(0);
 		}
-		ft_putstr_fd(ret, fd[1]);
 		free(ret);
 	}
 }
@@ -89,18 +102,14 @@ void	ft_pipe(char *cmd, char **envp)
 	}
 }
 
-int	pipex_bonus(int argc, char **argv, char **envp)
+void	pipex_bonus(t_mini *mini, int argc, char **argv, char **envp)
 {
 	int		i;
 	int		fd_in;
 	int		fd_out;
 
-	if (argc < 5)
-		ft_exit_pipex(1);
 	if (ft_strcmp(argv[1], "here_doc") == 0)
 	{
-		if (argc < 6)
-			ft_exit_pipex(1);
 		i = 3;
 		fd_out = ft_open(argv[argc - 1], 2);
 		here_doc(argv);
@@ -108,13 +117,15 @@ int	pipex_bonus(int argc, char **argv, char **envp)
 	else
 	{
 		i = 2;
-		fd_in = ft_open(argv[1], 0);
-		fd_out = ft_open(argv[argc - 1], 1);
+		if (mini->flag_infile == FALSE)
+			fd_in = STDIN_FILENO;
+		else
+			fd_in = ft_open(argv[1], 0);
+		fd_out = ft_open(argv[argc - 1], 1); //Cambiar a outfile
 		dup2(fd_in, 0);
 	}
 	while (i < argc - 2)
 		ft_pipe(argv[i++], envp);
 	dup2(fd_out, 1);
 	ft_exec(argv[argc - 2], envp);
-	return (0);
 }

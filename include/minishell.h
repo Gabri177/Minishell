@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 14:17:23 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 03:23:43 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../Libft/libft.h"
 # include "parser.h"
-# include "pipex_bonus.h"
 # include "hash.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -39,6 +38,8 @@
 # define FALSE 0
 # define SINGLE 1
 # define PIPESS 0
+# define REDIRECT 1
+# define APPEND 2
 //===builtins===
 # define NUM_BUILTINS 7
 # define PROMPT "\x1b[1;32mminishell\x1b[0m\x1b[1;36m > \x1b[0m"
@@ -67,6 +68,8 @@ typedef struct s_mini
 	char	***args; // "ls -l | hola echo dfd" ---> {""} {"echo" "dfd"}; 
 	int		is_echo_n; //Ver si hay que usar
 	char	*is_builtin[NUM_BUILTINS + 1];
+	int		flag_infile;
+	int		flag_outfile;
 }			t_mini;
 
 /*	--------------------------- INIT --------------------------- */
@@ -106,5 +109,14 @@ char	*ft_lower(char *str);
 
 /*	---------------------------- EXPAND ----------------------------*/
 char	**split_filter(char **args, t_hash *hash);
+
+/*	---------------------------- PIPEX -----------------------------*/
+void	ft_exit_pipex(int n_exit);
+int		ft_open(char *file, int n);
+char	*ft_envp(char *variable, char **envp);
+char	*ft_path(char *cmd, char **envp);
+void	ft_exec(char *cmd, char **envp);
+void	ft_free(char **arr);
+void	pipex_bonus(t_mini *mini, int argc, char **argv, char **envp);
 
 #endif

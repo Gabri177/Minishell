@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:56:06 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/10 00:18:06 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 03:20:44 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_open(char *file, int status)
 	if (status == 2)
 		ret = open(file, O_WRONLY | O_CREAT | O_APPEND, 0777);
 	if (ret == -1)
-		exit(0);
+		return (-1);
 	return (ret);
 }
 

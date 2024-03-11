@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 02:24:06 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/11 03:10:41 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	init_mini(t_mini *mini, char **envp)
 	mini->outfile = NULL; //Gao
 	mini->commands = NULL; //Gao
 	mini->args = NULL; //Gao
+	mini->flag_infile = FALSE;
+	mini->flag_outfile = FALSE;
 	init_builtin(mini);
 	init_env(mini, envp);
 }
