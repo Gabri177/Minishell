@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 02:07:51 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 02:10:28 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 13:25:07 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,35 @@ char	**args_to_infile(char ***args)
 	}
 	args_no_infile (args, new);
 	return (new);
+}
+
+char	**filter_args_infile(char **infile)
+{
+	int	len;
+
+	if (!infile)
+		return (NULL);
+	len = arry_count (infile);
+	if (is_strsame (infile [len - 1], "<<"))
+	{
+		while (arry_count (infile) != 1)
+			arry_del (&infile, 0);
+		return (infile);
+	}
+	if (len >= 4)
+	{
+		if (is_strsame (infile[len - 2], infile[len - 4]))
+		{
+			while (arry_count (infile) != 2)
+				arry_del (&infile, 0);
+			return (infile);
+		}
+		else
+		{
+			while (arry_count (infile) != 4)
+				arry_del (&infile, 0);
+			return (infile);
+		}
+	}
+	return (infile);
 }

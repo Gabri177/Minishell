@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:45 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/11 04:03:49 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 13:22:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@ int		count_args(char **args);
 //=====arry_infile.c===
 char	**args_to_infile(char ***args);
 void	args_no_infile(char ***args, char **infile);
+//=====cmds_and_args.c===
+char	**args_to_cmds_args(char **args);
+char	**filter_args_infile(char **infile);
 
 #endif
