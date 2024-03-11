@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmds_and_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:17:11 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 12:43:32 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 17:01:10 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ char	**args_to_cmds_args(char **args)
 	new = NULL;
 	tem = NULL;
 	if (!args)
+	{
 		return (NULL);
+	}
 	while (args[i])
 	{
 		if (args[i] && args[i + 1] && !is_strsame (args[i + 1], "|"))
@@ -60,5 +62,6 @@ char	**args_to_cmds_args(char **args)
 		}
 		i ++;
 	}
+	arry_add(&new, "NULL");
 	return (new);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+         #
+#    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/11 12:00:03 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/11 16:42:09 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PARSER		= arry_chr1.c arry_chr2.c arry_strs1.c arry_strs2.c arry_utils.c parser.
 PIPEX		= pipex_bonus.c pipex_utils_bonus.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_utils.c hash.c
-EXECUTE		= execute.c single_command.c not_builtin.c multiple_commands.c
+EXECUTE		= execute.c single_command.c not_builtin.c 
 SIGNALS		= sig_func.c
 FREE		= ft_free_four.c free_arr.c
 UTILS		= ft_lower.c

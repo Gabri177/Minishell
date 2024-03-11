@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 03:56:21 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 16:54:09 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	ft_execute(t_mini *mini)
 {
 	int	i;
 	int	pipe_found;
-	//char	**arr;
 
 	i = 0;
 	pipe_found = 0;
@@ -27,8 +26,10 @@ int	ft_execute(t_mini *mini)
 	{
 		if (mini->commands[i][0] == '|')
 		{
-			//arr = arr_full_command(mini);
-			pipex_bonus(mini, 4, arr, hash_to_arry(mini->hash_env)); // Cambiar 4 argv tambien
+			//while (mini->cmds_and_args[mini->argc])
+			//	mini->argc++;
+			//	printf("%d", mini->argc);
+			pipex_bonus(mini, 4, arr, hash_to_arry(mini->hash_env));
 			pipe_found = 1;
 		}
 		i++;

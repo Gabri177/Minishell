@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 12:02:34 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 16:42:27 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int		single_command(t_mini *mini);
 void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
 void	ft_exec_single(char *cmd, char **envp);
 char	*join_args(char *command, char **arguments);
-char	**arr_full_command(t_mini *mini);
 
 /*	--------------------------- ERROR ----------------------------*/
 int		print_error(char *error);
