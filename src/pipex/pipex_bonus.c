@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 11:52:46 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/11 03:39:38 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/11 18:00:03 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,10 @@ void	pipex_bonus(t_mini *mini, int argc, char **argv, char **envp)
 			fd_in = STDIN_FILENO;
 		else
 			fd_in = ft_open(argv[1], 0);
-		fd_out = ft_open(argv[argc - 1], 1); //Cambiar a outfile
+		if (mini->flag_outfile == FALSE)
+			fd_out = STDOUT_FILENO;
+		else
+			fd_out = ft_open(argv[argc - 1], 1); //Cambiar a outfile
 		dup2(fd_in, 0);
 	}
 	while (i < argc - 2)
