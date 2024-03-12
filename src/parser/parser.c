@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/12 02:15:49 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 14:17:03 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,66 @@ static int	quote_check(char *str)
 	return (1);
 }
 
+static int	norme_check(char **ori)
+{
+	int	len;
+	int	i;
+
+	i = 0;
+	if (!ori)
+		return (TRUE);
+	len = arry_count (ori);
+	if (is_strsame (ori[len - 1], "|") || is_strsame (ori[len - 1], ">") || is_strsame (ori[len - 1], ">>") || is_strsame (ori[len - 1], "<"))
+		return (print_error("minishell: syntax error near unexpected token `newline'"), FALSE);
+	while (i < len)
+	{
+		if (is_strsame (ori[i], ">") && ori[i + 1] && is_strsame (ori[i + 1], ">>"))
+			return (print_error("minishell: syntax error near unexpected token `>>'"), FALSE);
+		if (is_strsame (ori[i], ">") && ori[i + 1] && is_strsame (ori[i + 1], "<<"))
+			return (print_error("minishell: syntax error near unexpected token `<<'"), FALSE);
+		if (is_strsame (ori[i], ">") && ori[i + 1] && is_strsame (ori[i + 1], "<"))
+			return (print_error("minishell: syntax error near unexpected token `<'"), FALSE);
+		if (is_strsame (ori[i], ">") && ori[i + 1] && is_strsame (ori[i + 1], ">"))
+			return (print_error("minishell: syntax error near unexpected token `>'"), FALSE);
+		if (is_strsame (ori[i], ">") && ori[i + 1] && is_strsame (ori[i + 1], "|"))
+			return (print_error("minishell: syntax error near unexpected token `|'"), FALSE);
+		if (is_strsame (ori[i], "<") && ori[i + 1] && is_strsame (ori[i + 1], ">>"))
+			return (print_error("minishell: syntax error near unexpected token `>>'"), FALSE);
+		if (is_strsame (ori[i], "<") && ori[i + 1] && is_strsame (ori[i + 1], "<<"))
+			return (print_error("minishell: syntax error near unexpected token `>>'"), FALSE);
+		if (is_strsame (ori[i], "<") && ori[i + 1] && is_strsame (ori[i + 1], "<"))
+			return (print_error("minishell: syntax error near unexpected token `<'"), FALSE);
+		if (is_strsame (ori[i], "<") && ori[i + 1] && is_strsame (ori[i + 1], ">"))
+			return (print_error("minishell: syntax error near unexpected token `>'"), FALSE);
+		if (is_strsame (ori[i], "<") && ori[i + 1] && is_strsame (ori[i + 1], "|"))
+			return (print_error("minishell: syntax error near unexpected token `|'"), FALSE);
+			
+		if (is_strsame (ori[i], "<<") && ori[i + 1] && is_strsame (ori[i + 1], ">>"))
+			return (print_error("minishell: syntax error near unexpected token `>>'"), FALSE);
+		if (is_strsame (ori[i], "<<") && ori[i + 1] && is_strsame (ori[i + 1], "<<"))
+			return (print_error("minishell: syntax error near unexpected token `>>'"), FALSE);
+		if (is_strsame (ori[i], "<<") && ori[i + 1] && is_strsame (ori[i + 1], "<"))
+			return (print_error("minishell: syntax error near unexpected token `<'"), FALSE);
+		if (is_strsame (ori[i], "<<") && ori[i + 1] && is_strsame (ori[i + 1], ">"))
+			return (print_error("minishell: syntax error near unexpected token `>'"), FALSE);
+		if (is_strsame (ori[i], "<<") && ori[i + 1] && is_strsame (ori[i + 1], "|"))
+			return (print_error("minishell: syntax error near unexpected token `|'"), FALSE);
+		
+		if (is_strsame (ori[i], ">>") && ori[i + 1] && is_strsame (ori[i + 1], ">>"))
+			return (print_error("minishell: syntax error near unexpected token `>>'"), FALSE);
+		if (is_strsame (ori[i], ">>") && ori[i + 1] && is_strsame (ori[i + 1], "<<"))
+			return (print_error("minishell: syntax error near unexpected token `>>'"), FALSE);
+		if (is_strsame (ori[i], ">>") && ori[i + 1] && is_strsame (ori[i + 1], "<"))
+			return (print_error("minishell: syntax error near unexpected token `<'"), FALSE);
+		if (is_strsame (ori[i], ">>") && ori[i + 1] && is_strsame (ori[i + 1], ">"))
+			return (print_error("minishell: syntax error near unexpected token `>'"), FALSE);
+		if (is_strsame (ori[i], ">>") && ori[i + 1] && is_strsame (ori[i + 1], "|"))
+			return (print_error("minishell: syntax error near unexpected token `|'"), FALSE);
+		i ++;
+	}
+	return (TRUE);
+}
+
 char	**arg_abordar(char *ori)
 {
 	char	**new_arvs;
@@ -49,6 +109,8 @@ char	**arg_abordar(char *ori)
 		return (print_error("Those quotes are not pared!"), NULL);
 	new_arvs = NULL;
 	split_args (&new_arvs, ori);
+	if (!norme_check (new_arvs))
+		return (arry_destory (new_arvs), NULL);
 	return (new_arvs);
 }
 /*
