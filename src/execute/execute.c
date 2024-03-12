@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 13:56:59 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 20:29:54 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,14 @@ int	ft_execute(t_mini *mini)
 	{
 		if (mini->commands[i][0] == '|')
 		{
-			while (mini->cmds_and_args[mini->argc])
-				mini->argc++;
-			if (mini->infile != NULL)
-				mini->argc++;
-			if (mini->outfile != NULL)
-				mini->argc++;
+			mini->argc = arry_count (mini->cmds_and_args);
 			argv = check_cmds_and_args(mini);
-			/*int j = 0;
+			int j = 0;
 			while (argv[j])
 			{
 				printf("%s\n", argv[j]);
 				j++;
-			}*/
+			}
 			pipex_bonus(mini->argc + 3, argv, hash_to_arry(mini->hash_env));
 			pipe_found = 1;
 		}
