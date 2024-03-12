@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 00:30:31 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/12 21:54:43 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 22:38:14 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,25 @@ void	g_sig_refresh(t_hash *hash, int new)
 	char	*tem;
 	char	*num;
 
-
 	num = ft_itoa (new);
 	tem = ft_strjoin ("?=", num);
 	free (num);
 	hash_push (hash, "?", tem);
 	free (tem);
+}
+
+void	update_statu_write_outfile(t_mini *mini, char **outfile)
+{
+	if (!outfile)
+		return ;
+	if (is_strsame (outfile[arry_count (outfile) - 2], ">"))
+	{
+		mini->flag_output = TRUE;
+		mini->flag_append_output = FALSE;
+	}
+	else
+	{
+		mini->flag_append_output = TRUE;
+		mini->flag_output = FALSE;
+	}
 }

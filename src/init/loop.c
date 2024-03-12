@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 21:56:15 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 22:37:06 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	shell_loop(t_mini *mini)
 		if (*line)
 		{
 			add_history(line);
-			g_sig_refresh (mini->hash_env, g_sig);
+			g_sig_refresh (mini->hash_env, g_sig); // the etatus of those build functions has not take
 			mini->arg_ori = arg_abordar (line);
 			if (!mini->arg_ori)
 				continue ;
@@ -49,6 +49,7 @@ void	shell_loop(t_mini *mini)
 			arry_display (mini->outfile);							//Imprime el parser
 			mini->infile = filter_args_infile (args_to_infile (&mini->arg_ori));
 			printf ("infile :\n");							//Imprime el parser
+			update_statu_write_outfile (mini, mini->outfile);
 			arry_display (mini->infile);							//Imprime el parser
 			mini->cmds_and_args = args_to_cmds_args (mini->arg_ori);
 			printf ("cmds_and_args :\n");							//Imprime el parser
