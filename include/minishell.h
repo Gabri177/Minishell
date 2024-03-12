@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 21:55:19 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 22:36:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ void	ft_free_arr(char **arr);
 
 /*	---------------------------- UTILS ----------------------------*/
 char	*ft_lower(char *str);
-
+void	update_statu_write_outfile(t_mini *mini, char **outfile);
 /*	---------------------------- EXPAND ----------------------------*/
 char	**split_filter(char **args, t_hash *hash);
 
