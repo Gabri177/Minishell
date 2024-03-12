@@ -3,5 +3,6 @@ Makefile
 ideas gao
 include
 minishell
-o
 src
+       6
+       6

@@ -6,11 +6,28 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:38:38 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 11:29:51 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 18:12:30 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
+
+bool	is_command(t_pipex *pipex, char *command, int i)
+{
+	if (!command)
+		return (false);
+	if (access(command, F_OK) == 0 && ft_strncmp(command, "/", 1) == 0)
+	{
+		pipex->cmds[i].path = ft_strdup(command);
+		if (!pipex->cmds[i].path)
+			return (false);
+		free(command);
+		pipex->cmds[i].found = true;
+		return (true);
+	}
+	free(command);
+	return (false);
+}
 
 bool	create_pipes(t_pipex *pipex)
 {

@@ -6,28 +6,11 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:38:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 11:29:34 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 18:41:00 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
-
-bool	is_command(t_pipex *pipex, char *command, int i)
-{
-	if (!command)
-		return (false);
-	if (access(command, F_OK) == 0 && ft_strncmp(command, "/", 1) == 0)
-	{
-		pipex->cmds[i].path = ft_strdup(command);
-		if (!pipex->cmds[i].path)
-			return (false);
-		free(command);
-		pipex->cmds[i].found = true;
-		return (true);
-	}
-	free(command);
-	return (false);
-}
 
 void	find_command(t_pipex *pipex, int i)
 {
@@ -68,7 +51,17 @@ void	find_paths(t_pipex *pipex)
 		pipex->paths = ft_split(pipex->envp[i] + 5, ":");
 }
 
-void	open_files(t_pipex *pipex)
+void static	open_outfile(t_pipex *pipex, t_mini *mini)
+{
+	if (mini->flag_append_output == TRUE)
+	pipex->outfile = open(pipex->argv[pipex->size + 2],
+			O_WRONLY | O_CREAT | O_APPEND, 0777);
+	else
+	pipex->outfile = open(pipex->argv[pipex->size + 2],
+			O_WRONLY | O_CREAT | O_TRUNC, 0777);
+}
+
+void	open_files(t_pipex *pipex, t_mini *mini)
 {
 	pipex->infile = open(pipex->argv[1], O_RDONLY);
 	if (pipex->infile == -1)
@@ -80,8 +73,7 @@ void	open_files(t_pipex *pipex)
 		else
 			ft_putstr_fd("Error: infile undefined\n", 2);
 	}
-	pipex->outfile = open(pipex->argv[pipex->size + 2],
-			O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	open_outfile(pipex, mini);
 	if (pipex->outfile == -1)
 	{
 		if (access(pipex->argv[pipex->size + 2], W_OK) != 0)
@@ -91,7 +83,7 @@ void	open_files(t_pipex *pipex)
 	}
 }
 
-bool	parse_input(t_pipex *pipex)
+bool	parse_input(t_pipex *pipex, t_mini *mini)
 {
 	int	i;
 
@@ -99,7 +91,7 @@ bool	parse_input(t_pipex *pipex)
 	if (pipex->heredoc)
 		open_here_doc(pipex);
 	else
-		open_files(pipex);
+		open_files(pipex, mini);
 	i = 0;
 	while (i < pipex->size)
 	{

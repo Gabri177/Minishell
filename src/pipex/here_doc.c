@@ -6,12 +6,11 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:39:07 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 11:29:10 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 19:00:36 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
-
 
 void	here_doc(t_pipex *pipex)
 {

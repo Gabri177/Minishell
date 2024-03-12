@@ -3,32 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:38:55 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 20:20:51 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 19:07:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	pipex_bonus(int argc, char **argv, char **envp)
+int	pipex_bonus(t_mini *mini, int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 
-	//printf("%d\n\n", argc);
 	if (argc < 2)
 		return (ft_putstr_fd("Error: Not enough arguments\n", 2), EXIT_FAILURE);
 	if (!pipex_init(&pipex, argc, argv, envp))
 		return (free_pipex(&pipex), error_message(NULL), EXIT_FAILURE);
 	if (argc < 2 + pipex.heredoc)
 		return (ft_putstr_fd("Error: Not enough arguments\n", 2), free_pipex(&pipex), EXIT_FAILURE);
-	if (!parse_input(&pipex))
+	if (!parse_input(&pipex, mini))
 		return (free_pipex(&pipex), EXIT_FAILURE);
 	if (!create_pipes(&pipex))
 		return (free_pipex(&pipex), error_message(NULL), EXIT_FAILURE);
 	if (!execute(&pipex))
 		return (free_pipex(&pipex), error_message(NULL), pipex.exitcode);
+	//if (mini->flag_output == FALSE && mini->flag_append_output == FALSE)
+	
 	free_pipex(&pipex);
 	return (pipex.exitcode);
 }
