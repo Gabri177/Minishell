@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 13:09:26 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 13:56:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	ft_execute(t_mini *mini)
 {
-	int	i;
-	int	pipe_found;
+	int		i;
+	int		pipe_found;
+	char	**argv;
 
 	i = 0;
 	pipe_found = 0;
@@ -27,9 +28,18 @@ int	ft_execute(t_mini *mini)
 		{
 			while (mini->cmds_and_args[mini->argc])
 				mini->argc++;
-			printf("\nmini->argc: %d\n", mini->argc);
-			check_cmds_and_args(mini);
-			//pipex_bonus(mini->argc, mini->cmds_and_args, hash_to_arry(mini->hash_env));
+			if (mini->infile != NULL)
+				mini->argc++;
+			if (mini->outfile != NULL)
+				mini->argc++;
+			argv = check_cmds_and_args(mini);
+			/*int j = 0;
+			while (argv[j])
+			{
+				printf("%s\n", argv[j]);
+				j++;
+			}*/
+			pipex_bonus(mini->argc + 3, argv, hash_to_arry(mini->hash_env));
 			pipe_found = 1;
 		}
 		i++;

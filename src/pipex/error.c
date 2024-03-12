@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:39:19 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 11:28:41 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 13:26:57 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	error_message(char *file)
 {
 	char	*message;
 
-	ft_putstr_fd("pipex: ", 2);
+	ft_putstr_fd("minishell: ", 2);
 	message = ft_strdup(strerror(errno));
 	if (message)
 		ft_putstr_fd(message, 2);

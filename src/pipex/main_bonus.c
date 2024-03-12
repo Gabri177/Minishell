@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:38:55 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 11:36:02 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 13:57:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ int	pipex_bonus(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 
-	if (argc < 4)
+	//printf("%d\n\n", argc);
+	if (argc < 2)
 		return (ft_putstr_fd("Error: Not enough arguments\n", 2), EXIT_FAILURE);
 	if (!pipex_init(&pipex, argc, argv, envp))
 		return (free_pipex(&pipex), error_message(NULL), EXIT_FAILURE);
-	if (argc < 4 + pipex.heredoc)
+	if (argc < 2 + pipex.heredoc)
 		return (ft_putstr_fd("Error: Not enough arguments\n", 2), free_pipex(&pipex), EXIT_FAILURE);
 	if (!parse_input(&pipex))
 		return (free_pipex(&pipex), EXIT_FAILURE);
