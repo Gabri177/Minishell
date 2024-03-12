@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 02:27:51 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 13:13:39 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../Libft/libft.h"
 # include "parser.h"
 # include "hash.h"
+# include "pipex_bonus.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -69,8 +70,6 @@ typedef struct s_mini
 	char	**cmds_and_args;
 	int		is_echo_n; //Ver si hay que usar
 	char	*is_builtin[NUM_BUILTINS + 1];
-	int		flag_infile;
-	int		flag_outfile;
 	int		argc;
 }			t_mini;
 
@@ -98,6 +97,9 @@ int		single_command(t_mini *mini);
 void	not_builtin(char	*command, char	**commands, t_mini *mini, int flag);
 void	ft_exec_single(char *cmd, char **envp);
 char	*join_args(char *command, char **arguments);
+char	*ft_path(char *cmd, char **envp);
+char	*ft_envp(char *variable, char **envp);
+char	**check_cmds_and_args(t_mini *mini);
 
 /*	--------------------------- ERROR ----------------------------*/
 int		print_error(char *error);
@@ -115,19 +117,9 @@ char	*ft_lower(char *str);
 /*	---------------------------- EXPAND ----------------------------*/
 char	**split_filter(char **args, t_hash *hash);
 
-/*	---------------------------- PIPEX -----------------------------*/
-void	ft_exit_pipex(int n_exit);
-int		ft_open(char *file, int n);
-char	*ft_envp(char *variable, char **envp);
-char	*ft_path(char *cmd, char **envp);
-void	ft_exec(char *cmd, char **envp);
-void	pipex_bonus(t_mini *mini, int argc, char **argv, char **envp);
-
 /*	---------------------------- EXPAND ----------------------------*/
 char	**split_filter(char **args, t_hash *hash);
 char	*split_arg_filter(char *str, t_hash *hash);
 void	args_add_var(char **str, t_hash *hash, char **new);
-
-
 
 #endif

@@ -6,11 +6,63 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 01:42:12 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 11:23:01 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
+
+char	*ft_envp(char *variable, char **envp)
+{
+	int		i;
+	int		j;
+	char	*sub;
+
+	i = 0;
+	while (envp[i])
+	{
+		j = 0;
+		while (envp[i][j] && envp[i][j] != '=')
+			j++;
+		sub = ft_substr(envp[i], 0, j);
+		if (ft_strcmp(sub, variable) == 0)
+		{
+			free(sub);
+			return (envp[i] + j + 1);
+		}
+		free(sub);
+		i++;
+	}
+	return (NULL);
+}
+
+char	*ft_path(char *cmd, char **envp)
+{
+	int		i;
+	char	*exec;
+	char	**paths;
+	char	*path;
+	char	**cmds;
+
+	i = -1;
+	paths = ft_split(ft_envp("PATH", envp), ":");
+	cmds = ft_split(cmd, " ");
+	while (paths[++i])
+	{
+		path = ft_strjoin(paths[i], "/");
+		exec = ft_strjoin(path, cmds[0]);
+		free(path);
+		if (access(exec, F_OK | X_OK) == 0)
+		{
+			ft_free_arr(cmds);
+			return (exec);
+		}
+		free(exec);
+	}
+	ft_free_arr(paths);
+	ft_free_arr(cmds);
+	return (cmd);
+}
 
 void	ft_exec_single(char *cmd, char **envp)
 {

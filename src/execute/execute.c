@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 18:00:16 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 13:09:26 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ int	ft_execute(t_mini *mini)
 		{
 			while (mini->cmds_and_args[mini->argc])
 				mini->argc++;
-			printf("%d", mini->argc);
-			pipex_bonus(mini, mini->argc, mini->cmds_and_args, hash_to_arry(mini->hash_env));
+			printf("\nmini->argc: %d\n", mini->argc);
+			check_cmds_and_args(mini);
+			//pipex_bonus(mini->argc, mini->cmds_and_args, hash_to_arry(mini->hash_env));
 			pipe_found = 1;
 		}
 		i++;

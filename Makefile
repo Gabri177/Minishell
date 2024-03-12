@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+         #
+#    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/12 02:39:48 by yugao            ###   ########.fr        #
+#    Updated: 2024/03/12 11:39:57 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ BUILTINS	= builtin.c ft_echo.c ft_cd.c ft_pwd.c ft_export.c ft_unset.c ft_env.c 
 INIT		= init.c loop.c
 PARSER		= argvs_split.c arry_argss.c arry_cmd.c arry_infile.c arry_outfile.c arry_strs1.c \
 				arry_strs2.c arry_strs3.c arry_utils.c cmds_and_args.c expand1.c expand2.c parser.c
-PIPEX		= pipex_bonus.c pipex_utils_bonus.c
+PIPEX		= child.c error.c free.c here_doc.c main_bonus.c parse.c pipex.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_utils.c hash.c
-EXECUTE		= execute.c single_command.c not_builtin.c 
+EXECUTE		= execute.c single_command.c not_builtin.c check_cmds_and_args.c
 SIGNALS		= sig_func.c
 FREE		= ft_free_four.c free_arr.c
 UTILS		= ft_lower.c

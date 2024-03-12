@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmds_and_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:17:11 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 02:11:46 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 12:15:18 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,5 @@ char	**args_to_cmds_args(char **args)
 		}
 		i ++;
 	}
-	arry_add(&new, "NULL");
 	return (new);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 02:27:28 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 13:12:46 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	init_mini(t_mini *mini, char **envp)
 	mini->outfile = NULL;
 	mini->commands = NULL;
 	mini->args = NULL;
-	mini->flag_infile = FALSE;
-	mini->flag_outfile = FALSE;
 	mini->cmds_and_args = NULL;
 	mini->argc = 0;
 	init_builtin(mini);
