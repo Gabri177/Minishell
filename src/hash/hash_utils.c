@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hash_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 00:30:52 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/10 01:44:22 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 21:45:14 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	list_print(t_node *l)
 	tem = l->next;
 	while (tem)
 	{
-		printf ("%s\n", tem->val);
+		if (!is_strsame (tem->key, "?"))
+			printf ("%s\n", tem->val);
 		num ++;
 		tem = tem->next;
 	}

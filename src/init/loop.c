@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 14:18:20 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 21:56:15 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	shell_loop(t_mini *mini)
 		if (*line)
 		{
 			add_history(line);
+			g_sig_refresh (mini->hash_env, g_sig);
 			mini->arg_ori = arg_abordar (line);
 			if (!mini->arg_ori)
 				continue ;

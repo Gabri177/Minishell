@@ -6,3 +6,12 @@ minishell
 src
        6
        6
+Makefile
+include
+minishell
+Makefile
+include
+minishell
+Makefile
+include
+minishell

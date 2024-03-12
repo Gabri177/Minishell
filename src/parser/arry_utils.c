@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 00:30:31 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/12 01:57:32 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 21:54:43 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,17 @@ int	is_strsame(char *s1, char *s2)
 		s2 ++;
 	}
 	return (*s1 == *s2);
+}
+
+void	g_sig_refresh(t_hash *hash, int new)
+{
+	char	*tem;
+	char	*num;
+
+
+	num = ft_itoa (new);
+	tem = ft_strjoin ("?=", num);
+	free (num);
+	hash_push (hash, "?", tem);
+	free (tem);
 }

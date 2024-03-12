@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:37:32 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 12:05:28 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 21:20:06 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <stdbool.h>
 # include <errno.h>
 
-#define INFILE "./Libft/ft_printf/.infile"
-#define OUTFILE "./Libft/ft_printf/.outfile"
+# define INFILE "./Libft/ft_printf/.infile"
+# define OUTFILE "./Libft/ft_printf/.outfile"
 
 typedef struct s_cmd
 {

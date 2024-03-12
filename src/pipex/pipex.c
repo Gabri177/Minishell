@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:38:38 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 18:12:30 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 21:58:52 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ bool	create_pipes(t_pipex *pipex)
 bool	wait_pids(t_pipex *pipex)
 {
 	int	i;
+	int	status;
 
 	i = 0;
 	while (i < pipex->size && pipex->child_pids[i] > 0)
 	{
-		waitpid(pipex->child_pids[i], NULL, 0);
+		waitpid(pipex->child_pids[i], &status, 0);
+		g_sig = WIFEXITED (status);
 		i++;
 	}
 	if (pipex->outfile == -1)

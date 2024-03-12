@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 20:46:57 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 21:48:18 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	init_env(t_mini *mini, char **envp)
 	i = 0;
 	len_to_equal = 0;
 	mini->hash_env = hash_init();
+	g_sig = 0;
+	hash_push (mini->hash_env, "?", "?=0");
 	while (envp[i])
 	{
 		len_to_equal = ft_strchrlen(envp[i], '=');

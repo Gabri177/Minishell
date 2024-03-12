@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 19:09:56 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 21:55:19 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,14 @@
 # define WELCOM7 "\033[0;35m░  ░      ░▒ ░ ░░   ░ ▒░▒ ░ ░▒  ░ ░▒ ░▒░ ░░ ░  ░ ░ ▒  ░ ░ ▒  ░\n"
 # define WELCOM8 "\033[1;35m░      ░   ▒ ░  ░   ░ ░ ▒ ░  ░  ░  ░  ░░ ░  ░    ░ ░    ░ ░   \n"
 # define WELCOM9 "\033[0;35m       ░   ░          ░ ░       ░  ░  ░  ░  ░  ░   ░  ░   ░  ░\n"
-
-#define INFILE "./Libft/ft_printf/.infile"
-#define OUTFILE "./Libft/ft_printf/.outfile"
+# define ERR0 "minishell: syntax error near unexpected token `newline'"
+# define ERR1 "minishell: syntax error near unexpected token `>>'"
+# define ERR2 "minishell: syntax error near unexpected token `<<'"
+# define ERR3 "minishell: syntax error near unexpected token `<'"
+# define ERR4 "minishell: syntax error near unexpected token `>'"
+# define ERR5 "minishell: syntax error near unexpected token `|'"
+# define INFILE "./Libft/ft_printf/.infile"
+# define OUTFILE "./Libft/ft_printf/.outfile"
 
 typedef int	t_bool;
 typedef struct s_mini
@@ -98,6 +103,8 @@ typedef struct s_pipex
 	bool	heredoc;
 	int		exitcode;
 }	t_pipex;
+
+int	g_sig;
 
 /*	--------------------------- INIT --------------------------- */
 void	init_mini(t_mini *mini, char **envp);
@@ -185,6 +192,7 @@ void	find_command(t_pipex *pipex, int i);
 void	find_paths(t_pipex *pipex);
 void	open_files(t_pipex *pipex, t_mini *mini);
 bool	parse_input(t_pipex *pipex, t_mini *mini);
+void	g_sig_refresh(t_hash *hash, int new);
 
 /*	--------------------------- PIPEX --------------------------- */
 bool	create_pipes(t_pipex *pipex);
