@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   expand1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 03:12:41 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 04:29:06 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 02:15:29 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-void	handle_single_quote(char **str, char **new)
+static void	handle_single_quote(char **str, char **new)
 {
 	(*str)++;
 	while (**str != '\'')
@@ -20,7 +20,7 @@ void	handle_single_quote(char **str, char **new)
 	(*str)++;
 }
 
-void	handle_double_quote(char **str, t_hash *hash, char **new)
+static void	handle_double_quote(char **str, t_hash *hash, char **new)
 {
 	(*str)++;
 	while (**str != '\"')
@@ -35,7 +35,7 @@ void	handle_double_quote(char **str, t_hash *hash, char **new)
 	(*str)++;
 }
 
-void	handle_variable(char **str, t_hash *hash, char **new)
+static void	handle_variable(char **str, t_hash *hash, char **new)
 {
 	if (**str == '$' && *(*str + 1) && *(*str + 1) != '$')
 		args_add_var(str, hash, new);

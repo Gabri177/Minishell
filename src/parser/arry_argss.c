@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   arry_argss.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 03:34:09 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 23:28:59 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 02:12:25 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-void	h_args(int *has_args, int *i, char ***cur_args, char *cont)
+static void	h_args(int *has_args, int *i, char ***cur_args, char *cont)
 {
 	arry_add (cur_args, cont);
 	*has_args = 1;
 	(*i)++;
 }
 
-void	h_put_zero(char ****cmds, int *cmds_count
+static void	h_put_zero(char ****cmds, int *cmds_count
 	, char ***current_args, int *i)
 {
 	*cmds = NULL;
@@ -28,7 +28,7 @@ void	h_put_zero(char ****cmds, int *cmds_count
 	*i = 0;
 }
 
-/* char	***reallocate_cmds(char ***cmds, int cmds_count)
+static void	new_space(char ****cmds, int cmds_count)
 {
 	char	***new_cmds;
 	int		i;
@@ -36,44 +36,23 @@ void	h_put_zero(char ****cmds, int *cmds_count
 	i = 0;
 	new_cmds = malloc(sizeof(char **) * (cmds_count + 1));
 	if (new_cmds == NULL)
-		return (NULL);
-	while (i < cmds_count)
+		return ;
+	while (i <= cmds_count)
 	{
-		new_cmds[i] = arry_cpy_same (cmds[i]);
+		new_cmds[i] = NULL;
 		i ++;
 	}
-	new_cmds[cmds_count] = NULL;
-	return (new_cmds);
-} */
-
-void	*ft_realloc(void *ptr, size_t new_size)
-{
-	void	*new_ptr;
-
-	new_ptr = NULL;
-	// 如果申请的内存大小为 0,则释放原有内存并返回 NULL
-	if (new_size == 0)
+	i = 0;
+	while (i < cmds_count - 1)
 	{
-		free(ptr);
-		return (NULL);
+		new_cmds[i] = (*cmds)[i];
+		i ++;
 	}
-	// 如果原有指针为 NULL,等同于 malloc
-	if (ptr == NULL)
-		return (malloc(new_size));
-	// 申请新的内存块
-	new_ptr = malloc(new_size);
-	if (new_ptr == NULL)
-		return (NULL); // 内存分配失败
-	// 计算需要复制的字节数,避免越界
-	size_t bytes_to_copy = new_size < sizeof(ptr) ? new_size : sizeof(ptr);
-	// 复制原有数据到新内存块
-	ft_memcpy(new_ptr, ptr, bytes_to_copy);
-	// 释放原有内存块
-	free(ptr);
-	return (new_ptr);
+	free (*cmds);
+	*cmds = new_cmds;
 }
 
-void	h_fill_zero(char ***cmd, char ***current_args)
+static void	h_fill_zero(char ***cmd, char ***current_args)
 {
 	*cmd = NULL;
 	*current_args = NULL;
@@ -99,12 +78,9 @@ char	***args_to_args(char **args)
 		if (!has_args)
 			arry_add(&current_args, "哈");
 		cmds_count ++;
-		cmds = ft_realloc(cmds, sizeof (char**) * (cmds_count + 1));
-		//cmds = reallocate_cmds (cmds, cmds_count);
+		new_space (&cmds, cmds_count);
 		cmds[cmds_count - 1] = current_args;
 		h_fill_zero (&cmds[cmds_count], &current_args);
-		/* cmds[cmds_count] = NULL;
-		current_args = NULL; */
 		if (args[i] != NULL)
 			i ++;
 	}

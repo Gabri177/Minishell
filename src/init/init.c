@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 11:13:48 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 02:27:28 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	init_mini(t_mini *mini, char **envp)
 {
 	mini->line = NULL;
 	mini->arg_ori = NULL;
-	mini->paths = NULL; //Javi
-	mini->infile = NULL; //Gao
-	mini->outfile = NULL; //Gao
-	mini->commands = NULL; //Gao
-	mini->args = NULL; //Gao
+	mini->paths = NULL;
+	mini->infile = NULL;
+	mini->outfile = NULL;
+	mini->commands = NULL;
+	mini->args = NULL;
 	mini->flag_infile = FALSE;
 	mini->flag_outfile = FALSE;
 	mini->cmds_and_args = NULL;
@@ -40,16 +40,17 @@ void	init_builtin(t_mini *mini)
 	mini->is_builtin[6] = "env";
 	mini->is_builtin[7] = NULL;
 }
+
 void	init_env(t_mini *mini, char **envp)
 {
-	int	i;
-	int	len_to_equal;
+	int		i;
+	int		len_to_equal;
 	char	*key;
 
 	i = 0;
 	len_to_equal = 0;
 	mini->hash_env = hash_init();
-	while(envp[i])
+	while (envp[i])
 	{
 		len_to_equal = ft_strchrlen(envp[i], '=');
 		key = ft_substr(envp[i], 0, len_to_equal);
@@ -71,6 +72,22 @@ void	welcom(void)
 	printf(WELCOM8);
 	printf(WELCOM9);
 	printf("\033[0m\n");
+}
+
+void	init_re(t_mini *mini)
+{
+	arry_destory (mini->arg_ori);
+	mini->arg_ori = NULL;
+	arry_destory (mini->outfile);
+	mini->outfile = NULL;
+	arry_destory (mini->infile);
+	mini->infile = NULL;
+	arry_destory (mini->cmds_and_args);
+	mini->cmds_and_args = NULL;
+	arry_destory (mini->commands);
+	mini->commands = NULL;
+	argss_destory (mini->args);
+	mini->args = NULL;
 }
 
 

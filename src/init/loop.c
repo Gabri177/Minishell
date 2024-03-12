@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 23:35:52 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 02:30:37 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-void shell_loop(t_mini *mini) 
+void	shell_loop(t_mini *mini)
 {
-	char *line;
+	char	*line;
 
-	while (1) 
+	while (1)
 	{
     	line = readline(PROMPT);
-		//line = readline("minishell>");
 		if (line == NULL || ft_exit(line) == TRUE)
 		{
 			if (line)
@@ -64,19 +63,7 @@ void shell_loop(t_mini *mini)
 		}
 		// Aquí se pueden añadir códigos para procesar el comando
 		ft_execute(mini);
-		//Clean
-		arry_destory (mini->arg_ori);
-		mini->arg_ori = NULL;
-		arry_destory (mini->outfile);
-		mini->outfile = NULL;
-		arry_destory (mini->infile);
-		mini->infile = NULL;
-		arry_destory (mini->cmds_and_args);
-		mini->cmds_and_args = NULL;
-		arry_destory (mini->commands);
-		mini->commands = NULL;
-		argss_destory (mini->args);
-		mini->args = NULL;
+		init_re (mini);
 	}
 }
 

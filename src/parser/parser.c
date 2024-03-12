@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:24 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/11 04:08:23 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 02:15:49 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	quote_check(char *str)
+static int	quote_check(char *str)
 {
 	while (*str)
 	{
@@ -54,8 +54,11 @@ char	**arg_abordar(char *ori)
 /*
 int main (void)
 {
-	// situacion como ||||||| o >>>>>> o <<<<<<<< o <> ><   >>>>le3 中间的">>"被当成文件了 所以le3没有被删除
-	char	test[]=" ls >file1 >>file2 -la arg1[1] arg2[1]|grep >file >>fill| cat -d arg1[3] | cd | ls arg1[4] arg2[4]";//write a checker to theck the ilegal situation
+	// situacion como ||||||| o >>>>>> o <<<<<<<< o <> ><   >>>>le3
+	// 中间的">>"被当成文件了 所以le3没有被删除
+	char	test[]=" ls >file1 >>file2 -la arg1[1] arg2[1]|grep >
+	//file >>fill| cat -d arg1[3] | cd | ls arg1[4] arg2[4]";//write
+	// a checker to theck the ilegal situation
 	char	**ori_args;
 	char	**outfile;
 	char	**cmds;

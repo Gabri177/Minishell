@@ -6,13 +6,13 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:40:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 01:43:39 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 02:13:04 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-void	args_no_outfile(char ***args, char **ofile)
+static void	args_no_outfile(char ***args, char **ofile)
 {
 	int	i;
 
@@ -23,6 +23,28 @@ void	args_no_outfile(char ***args, char **ofile)
 	{
 		arry_del (args, arry_get_index (*args, ofile[i]));
 		i ++;
+	}
+}
+
+static void	apoy_args_to_outfile(char ***args, char ***new, int *i)
+{
+	if (is_strsame (">", (*args)[(*i)]))
+	{
+		arry_add (new, ">");
+		if ((*args)[(*i) + 1])
+		{
+			arry_add (new, (*args)[(*i) + 1]);
+			(*i)++;
+		}
+	}
+	else if (is_strsame (">>", (*args)[(*i)]))
+	{
+		arry_add (new, ">>");
+		if ((*args)[(*i) + 1])
+		{
+			arry_add (new, (*args)[(*i) + 1]);
+			(*i)++;
+		}
 	}
 }
 
@@ -38,24 +60,7 @@ char	**args_to_outfile(char ***args)
 		return (new);
 	while ((*args)[i])
 	{
-		if (is_strsame (">", (*args)[i]))
-		{
-			arry_add (&new, ">");
-			if ((*args)[i + 1])
-			{
-				arry_add (&new, (*args)[i + 1]);
-				i ++;
-			}
-		}
-		else if (is_strsame (">>", (*args)[i]))
-		{
-			arry_add (&new, ">>");
-			if ((*args)[i + 1])
-			{
-				arry_add (&new, (*args)[i + 1]);
-				i ++;
-			}
-		}
+		apoy_args_to_outfile (args, &new, &i);
 		i ++;
 	}
 	args_no_outfile (args, new);

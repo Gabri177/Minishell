@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expand.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 13:05:27 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 04:29:25 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 01:59:27 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ void	args_add_var(char **str, t_hash *hash, char **new)
 			str ++;
 			while (*str != '\"')
 			{
-				if (*str == '$' && *(str + 1) && *(str + 1) != ' ' && *(str + 1) != '\'' && *(str + 1) != '\"' && *(str + 1) != '$')
+				if (*str == '$' && *(str + 1) && *(str + 1) != ' '
+					&& *(str + 1) != '\'' && *(str + 1)
+							!= '\"' && *(str + 1) != '$')
 					args_add_var (&str, hash, &new);
 				else
 					chr_add (&new, *str);
@@ -92,7 +94,8 @@ void	args_add_var(char **str, t_hash *hash, char **new)
 		}
 		else
 		{
-			if (*str == '$' && *(str + 1) && *(str + 1) != ' ' && *(str + 1) != '\'' && *(str + 1) != '\"' && *(str + 1) != '$')
+			if (*str == '$' && *(str + 1) && *(str + 1) != ' '
+				&& *(str + 1) != '\'' && *(str + 1) != '\"' && *(str + 1) != '$')
 				args_add_var (&str, hash, &new);
 			else
 				chr_add (&new, *str);
@@ -112,13 +115,12 @@ char	**split_filter(char **args, t_hash *hash)
 	i = 0;
 	new = NULL;
 	if (!args || !*args)
-	return (NULL);
+		return (NULL);
 	while (args[i])
 	{
 		if (!is_strsame ("\"\"", args[i]) && !is_strsame ("\'\'", args[i]))
 		{
 			filt = split_arg_filter (args[i], hash);
-			//printf ("new:!%s!", filt);
 			arry_add (&new, filt);
 			free (filt);
 			filt = NULL;

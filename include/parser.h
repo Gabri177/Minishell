@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:22:45 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/11 13:22:37 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 02:19:21 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,16 @@ int		arry_get_index(char **ary, char *val);
 int		is_strsame(char *s1, char *s2);
 //=====arry_outfile.c===
 char	**args_to_outfile(char ***args);
-void	args_no_outfile(char ***args, char **ofile);
+//=====arry_infile.c===
+char	**args_to_infile(char ***args);
 //=====arry_cmd.c=======
 char	**args_to_cmds(char ***args);
 char	***args_to_args(char **args);
 void	argss_destory(char ***argss);
 void	argss_display(char ***args);
-
 char	**arg_abordar(char *ori);
 int		arry_count(char **arys);
 int		count_args(char **args);
-//=====arry_infile.c===
-char	**args_to_infile(char ***args);
-void	args_no_infile(char ***args, char **infile);
 //=====cmds_and_args.c===
 char	**args_to_cmds_args(char **args);
 char	**filter_args_infile(char **infile);
