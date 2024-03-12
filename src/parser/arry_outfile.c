@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 20:40:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 02:13:04 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 13:35:57 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,44 @@ char	**args_to_outfile(char ***args)
 		i ++;
 	}
 	args_no_outfile (args, new);
+	return (new);
+}
+
+static void	apoy_filter_add_path(t_hash *hash, char ***new, char *str)
+{
+	char	*tem;
+	char	*fin;
+	char	*path;
+
+	path = hash_grep (hash, "PWD");
+	while (*path != '=')
+		path ++;
+	path ++;
+	tem = ft_strjoin (path, "/");
+	fin = ft_strjoin (tem, str);
+	free (tem);
+	arry_add (new, fin);
+	free (fin);
+}
+
+char	**filter_add_path(char **args_file, t_hash *hash)
+{
+	char	**new;
+	char	**ori;
+
+	new = NULL;
+	if (!args_file)
+		return (NULL);
+	ori = args_file;
+	while (*args_file)
+	{
+		if (is_strsame (">", *args_file) || is_strsame ("<", *args_file)
+			|| is_strsame (">>", *args_file) || is_strsame ("<<", *args_file))
+			arry_add (&new, *args_file);
+		else
+			apoy_filter_add_path (hash, &new, *args_file);
+		args_file ++;
+	}
+	arry_destory (ori);
 	return (new);
 }

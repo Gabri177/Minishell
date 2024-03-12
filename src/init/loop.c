@@ -6,7 +6,7 @@
 /*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 02:54:24 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/12 13:37:06 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	shell_loop(t_mini *mini)
 			line = NULL;
 			printf ("original :\n");							//Imprime el parser
 			arry_display (mini->arg_ori);							//Imprime el parser
-			mini->outfile = args_to_outfile (&mini->arg_ori);
+			mini->outfile = filter_add_path (args_to_outfile (&mini->arg_ori), mini->hash_env);
 			printf ("outfile :\n");							//Imprime el parser
 			arry_display (mini->outfile);
-			mini->infile = filter_args_infile (args_to_infile (&mini->arg_ori));
-			//printf ("infile :\n");	
-			//arry_display (mini->infile);
+			mini->infile = filter_add_path (filter_args_infile (args_to_infile (&mini->arg_ori)), mini->hash_env);;
+			printf ("infile :\n");	
+			arry_display (mini->infile);
 			//Imprime el parser
 			mini->cmds_and_args = args_to_cmds_args (mini->arg_ori);
 			printf ("cmds_and_args :\n");

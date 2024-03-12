@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 13:13:39 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 13:35:05 by yugao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,8 @@ char	**split_filter(char **args, t_hash *hash);
 char	**split_filter(char **args, t_hash *hash);
 char	*split_arg_filter(char *str, t_hash *hash);
 void	args_add_var(char **str, t_hash *hash, char **new);
+
+/*	---------------------------- APOYO ------------------------------*/
+char	**filter_add_path(char **args_file, t_hash *hash);
 
 #endif
