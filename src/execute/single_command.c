@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 11:23:01 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 22:37:12 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ int	single_command(t_mini *mini)
 	if (is_builtin(mini->commands[0], mini) == TRUE)
 		exec_builtin(mini->commands[0], mini->args[0], mini);
 	else
+	{
+		if (mini->flag_unset_path == TRUE)
+			return(print_error("No such file or directory"));
 		not_builtin(mini->commands[0], mini->args[0], mini, SINGLE);
+	}
 	return (TRUE);
 }

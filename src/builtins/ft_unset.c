@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/08 22:59:12 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/12 22:35:05 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int	ft_unset(t_mini	*mini, char *variable)
 {
+	if (ft_strcmp(variable, "PATH") == 0)
+		mini->flag_unset_path = TRUE;
 	hash_del(mini->hash_env, variable);
 	return (TRUE);
 }
