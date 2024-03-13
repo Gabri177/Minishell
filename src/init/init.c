@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 09:09:05 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:18:05 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,6 @@ void	init_env(t_mini *mini, char **envp)
 		free (key);
 		i++;
 	}
-}
-
-void	welcom(void)
-{
-	printf(WELCOM1);
-	printf(WELCOM2);
-	printf(WELCOM3);
-	printf(WELCOM4);
-	printf(WELCOM5);
-	printf(WELCOM6);
-	printf(WELCOM7);
-	printf(WELCOM8);
-	printf(WELCOM9);
-	printf("\033[0m\n");
 }
 
 void	init_re(t_mini *mini)

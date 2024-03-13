@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:33:34 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:20:07 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,6 @@
 # define NUM_BUILTINS 7
 # define PROMPT "\x1b[1;32mminishell\x1b[0m\x1b[1;36m > \x1b[0m"
 
-# define WELCOM1 "\033[1;32m ███▄ ▄███ ██ ███▄    █ ██  ██████ ██░ ██ █████ ██▓    ██▓    \n"
-# define WELCOM2 "\033[0;32m▓██▒▀█▀ ██ ██ ██ ▀█   █ ██ ██    ▒ ██░ ██ █   ▀ ██▒    ██▒    \n"
-# define WELCOM3 "\033[1;34m▓██    ▓██ ██ ██  ▀█ ██ ██  ▓██▄   ██▀▀██ ███   ██░    ██░    \n"
-# define WELCOM4 "\033[0;34m▒██    ▒██ ██ ██▒  ▐▌██ ██  ▒   ██ ▓█ ░██ ▓█  ▄ ██░    ██░    \n"
-# define WELCOM5 "\033[1;35m▒██▒   ░██ ██ ██░   ▓██ ██ ██████▒ ▓█▒░██ ▒████ ██████ ██████▒\n"
-# define WELCOM6 "\033[0;35m░ ▒░   ░  ░▓ ░ ▒░   ▒ ▒░▓ ▒ ▒▓▒ ▒ ░▒ ░░▒░░░ ▒░ ░ ▒░▓  ░ ▒░▓  ░\n"
-# define WELCOM7 "\033[0;35m░  ░      ░▒ ░ ░░   ░ ▒░▒ ░ ░▒  ░ ░▒ ░▒░ ░░ ░  ░ ░ ▒  ░ ░ ▒  ░\n"
-# define WELCOM8 "\033[1;35m░      ░   ▒ ░  ░   ░ ░ ▒ ░  ░  ░  ░  ░░ ░  ░    ░ ░    ░ ░   \n"
-# define WELCOM9 "\033[0;35m       ░   ░          ░ ░       ░  ░  ░  ░  ░  ░   ░  ░   ░  ░\n"
 # define ERR0 "minishell: syntax error near unexpected token `newline'"
 # define ERR1 "minishell: syntax error near unexpected token `>>'"
 # define ERR2 "minishell: syntax error near unexpected token `<<'"
@@ -109,16 +100,15 @@ typedef struct s_pipex
 	int		exitcode;
 }	t_pipex;
 
-int	g_sig;
+int			g_sig;
 
 /*	--------------------------- INIT --------------------------- */
 void	init_mini(t_mini *mini, char **envp);
 void	init_builtin(t_mini *mini);
 void	init_env(t_mini *mini, char **envp);
 void	shell_loop(t_mini *mini);
-void	welcom(void);
 void	init_re(t_mini *mini);
-int		clean_outfile();
+int		clean_outfile(t_mini *mini);
 
 /*	-------------------------- BUILTIN ---------------------------*/
 int		is_builtin(char *command, t_mini *mini);
@@ -142,10 +132,11 @@ char	*ft_envp(char *variable, char **envp);
 char	**check_cmds_and_args(t_mini *mini);
 int		print(t_mini *mini);
 void	open_all_files(t_mini *mini);
-int		single_redir(t_mini *mini, char *command, char *input_file, char *output_file);
+int		single_redir(t_mini *mini, char *command, char *input_file,
+			char *output_file);
 
 /*	-------------------------- HERE_DOC ---------------------------*/
-int 	single_here_doc(int argc, char **argv);
+int		single_here_doc(int argc, char **argv);
 void	here_doc_consumer(char *cmd, char *arg1);
 void	here_doc_producer(char *delimiter);
 char	**parse_single_here_doc(t_mini *mini);
