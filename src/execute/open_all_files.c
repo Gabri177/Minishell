@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   open_all_files.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 10:39:19 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 06:49:54 by javgao           ###   ########.fr       */
+/*   Created: 2024/03/13 06:37:17 by javgao            #+#    #+#             */
+/*   Updated: 2024/03/13 06:45:27 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-void	error_message(char *file)
+void	open_all_files(t_mini *mini)
 {
-	if (file)
-	{
-		ft_putstr_fd(": ", 2);
-		ft_putstr_fd(file, 2);
-	}
-	ft_putstr_fd("\n", 2);
-}
+	int	i;
+	int	fd;
 
-void	cmd_not_found(t_pipex *pipex, int i)
-{
-	ft_putstr_fd("minishell: command not found: ", 2);
-	ft_putstr_fd(pipex->cmds[i].args[0], 2);
-	ft_putstr_fd("\n", 2);
-	pipex->cmds[i].found = false;
+	i = 0;
+	if (mini->flag_append_output == FALSE && mini->flag_output == FALSE)
+		return ;
+	while (mini->outfile[i])
+	{
+		if (ft_strcmp(mini->outfile[i], ">") == 0 ||
+			ft_strcmp(mini->outfile[i], ">>") == 0)
+			i++;
+		else
+		{
+			fd = open(mini->outfile[i], O_CREAT | O_WRONLY, 0777);
+			close(fd);
+			i++;
+		}
+	}
 }

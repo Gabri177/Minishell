@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:39:07 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 01:46:21 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 06:50:13 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,7 @@ void	here_doc(t_pipex *pipex)
 		write(1, "minishell >", 11);
 		buf = get_next_line(STDIN_FILENO);
 		if (buf == NULL || *buf == '\0')
-		{
-			write(1, "\n", 1);
-			write(1, "minishell: warning - file delimited by end-of-file ", 47);
-			write(1, "(wanted \"", 9);
-			write(1, pipex->argv[2], ft_strlen(pipex->argv[2]));
-			write(1, "\")\n", 3);
 			break ;
-		}
 		if (ft_strlen(pipex->argv[2]) == ft_strlen(buf) - 1 && \
 			ft_strncmp(pipex->argv[2], buf, ft_strlen(pipex->argv[2])) == 0)
 			break ;

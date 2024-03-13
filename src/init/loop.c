@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 05:18:05 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 06:48:48 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	shell_loop(t_mini *mini)
 			//argss_display (mini->args);							//Imprime el parser
 		}
 		// Aquí se pueden añadir códigos para procesar el comando
+		open_all_files(mini);
 		ft_execute(mini);
 		print(mini);
 		init_re (mini);

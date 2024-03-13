@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 05:55:57 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 06:49:03 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ char	*ft_path(char *cmd, char **envp);
 char	*ft_envp(char *variable, char **envp);
 char	**check_cmds_and_args(t_mini *mini);
 int		print(t_mini *mini);
+void	open_all_files(t_mini *mini);
 
 /*	-------------------------- HERE_DOC ---------------------------*/
 int 	single_here_doc(int argc, char **argv);
