@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 06:48:25 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 07:50:28 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	init_re(t_mini *mini)
 	mini->flag_output = FALSE;
 	mini->flag_here_doc = FALSE;
 	mini->flag_input = FALSE;
-	clean_outfile();
+	clean_outfile(mini);
 }
 
 

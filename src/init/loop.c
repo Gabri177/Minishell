@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 06:48:48 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 07:52:57 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	shell_loop(t_mini *mini)
 			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->outfile = args_to_outfile (&mini->arg_ori);
 			//printf ("outfile :\n");							//Imprime el parser
-			arry_display (mini->outfile);							//Imprime el parser
+			//arry_display (mini->outfile);							//Imprime el parser
 			mini->infile = filter_args_infile (args_to_infile (&mini->arg_ori));
 			//printf ("infile :\n");							//Imprime el parser
 			update_statu_write_outfile (mini, mini->outfile);

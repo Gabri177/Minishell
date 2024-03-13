@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 05:01:14 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 05:16:13 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 07:52:34 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	print(t_mini *mini)
 	char	buffer[1024];
 	ssize_t	bytes_read;
 
-	if (mini->flag_output != FALSE && mini->flag_append_output != FALSE)
+	if (mini->flag_output != TRUE && mini->flag_append_output != TRUE)
 		return (EXIT_FAILURE);
 	fd = open(OUTFILE, O_RDONLY);
 	if (fd == -1)
