@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:38:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 02:02:21 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 08:08:26 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,15 @@ void static	open_outfile(t_pipex *pipex, t_mini *mini)
 {
 	int	i;
 	int	j;
-	
+
 	i = 1;
 	j = 1;
 	if (mini->flag_append_output == TRUE)
-	pipex->outfile = open(pipex->argv[pipex->size + 2],
-			O_WRONLY | O_CREAT | O_APPEND, 0777);
+		pipex->outfile = open(pipex->argv[pipex->size + 2],
+				O_WRONLY | O_CREAT | O_APPEND, 0777);
 	else
-	pipex->outfile = open(pipex->argv[pipex->size + 2],
-			O_WRONLY | O_CREAT | O_TRUNC, 0777);
+		pipex->outfile = open(pipex->argv[pipex->size + 2],
+				O_WRONLY | O_CREAT | O_TRUNC, 0777);
 }
 
 void	open_files(t_pipex *pipex, t_mini *mini)

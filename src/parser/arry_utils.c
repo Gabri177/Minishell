@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 00:30:31 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/13 03:41:56 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 08:02:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,16 @@ void	update_statu_write_dogii(t_mini *mini, char **infile)
 	if (!infile)
 	{
 		mini->flag_input = FALSE;
-		mini->flag_here_doc= FALSE;
+		mini->flag_here_doc = FALSE;
 	}
 	else if (is_strsame (infile[arry_count (infile) - 2], "<"))
 	{
 		mini->flag_input = TRUE;
-		mini->flag_here_doc= FALSE;
+		mini->flag_here_doc = FALSE;
 	}
 	else
 	{
 		mini->flag_input = FALSE;
-		mini->flag_here_doc= TRUE;
+		mini->flag_here_doc = TRUE;
 	}
 }
