@@ -6,7 +6,7 @@
 #    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/13 04:58:19 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/13 05:05:53 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ PARSER		= argvs_split.c arry_argss.c arry_cmd.c arry_infile.c arry_outfile.c arr
 PIPEX		= child.c error.c free.c here_doc.c main_bonus.c parse.c pipex.c file.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_utils.c hash.c
-EXECUTE		= execute.c single_command.c not_builtin.c check_cmds_and_args.c single_here_doc.c
+EXECUTE		= execute.c single_command.c not_builtin.c check_cmds_and_args.c single_here_doc.c print.c
 SIGNALS		= sig_func.c
 FREE		= ft_free_four.c free_arr.c
 UTILS		= ft_lower.c

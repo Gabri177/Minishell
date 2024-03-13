@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 04:41:36 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 05:18:05 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,32 +40,33 @@ void	shell_loop(t_mini *mini)
 			if (!mini->arg_ori)
 				continue ;
 			free(line);
-			arry_display (mini->arg_ori);							//Imprime el parser
+			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->arg_ori = split_filter (mini->arg_ori, mini->hash_env);
 			line = NULL;
-			printf ("original :\n");							//Imprime el parser
-			arry_display (mini->arg_ori);							//Imprime el parser
+			//printf ("original :\n");							//Imprime el parser
+			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->outfile = args_to_outfile (&mini->arg_ori);
-			printf ("outfile :\n");							//Imprime el parser
+			//printf ("outfile :\n");							//Imprime el parser
 			arry_display (mini->outfile);							//Imprime el parser
 			mini->infile = filter_args_infile (args_to_infile (&mini->arg_ori));
-			printf ("infile :\n");							//Imprime el parser
+			//printf ("infile :\n");							//Imprime el parser
 			update_statu_write_outfile (mini, mini->outfile);
 			update_statu_write_dogii(mini, mini->infile);
-			arry_display (mini->infile);							//Imprime el parser
+			//arry_display (mini->infile);							//Imprime el parser
 			mini->cmds_and_args = args_to_cmds_args (mini->arg_ori);
-			printf ("cmds_and_args :\n");							//Imprime el parser
-			arry_display (mini->cmds_and_args);							//Imprime el parser
+			//printf ("cmds_and_args :\n");							//Imprime el parser
+			//arry_display (mini->cmds_and_args);							//Imprime el parser
 			mini->commands = args_to_cmds (&mini->arg_ori);
-			printf ("command :\n");							//Imprime el parser
-			arry_display (mini->commands);							//Imprime el parser
-			arry_display (mini->arg_ori);							//Imprime el parser
+			//printf ("command :\n");							//Imprime el parser
+			//arry_display (mini->commands);							//Imprime el parser
+			//arry_display (mini->arg_ori);							//Imprime el parser
 			mini->args = args_to_args (mini->arg_ori);
-			printf ("ARGSSSSSSS :\n");							//Imprime el parser
-			argss_display (mini->args);							//Imprime el parser
+			//printf ("ARGSSSSSSS :\n");							//Imprime el parser
+			//argss_display (mini->args);							//Imprime el parser
 		}
 		// Aquí se pueden añadir códigos para procesar el comando
 		ft_execute(mini);
+		print(mini);
 		init_re (mini);
 	}
 }

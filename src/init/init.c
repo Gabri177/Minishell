@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 04:57:28 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 05:17:11 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_mini(t_mini *mini, char **envp)
 	mini->args = NULL;
 	mini->cmds_and_args = NULL;
 	mini->argc = 0;
-	mini->flag_append_output = TRUE;
+	mini->flag_append_output = FALSE;
 	mini->flag_output = FALSE;
 	mini->flag_unset_path = FALSE;
 	mini->flag_here_doc = FALSE;
