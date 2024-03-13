@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arry_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 00:30:31 by yugao             #+#    #+#             */
-/*   Updated: 2024/03/12 22:38:14 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 01:09:07 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ void	g_sig_refresh(t_hash *hash, int new)
 void	update_statu_write_outfile(t_mini *mini, char **outfile)
 {
 	if (!outfile)
-		return ;
-	if (is_strsame (outfile[arry_count (outfile) - 2], ">"))
+	{
+		mini->flag_output = FALSE;
+		mini->flag_append_output = FALSE;
+	}
+	else if (is_strsame (outfile[arry_count (outfile) - 2], ">"))
 	{
 		mini->flag_output = TRUE;
 		mini->flag_append_output = FALSE;
@@ -54,5 +57,24 @@ void	update_statu_write_outfile(t_mini *mini, char **outfile)
 	{
 		mini->flag_append_output = TRUE;
 		mini->flag_output = FALSE;
+	}
+}
+
+void	update_statu_write_dogii(t_mini *mini, char **infile)
+{
+	if (!infile)
+	{
+		mini->flag_input = FALSE;
+		mini->flag_here_doc= FALSE;
+	}
+	else if (is_strsame (infile[arry_count (infile) - 2], "<"))
+	{
+		mini->flag_input = TRUE;
+		mini->flag_here_doc= FALSE;
+	}
+	else
+	{
+		mini->flag_input = FALSE;
+		mini->flag_here_doc= TRUE;
 	}
 }

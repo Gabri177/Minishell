@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 23:57:26 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 00:16:59 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ typedef struct s_mini
 	int		flag_output;
 	int		flag_append_output;
 	int		flag_unset_path;
+	int		flag_here_doc;
+	int		flag_input;
 }			t_mini;
 
 typedef struct s_cmd
@@ -148,6 +150,7 @@ void	ft_free_arr(char **arr);
 /*	---------------------------- UTILS ----------------------------*/
 char	*ft_lower(char *str);
 void	update_statu_write_outfile(t_mini *mini, char **outfile);
+void	update_statu_write_dogii(t_mini *mini, char **infile);
 /*	---------------------------- EXPAND ----------------------------*/
 char	**split_filter(char **args, t_hash *hash);
 

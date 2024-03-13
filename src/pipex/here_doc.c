@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:39:07 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 19:00:36 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 01:35:27 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	here_doc(t_pipex *pipex)
 
 	while (1)
 	{
-		write(1, "minishell heredoc> ", 15);
+		write(1, "minishell >", 11);
 		buf = get_next_line(STDIN_FILENO);
 		if (buf == NULL || *buf == '\0')
 		{
