@@ -6,29 +6,11 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 11:40:35 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 01:07:04 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 01:46:01 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
-
-/*void	add_outfile(t_mini *mini)
-{
-	
-}
-
-char	*add_infile(t_mini *mini)
-{
-	char *str;
-
-	if (mini->flag_input == TRUE)
-		str = ft_strdup(mini->infile[arry_count(mini->infile) - 1]);
-	else if (mini->flag_here_doc == TRUE)
-		str = ft_strdup("here_doc");
-	else
-		str = ft_strdup(INFILE);
-	return (str);
-}*/
 
 char	**check_cmds_and_args(t_mini *mini)
 {

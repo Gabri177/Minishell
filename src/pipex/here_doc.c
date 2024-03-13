@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:39:07 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 01:35:27 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 01:46:21 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	here_doc(t_pipex *pipex)
 
 void	open_here_doc(t_pipex *pipex)
 {
-	pipex->infile = open(".here_doc", O_CREAT | O_WRONLY | O_TRUNC, 0000644);
+	pipex->infile = open(".here_doc", O_CREAT | O_WRONLY | O_TRUNC);
 	if (pipex->infile == -1)
 		error_message(NULL);
 	here_doc(pipex);
