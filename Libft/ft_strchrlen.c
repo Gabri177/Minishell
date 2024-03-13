@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 08:05:37 by jjuarez-          #+#    #+#             */
-/*   Updated: 2024/03/13 07:29:31 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 07:56:15 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ size_t	ft_strchrlen(const char *len, char c)
 		return (0);
 	return (i);
 }
-
