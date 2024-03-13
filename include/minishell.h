@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 04:40:38 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 04:58:42 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ void	init_env(t_mini *mini, char **envp);
 void	shell_loop(t_mini *mini);
 void	welcom(void);
 void	init_re(t_mini *mini);
+int		clean_outfile();
+
 /*	-------------------------- BUILTIN ---------------------------*/
 int		is_builtin(char *command, t_mini *mini);
 void	exec_builtin(char *command, char **arguments, t_mini *mini);

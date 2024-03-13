@@ -6,7 +6,7 @@
 #    By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 21:53:52 by jjuarez-          #+#    #+#              #
-#    Updated: 2024/03/13 02:18:57 by javgao           ###   ########.fr        #
+#    Updated: 2024/03/13 04:58:19 by javgao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ BUILTINS	= builtin.c ft_echo.c ft_cd.c ft_pwd.c ft_export.c ft_unset.c ft_env.c 
 INIT		= init.c loop.c
 PARSER		= argvs_split.c arry_argss.c arry_cmd.c arry_infile.c arry_outfile.c arry_strs1.c \
 				arry_strs2.c arry_strs3.c arry_utils.c cmds_and_args.c expand1.c expand2.c parser.c
-PIPEX		= child.c error.c free.c here_doc.c main_bonus.c parse.c pipex.c
+PIPEX		= child.c error.c free.c here_doc.c main_bonus.c parse.c pipex.c file.c
 ERROR		= print_error.c
 HASH		= hash_list.c hash_utils.c hash.c
 EXECUTE		= execute.c single_command.c not_builtin.c check_cmds_and_args.c single_here_doc.c

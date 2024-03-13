@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 04:45:28 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 04:56:26 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_execute(t_mini *mini)
 				j++;
 			}
 			pipex_bonus(mini, mini->argc + 3, arr, hash_to_arry(mini->hash_env));
+			ft_free_arr(argv);
 			pipe_found = 1;
 		}
 		i++;
