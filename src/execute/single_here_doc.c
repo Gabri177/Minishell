@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   single_here_doc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 02:18:34 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 03:42:57 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 06:17:32 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,27 @@ char	**parse_single_here_doc(t_mini *mini)
 
 void	here_doc_producer(char *delimiter)
 {
-	char	*input;
+	char	*buf;
+	char	*tem;
 
-	while ((input = readline("minishell > ")) != NULL)
+	while (1)
 	{
-		if (ft_strcmp(input, delimiter) == 0)
-		{
-			free(input);
+		write(1, "minishell >", 11);
+		if (delimiter)
+			tem = ft_strjoin (delimiter, "\n");
+		buf = get_next_line(STDIN_FILENO);
+		if (buf == NULL || *buf == '\0')
 			break ;
-		}
-		free(input);
+		if (buf && is_strsame (tem, buf))
+			break ;
+		if (buf)
+			free (buf);
+		if (tem)
+			free (tem);
 	}
 }
 
-void	here_doc_consumer(char *cmd)
+void	here_doc_consumer(char *cmd, char *arg1)
 {
 	int		fd[2];
 	pid_t	pid;
@@ -57,6 +64,9 @@ void	here_doc_consumer(char *cmd)
 		exit(1);
 	if (!pid)
 	{
+		signal (SIGINT, SIG_DFL);
+
+		here_doc_producer(arg1);
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
 		execvp(cmd, (char *[]){cmd, NULL});
@@ -75,7 +85,6 @@ void	here_doc_consumer(char *cmd)
 // This function can only take ./minishell DELIMITER COMAND
 int	single_here_doc(int argc, char **argv)
 {
-	char	*delimiter;
 	char	*cmd;
 
 	if (argc != 3)
@@ -83,9 +92,7 @@ int	single_here_doc(int argc, char **argv)
 		printf("Usage: ./minishell 'delimiter' 'command'\n");
 		exit(1);
 	}
-	delimiter = argv[1];
 	cmd = argv[2];
-	here_doc_producer(delimiter);
-	here_doc_consumer(cmd);
+	here_doc_consumer(cmd, argv[1]);
 	return (0);
 }

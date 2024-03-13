@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 05:06:36 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 05:55:57 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ int		print(t_mini *mini);
 
 /*	-------------------------- HERE_DOC ---------------------------*/
 int 	single_here_doc(int argc, char **argv);
-void	here_doc_consumer(char *cmd);
+void	here_doc_consumer(char *cmd, char *arg1);
 void	here_doc_producer(char *delimiter);
 char	**parse_single_here_doc(t_mini *mini);
 
