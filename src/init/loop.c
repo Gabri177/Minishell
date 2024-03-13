@@ -6,11 +6,23 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:35:25 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:09:17 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
+
+static void	check_file(t_mini *mini)
+{
+	int		fd;
+	char	*str;
+
+	fd = open(INFILE, O_RDONLY, O_TRUNC);
+	str = get_next_line(fd);
+	if (str)
+		clean_outfile(mini);
+	close (fd);
+}
 
 void	shell_loop(t_mini *mini)
 {
@@ -18,6 +30,7 @@ void	shell_loop(t_mini *mini)
 
 	while (1)
 	{
+		check_file(mini);
 		init_sig ();
     	line = readline(PROMPT);
 		if (line == NULL || ft_exit(line) == TRUE)
@@ -67,7 +80,7 @@ void	shell_loop(t_mini *mini)
 		// Aquí se pueden añadir códigos para procesar el comando
 		open_all_files(mini);
 		ft_execute(mini);
-		print(mini);
+		print (mini);
 		init_re (mini);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:10:13 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:09:05 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ void	welcom(void)
 
 void	init_re(t_mini *mini)
 {
+	int		fd;
+	char	*str;
+	
 	arry_destory (mini->arg_ori);
 	mini->arg_ori = NULL;
 	arry_destory (mini->outfile);
@@ -97,7 +100,11 @@ void	init_re(t_mini *mini)
 	mini->flag_output = FALSE;
 	mini->flag_here_doc = FALSE;
 	mini->flag_input = FALSE;
-	clean_outfile(mini);
+	fd = open(INFILE, O_RDONLY);
+	str = get_next_line(fd);
+	if (str)
+		clean_outfile(mini);
+	close (fd);
 }
 
 /* void	init_reset(t_mini)

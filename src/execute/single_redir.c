@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:16:29 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:11:15 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:12:44 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static int	open_outfile(t_mini *mini, int out_fd, char *output_file)
 		out_fd = open(output_file, O_WRONLY | O_CREAT | O_APPEND, 0777);
 	else
 		out_fd = open(output_file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (out_fd == -1)
-		return (print_error("open failed on single_redir.c\n"));
 	dup2(out_fd, STDOUT_FILENO);
 	return (0);
 }
@@ -36,7 +34,7 @@ int	single_redir(t_mini *mini, char *command, char *input_file, char *output_fil
 	pid = fork();
 	if (pid == 0)
 	{
-		in_fd = open(input_file, O_RDONLY);
+		in_fd = open(input_file, O_RDONLY | O_CREAT, 0777);
 		if (in_fd == -1)
 			return (print_error("open failed on single_redir.c\n"));
 		dup2(in_fd, STDIN_FILENO);

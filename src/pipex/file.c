@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 04:24:57 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:03:40 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:03:32 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	clean_outfile(t_mini *mini)
 {
 	int	fd;
-
-	if (mini->flag_append_output != TRUE && mini->flag_output != TRUE)
-		return (EXIT_SUCCESS);
+	//if (mini->flag_append_output != TRUE && mini->flag_output != TRUE)
+	//	return (EXIT_SUCCESS);
+	(void)mini;
 	fd = open("./Libft/ft_printf/.outfile", O_WRONLY | O_TRUNC);
 	if (fd == -1)
 		return (print_error("Error opening the file on clean_outfile"));

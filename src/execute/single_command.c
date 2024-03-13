@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   single_command.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:01:02 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:10:34 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,7 @@ void	ft_exec_single(char *cmd, char **envp)
 	{
 		init_sig_child ();
 		if (execve(path, cmds, envp) == -1)
-		{
-			ft_putstr_fd("command not found: ", 2);
-			ft_putendl_fd(cmds[0], 2);
 			exit(0);
-		}
 	}
 	else if (pid < 0)
 		print_error("fork failed");
