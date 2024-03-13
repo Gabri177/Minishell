@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   single_here_doc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
+/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 02:18:34 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:01:32 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:29:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	**parse_single_here_doc(t_mini *mini)
 	here_doc[3] = NULL;
 	return (here_doc);
 }
-
 
 void	here_doc_producer(char *delimiter)
 {
@@ -57,11 +56,7 @@ void	here_doc_consumer(char *cmd, char *arg1)
 	ssize_t	bytes_read;
 
 	bytes_read = 0;
-	if (pipe(fd) == -1)
-		exit(1);
 	pid = fork();
-	if (pid == -1)
-		exit(1);
 	if (!pid)
 	{
 		signal (SIGINT, SIG_DFL);
@@ -74,14 +69,13 @@ void	here_doc_consumer(char *cmd, char *arg1)
 	else
 	{
 		close(fd[1]);
-		while ((bytes_read = read(fd[0], buffer, sizeof(buffer))) > 0)
+		while ((read(fd[0], buffer, sizeof(buffer))) > 0)
 			write(STDOUT_FILENO, buffer, bytes_read);
 		close(fd[0]);
 		wait(NULL);
 	}
 }
 
-// This function can only take ./minishell DELIMITER COMAND
 int	single_here_doc(int argc, char **argv)
 {
 	char	*cmd;

@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 07:16:29 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 09:12:44 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:28:20 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ static int	open_outfile(t_mini *mini, int out_fd, char *output_file)
 	return (0);
 }
 
-int	single_redir(t_mini *mini, char *command, char *input_file, char *output_file)
+int	single_redir(t_mini *mini, char *command, char *input_file,
+	char *output_file)
 {
 	pid_t	pid;
 	int		status;
 	int		in_fd;
 	int		out_fd;
-	char 	*args[2];
+	char	*args[2];
 
 	out_fd = 0;
 	pid = fork();

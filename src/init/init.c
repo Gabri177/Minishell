@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:34:33 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 09:18:05 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:27:23 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	init_re(t_mini *mini)
 {
 	int		fd;
 	char	*str;
-	
+
 	arry_destory (mini->arg_ori);
 	mini->arg_ori = NULL;
 	arry_destory (mini->outfile);
@@ -92,8 +92,3 @@ void	init_re(t_mini *mini)
 		clean_outfile(mini);
 	close (fd);
 }
-
-/* void	init_reset(t_mini)
-{
-	
-} */

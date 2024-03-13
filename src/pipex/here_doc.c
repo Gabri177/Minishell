@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:39:07 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 06:50:13 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:38:43 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	here_doc(t_pipex *pipex)
 		write(pipex->infile, "\n", 1);
 		free(buf);
 	}
-	free(buf);
 }
 
 void	open_here_doc(t_pipex *pipex)
