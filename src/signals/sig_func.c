@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:14:06 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/10 13:27:17 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 04:42:25 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,23 @@ static void	sig_hand(int sig)
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
+
 }
 
 void	init_sig(void)
 {
+	struct sigaction	act;
+
+	act.sa_handler = sig_hand;
+	sigemptyset (&act.sa_mask);
+	act.sa_flags = 0;
 	rl_event_hook = event;
-	signal (SIGINT, sig_hand);
+	sigaction (SIGINT, &act, NULL);
+	signal (SIGQUIT, SIG_IGN);
+}
+
+void	init_sig_child(void)
+{
+	signal (SIGINT, SIG_DFL);
 	signal (SIGQUIT, SIG_IGN);
 }

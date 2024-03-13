@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:38:38 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 21:58:52 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 04:42:07 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,10 @@ bool	execute(t_pipex *pipex)
 	{
 		pid = fork();
 		if (pid == 0)
+		{
+			init_sig_child ();
 			children(*pipex, i);
+		}
 		else if (pid > 0)
 			pipex->child_pids[i] = pid;
 		else

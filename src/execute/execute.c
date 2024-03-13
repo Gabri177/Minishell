@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 10:58:56 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 22:35:50 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 04:45:28 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_execute(t_mini *mini)
 	int		i;
 	int		pipe_found;
 	char	**argv;
+	char *arr[] = {"./minishell", "here_doc", "END", "ls", "wc -l", NULL};
 
 	i = 0;
 	pipe_found = 0;
@@ -34,7 +35,7 @@ int	ft_execute(t_mini *mini)
 				printf("%s\n", argv[j]);
 				j++;
 			}
-			pipex_bonus(mini, mini->argc + 3, argv, hash_to_arry(mini->hash_env));
+			pipex_bonus(mini, mini->argc + 3, arr, hash_to_arry(mini->hash_env));
 			pipe_found = 1;
 		}
 		i++;

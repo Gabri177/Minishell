@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 19:06:23 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 03:42:41 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 04:40:38 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MINISHELL_H
 
 # include "../Libft/libft.h"
+# include <curses.h>
+# include <term.h>
 # include "parser.h"
 # include "hash.h"
 # include <stdio.h>
@@ -148,7 +150,7 @@ int		print_error(char *error);
 
 /*	--------------------------- SIGNAL ---------------------------*/
 void	init_sig(void);
-
+void	init_sig_child(void);
 /*	---------------------------- FREE ----------------------------*/
 void	ft_free_four(char **one, char **two, char **three, char **four);
 void	ft_free_arr(char **arr);
