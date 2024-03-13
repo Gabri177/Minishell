@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:52 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 04:36:16 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 07:45:39 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_builtin(char *command, t_mini *mini)
 	i = 0;
 	while (mini->is_builtin[i] != NULL)
 	{
-		if (ft_strcmp(command, mini->is_builtin[i]) == 0)
+		if (ft_strcmp (command, mini->is_builtin[i]) == 0)
 			return (TRUE);
 		i++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_all_files.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 06:37:17 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 06:45:27 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 07:59:11 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	open_all_files(t_mini *mini)
 		return ;
 	while (mini->outfile[i])
 	{
-		if (ft_strcmp(mini->outfile[i], ">") == 0 ||
-			ft_strcmp(mini->outfile[i], ">>") == 0)
+		if (ft_strcmp(mini->outfile[i], ">") == 0
+			|| ft_strcmp(mini->outfile[i], ">>") == 0)
 			i++;
 		else
 		{

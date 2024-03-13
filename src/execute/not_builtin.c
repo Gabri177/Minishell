@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 08:13:57 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 08:36:37 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	not_builtin(char *command, char **arguments, t_mini *mini, int flag)
 	char	*full;
 	char	**envp;
 	int		num_arg;
-	
+
 	envp = hash_to_arry(mini->hash_env);
 	num_arg = num_args(arguments);
 	if (num_arg >= 1)

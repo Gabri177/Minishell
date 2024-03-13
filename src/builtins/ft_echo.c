@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/09 04:35:04 by yugao            ###   ########.fr       */
+/*   Updated: 2024/03/13 07:56:53 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_echo(t_mini *mini, char **arguments, int flag)
 	len = 0;
 	while (arguments[len])
 		len++;
-	mini->args = NULL; //Para que no salga unused variable 				//Cambiar **arguments por mini->args cuando gao lo tenga
+	mini->args = NULL;
 	while (i < len)
 	{
 		printf("%s", arguments[i]);

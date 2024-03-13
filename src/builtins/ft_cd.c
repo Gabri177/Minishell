@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 08:20:49 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/11 21:23:05 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 07:49:54 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	cd_no_arg(t_mini *mini)
 	char	*oldpwd;
 
 	if (hash_grep(mini->hash_env, "HOME") == NULL)
-		return (print_error("cd: HOME not set")); //2 y revisar el resto
+		return (print_error("cd: HOME not set"));
 	else
 	{
 		home = ft_substr(hash_grep(mini->hash_env, "HOME"), 5,
@@ -100,7 +100,8 @@ int	ft_cd(t_mini *mini, char *argument)
 		hash_push(mini->hash_env, "OLDPWD=", ft_substr(
 				hash_grep(mini->hash_env, "PWD"), 4,
 				ft_strlen(hash_grep(mini->hash_env, "PWD"))));
-	if (argument == NULL || !*argument || ft_strcmp(argument, "哈") == 0)
+	if (argument == NULL || !*argument || ft_strcmp(argument, " ") == 0
+		|| ft_strcmp(argument, "哈") == 0)
 		return (cd_no_arg(mini));
 	else if (ft_strcmp(argument, "..") == 0)
 		return (cd_dot_dot(mini));

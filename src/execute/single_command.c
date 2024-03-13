@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 04:40:10 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 08:01:02 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,14 @@ void	ft_exec_single(char *cmd, char **envp)
 
 int	single_command(t_mini *mini)
 {
-	char **here_doc;
+	char	**here_doc;
 
 	if (is_builtin(mini->commands[0], mini) == TRUE)
 		exec_builtin(mini->commands[0], mini->args[0], mini);
 	else
 	{
 		if (mini->flag_unset_path == TRUE)
-			return(print_error("No such file or directory"));
+			return (print_error("No such file or directory"));
 		if (mini->flag_here_doc == TRUE)
 		{
 			here_doc = parse_single_here_doc(mini);

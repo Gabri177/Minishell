@@ -6,7 +6,7 @@
 /*   By: javgao <yugao@student.42madrid.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 02:18:34 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 06:17:32 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 08:01:32 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	here_doc_consumer(char *cmd, char *arg1)
 	if (!pid)
 	{
 		signal (SIGINT, SIG_DFL);
-
 		here_doc_producer(arg1);
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
