@@ -6,13 +6,13 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:45:16 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/13 09:22:15 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 09:46:20 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-static void	check_file(t_mini *mini)
+/*static void	check_file(t_mini *mini)
 {
 	int		fd;
 	char	*str;
@@ -22,7 +22,7 @@ static void	check_file(t_mini *mini)
 	if (str)
 		clean_outfile(mini);
 	close (fd);
-}
+}*/
 
 void	shell_loop(t_mini *mini)
 {
@@ -30,7 +30,7 @@ void	shell_loop(t_mini *mini)
 
 	while (1)
 	{
-		check_file(mini);
+		clean_outfile(mini);
 		init_sig ();
     	line = readline(PROMPT);
 		if (line == NULL || ft_exit(line) == TRUE)
