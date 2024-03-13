@@ -6,7 +6,7 @@
 /*   By: javgao <jjuarez-@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:24:12 by javgao            #+#    #+#             */
-/*   Updated: 2024/03/12 22:36:35 by javgao           ###   ########.fr       */
+/*   Updated: 2024/03/13 08:13:57 by javgao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,23 @@ static int	num_args(char **arguments)
 	return (i);
 }
 
+static void	check_redirect(t_mini *mini, char *command)
+{
+	if (mini->flag_input == FALSE && (mini->flag_append_output == TRUE
+			|| mini->flag_output == TRUE))
+		single_redir(mini, command, INFILE, 
+		mini->outfile[arry_count(mini->outfile) - 1]);
+	else if (mini->flag_input == TRUE && (mini->flag_append_output == FALSE 
+		&& mini->flag_output == FALSE))
+		single_redir(mini, command, mini->infile[arry_count(mini->infile) - 1],
+		 OUTFILE);
+	else if (mini->flag_input == TRUE && (mini->flag_append_output == TRUE
+	 || mini->flag_output == TRUE))
+		single_redir(mini, command, mini->infile[arry_count(mini->infile) - 1],
+		(mini->outfile[arry_count(mini->outfile) - 1]));
+}
+
+
 void	not_builtin(char *command, char **arguments, t_mini *mini, int flag)
 {
 	char	*full;
@@ -62,6 +79,8 @@ void	not_builtin(char *command, char **arguments, t_mini *mini, int flag)
 		full = join_args(command, arguments);
 		ft_exec_single(full, envp);
 	}
+	if (mini->flag_input == TRUE || mini->flag_append_output == TRUE || mini->flag_output == TRUE)
+		check_redirect (mini, command);
 	else
 		ft_exec_single(command, envp);
 	free(envp);
