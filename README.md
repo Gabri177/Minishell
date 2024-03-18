@@ -32,6 +32,4 @@ For further information about him and his work, please refer to the links provid
 <p align="center">
 <img width="210" alt="101" src="https://github.com/JZJavier/42-Common_Core/assets/76801285/9191137c-c1e9-4de8-9962-ad971e5622d8">
 </p>
-es.linkedin.comes.linkedin.com
-Yuhong G. - Nuevo Grupo Oriental de Educación y Tecnología | LinkedIn
-View Yuhong G.’s profile on LinkedIn, the world’s largest professional community. Yuhong has 1 job listed on their profile. See the complete profile on LinkedIn and discover Yuhong’s connections and jobs at similar companies.
+
