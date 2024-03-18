@@ -24,10 +24,10 @@
 - env
 - exit
 ## Team Work
-This project was carried out in collaboration with `Yu Gao`.
+This project was carried out in collaboration with `Javier Juárez Zarruk`.
 For further information about him and his work, please refer to the links provided.
--   [Linkedin](https://www.linkedin.com/in/yuhong-g-71796925a/)
--   [GitHub](https://github.com/Gabri177)
+-   [Linkedin](https://www.linkedin.com/in/javier-juarez-zarruk/)
+-   [GitHub](https://github.com/JZJavier)
 ## Grade
 <p align="center">
 <img width="210" alt="101" src="https://github.com/JZJavier/42-Common_Core/assets/76801285/9191137c-c1e9-4de8-9962-ad971e5622d8">
